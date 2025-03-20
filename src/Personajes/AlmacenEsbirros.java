@@ -1,36 +1,16 @@
+package Personajes;
 
 import java.util.*;
 
-/**
- * 
- */
-public class AlmacenEsbirros extends Esbirro {
-
-    /**
-     * Default constructor
-     */
-    public AlmacenEsbirros() {
-    }
-
-    /**
-     * 
-     */
+public class AlmacenEsbirros{
     private List<Esbirro> esbirros;
 
-    /**
-     * @return
-     */
-    public Esbirro getEsbirro() {
-        // TODO implement here
-        return null;
+    public List<Esbirro> getEsbirro() {
+        return this.esbirros;
     }
 
-    /**
-     * @param Esbirro 
-     * @param salud
-     */
     public void añadirEsbirro(void Esbirro, int salud) {
-        // TODO implement here
+
     }
 
 }

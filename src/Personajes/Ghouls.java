@@ -1,10 +1,11 @@
+package Personajes;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Ghouls extends Esbirro implements Esbirro, Esbirro {
+public class Ghouls implements Esbirro{
 
     /**
      * Default constructor

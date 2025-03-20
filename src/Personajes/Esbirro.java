@@ -1,14 +1,10 @@
+package Personajes;
 
 import java.util.*;
 
-/**
- * 
- */
+
 public interface Esbirro {
 
-    /**
-     * @return
-     */
     public String getName();
 
     /**
