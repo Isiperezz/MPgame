@@ -1,39 +1,21 @@
 package SistemaPersistencia;
 
-import java.util.*;
+import java.beans.XMLDecoder;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
-/**
- * 
- */
 public class PersistenciaXML extends InterfazPersistencia {
 
-    /**
-     * Default constructor
-     */
-    public PersistenciaXML() {
+    protected UsersData loadUsersFromDisk() throws FileNotFoundException {
+        InputStream stream = new FileInputStream("usuarios.xml");
+        XMLDecoder decoder = new XMLDecoder(stream);
     }
 
-    /**
-     * @return
-     */
-    protected Login loadUsersFromDisk() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
     protected GameData loadGameDataFromDisk() {
-        // TODO implement here
         return null;
     }
-
-    /**
-     * 
-     */
     protected void saveDataInDisk() {
-        // TODO implement here
     }
 
 }

@@ -1,57 +1,25 @@
 package SistemaPersistencia;
 
-import java.util.*;
+import java.io.FileNotFoundException;
 
-/**
- * 
- */
 public abstract class InterfazPersistencia {
 
-    /**
-     * Default constructor
-     */
+    protected final UsersData usersData;
+    protected final GameData gameData;
+
     public InterfazPersistencia() {
+        usersData = loadUsersFromDisk();
+        gameData = loadGameDataFromDisk();
     }
 
-    /**
-     * 
-     */
-    protected UsersData usersData;
+    protected abstract UsersData loadUsersFromDisk() throws FileNotFoundException;
 
-    /**
-     * 
-     */
-    protected GameData gameData;
+    protected abstract GameData loadGameDataFromDisk();
 
-    /**
-     * @return
-     */
-    protected UsersData loadUsersFromDisk() {
-        // TODO implement here
-        return null;
-    }
+    protected abstract void saveDataInDisk();
 
-    /**
-     * @return
-     */
-    protected GameData loadGameDataFromDisk() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * 
-     */
-    protected void saveDataInDisk() {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
     public UsersData getUsersData() {
-        // TODO implement here
-        return null;
+        return usersData;
     }
 
 }

@@ -1,39 +1,20 @@
 package SistemaPersistencia;
 
-import java.util.*;
-
-/**
- * 
- */
 public class PersistenciaJSON extends InterfazPersistencia {
 
-    /**
-     * Default constructor
-     */
-    public PersistenciaJSON() {
-    }
 
-    /**
-     * @return
-     */
-    protected Login loadUsersFromDisk() {
-        // TODO implement here
+    @Override
+    protected UsersData loadUsersFromDisk() {
         return null;
     }
 
-    /**
-     * @return
-     */
+    @Override
     protected GameData loadGameDataFromDisk() {
-        // TODO implement here
         return null;
     }
 
-    /**
-     * 
-     */
+    @Override
     protected void saveDataInDisk() {
-        // TODO implement here
-    }
 
+    }
 }
