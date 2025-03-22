@@ -1,9 +1,6 @@
+package Herramientas;
 
-import java.util.*;
 
-/**
- * 
- */
-public interface HerramientasRol {
-
+public abstract class HerramientasRol {
+    public abstract void show();
 }

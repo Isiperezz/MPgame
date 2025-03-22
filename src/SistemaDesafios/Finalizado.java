@@ -1,5 +1,4 @@
-
-import java.util.*;
+package SistemaDesafios;
 
 /**
  * 
@@ -15,7 +14,7 @@ public class Finalizado {
     /**
      * @param desafio
      */
-    public void avanzarEstado(Desafío desafio) {
+    public void avanzarEstado(Desafio desafio) {
         // TODO implement here
     }
 

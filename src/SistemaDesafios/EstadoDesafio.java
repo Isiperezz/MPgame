@@ -1,5 +1,4 @@
-
-import java.util.*;
+package SistemaDesafios;
 
 /**
  * 
@@ -9,6 +8,6 @@ public interface EstadoDesafio {
     /**
      * @param desafio
      */
-    public void avanzarEstado(Desafío desafio);
+    svoid avanzarEstado(Desafio desafio);
 
 }

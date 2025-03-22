@@ -1,64 +1,45 @@
+package Herramientas;
 
 import java.util.*;
 
 /**
  * 
  */
-public class HerramientasDeJugador implements HerramientasRol {
+public class HerramientasDeJugador extends HerramientasRol {
+    private GestorDesafiosJugador desafios;
+    private GestorEquipamiento gestorEquipamiento;
+    private Consultas consultas;
 
     /**
      * Default constructor
      */
-    public HerramientasDeJugador() {
+    public HerramientasDeJugador(Jugador jugador) {
+        this.desafios = new GestorDesafiosJugador(jugador);
+        this.gestorEquipamiento = new GestorEquipamiento(jugador.getPersonaje());
+        this.consultas = new Consultas();
     }
 
-    /**
-     * 
-     */
-    private GestorDesafíosJugador desafios;
 
-    /**
-     * 
-     */
-    private GestorEquipamiento gestorEquipamiento;
-
-    /**
-     * 
-     */
-    private Consultas consultas;
-
-    /**
-     * @return
-     */
     public GestorDesafiosJugador getDesafios() {
-        // TODO implement here
-        return null;
+        return this.desafios;
     }
 
-    /**
-     * 
-     */
+
     public void eliminarCuenta() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+
     public void consultarCombates() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+
     public void consultarRanking() {
         // TODO implement here
     }
 
-    /**
-     * @param personaje
-     */
+
     public void modifcarEquipamiento(Personaje personaje) {
         // TODO implement here
     }

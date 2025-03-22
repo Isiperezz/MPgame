@@ -1,14 +1,11 @@
+package Herramientas;
 
-import java.util.*;
+public abstract class Usuario {
 
-/**
- * 
- */
-public interface Usuario {
+    protected HerramientasRol herramientas;
 
-    /**
-     * 
-     */
-    public void mostrarHerramientas();
+    public void mostrarHerramientas(){
+        this.herramientas.show();
+    }
 
 }

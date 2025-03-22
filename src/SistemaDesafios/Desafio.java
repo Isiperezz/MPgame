@@ -1,52 +1,24 @@
+package SistemaDesafios;
 
-import java.util.*;
+import Herramientas.Jugador;
 
-/**
- * 
- */
-public class Desafío {
-
-    /**
-     * Default constructor
-     */
-    public Desafío() {
-    }
-
-    /**
-     * 
-     */
-    private EstadoDesafío estado;
-
-    /**
-     * 
-     */
+public class Desafio {
+    private EstadoDesafio estado;
     private Jugador desafiante;
-
-    /**
-     * 
-     */
     private Jugador desafiado;
-
-    /**
-     * 
-     */
     private int oroApostado;
-
-    /**
-     * 
-     */
-    private void combate;
-
-    /**
-     * 
-     */
+    private Combate combate;
     private boolean validado;
 
-    /**
-     * @param estado EstadoDesafio
-     */
-    public void setEstado(void estado EstadoDesafio) {
-        // TODO implement here
+    public Desafio() {
+    }
+
+    public EstadoDesafio getEstado() {
+        return this.estado;
+    }
+    
+    public void setEstado(EstadoDesafio estado) {
+        this.estado = estado;
     }
 
     /**

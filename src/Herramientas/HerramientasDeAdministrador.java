@@ -1,10 +1,11 @@
+package Herramientas;
 
 import java.util.*;
 
 /**
  * 
  */
-public class HerramientasDeAdministrador implements HerramientasRol {
+public class HerramientasDeAdministrador extends HerramientasRol {
 
     /**
      * Default constructor

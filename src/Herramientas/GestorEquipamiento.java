@@ -1,3 +1,6 @@
+package Herramientas;
+
+import Personajes.Personaje;
 
 import java.util.*;
 
@@ -5,35 +8,22 @@ import java.util.*;
  * 
  */
 public class GestorEquipamiento {
-
-    /**
-     * Default constructor
-     */
-    public GestorEquipamiento() {
-    }
-
-    /**
-     * 
-     */
     private Personaje personaje;
 
-    /**
-     * 
-     */
+    public GestorEquipamiento(Personaje personaje) {
+        this.personaje = personaje;
+    }
+
     public void mostrarArmas() {
         // TODO implement here
     }
 
-    /**
-     * @param arma
-     */
+
     public void elegirArmaActiva(Arma arma) {
         // TODO implement here
     }
 
-    /**
-     * @param armadura
-     */
+
     public void elegirArmadura(Armadura armadura) {
         // TODO implement here
     }

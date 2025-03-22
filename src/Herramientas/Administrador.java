@@ -1,10 +1,11 @@
+package Herramientas;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Administrador implements Usuario {
+public class Administrador extends Usuario {
 
     /**
      * Default constructor
