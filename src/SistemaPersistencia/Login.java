@@ -1,49 +1,78 @@
 package SistemaPersistencia;
 
+import Herramientas.Jugador;
+import Herramientas.Usuario;
+import Personajes.*;
+
 import java.util.*;
 
-/**
- * 
- */
 public class Login {
 
-    /**
-     * Default constructor
-     */
     public Login() {
     }
 
-    /**
-     * 
-     */
-    private List<Usuario> usuarios;
-
-    /**
-     * @param usuario 
-     * @param contraseña 
-     * @return
-     */
-    public Usuario iniciarSesion(String usuario, String contraseña) {
-        // TODO implement here
-        return null;
+    public Usuario iniciarSesion(String usuario, String password) {
+        Usuario userToLogin = PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(usuario);
+        boolean result = validarInicioSesion(userToLogin, password);
+        if (result){
+            return userToLogin;
+        }else{
+            return null;
+        }
     }
 
-    /**
-     * @param usuario 
-     * @param contraseña 
-     * @return
-     */
-    private boolean validarInicioSesion(String usuario, String contraseña) {
-        // TODO implement here
-        return false;
+    private boolean validarInicioSesion(Usuario usuario, String password) {
+        String passw = usuario.getPassword();
+        return passw.equals(password);
     }
 
-    /**
-     * @return
-     */
-    public Usuario registrarUsuario() {
-        // TODO implement here
-        return null;
+    public Jugador registrarJugador() {
+        Jugador newPlayer = new Jugador();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Registrando Nuevo Jugador:");
+        System.out.println("Introduce el nickname del jugador:");
+
+        String newUserName = sc.nextLine();
+        newPlayer.setUserName(newUserName);
+
+        System.out.println("Introduce la contraseña del jugador:");
+
+        String newUserPassword = sc.nextLine();
+        newPlayer.setPassword(newUserPassword);
+
+        boolean valid = false;
+        ServicioPersonaje servicioPersonaje;
+
+        while (!valid){
+            System.out.println("Elige el personaje entre Licantropo, Cazador o Vampiro");
+            String option = sc.nextLine();
+            switch (option){
+                case "Cazador":
+                    servicioPersonaje = new ServicioPersonaje(new CazadorFactory());
+                    valid = true;
+                    break;
+                case "Vampiro":
+                    servicioPersonaje = new ServicioPersonaje(new VampiroFactory());
+                    valid = true;
+                    break;
+                case "Licantropo":
+                    servicioPersonaje = new ServicioPersonaje(new LicantropoFactory());
+                    valid = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        Personaje newPersonaje = servicioPersonaje.crearPersonaje();
+
+        newPlayer.setPersonaje(newPersonaje);
+
+        PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewUser(newPlayer.getUserName(), newPlayer);
+        PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewCharacter(newPlayer, newPersonaje);
+
+        return newPlayer;
     }
 
 }

@@ -1,62 +1,62 @@
 package SistemaPersistencia;
 
+import Herramientas.Jugador;
+import SistemaDesafios.Desafio;
+import SistemaDesafios.PendienteAceptacion;
+import SistemaDesafios.PendienteValidacion;
+
 import java.util.*;
 
-/**
- * 
- */
+
 public class AlmacenDesafios {
 
-    /**
-     * Default constructor
-     */
+    private Map <Jugador, List <Desafio>> desafios;
+
     public AlmacenDesafios() {
+        //añadir
     }
 
-    /**
-     * 
-     */
-    private Map <Jugador, List <Desafío> > desafios;
-
-    /**
-     * @return
-     */
-    public List<Desafío> getTodosDesafios() {
-        // TODO implement here
-        return null;
+    public List<Desafio> getTodosDesafios() {
+        List<Desafio> arrDesafios = new ArrayList<>();
+        for (Jugador jugador : desafios.keySet()){
+            arrDesafios.addAll(desafios.get(jugador));
+        }
+        return arrDesafios;
     }
 
-    /**
-     * @param clave 
-     * @return
-     */
-    public List<Desafío> getDesafiosJugador(Jugador clave) {
-        // TODO implement here
-        return null;
+    public List<Desafio> getDesafiosJugador(Jugador clave) {
+        return desafios.get(clave);
     }
 
     /**
      * @return
      */
-    public List<Desafío> getTodosDesafíosPendientes() {
-        // TODO implement here
-        return null;
+    public List<Desafio> getTodosDesafíosPendientes() {
+        List<Desafio> arrDesafios = new ArrayList<>();
+        for (Jugador jugador : desafios.keySet()){
+            for (Desafio desafio : desafios.get(jugador)){
+                if (desafio.getEstado() instanceof PendienteValidacion){
+                    arrDesafios.add(desafio);
+                }
+            }
+        }
+        return arrDesafios;
     }
 
-    /**
-     * @return
-     */
-    public List<Desafío> getDesafiosPendientesJugador() {
-        // TODO implement here
-        return null;
+    public List<Desafio> getDesafiosPendientesJugador(Jugador clave) {
+        List<Desafio> arrDesafiosPendientes = new ArrayList<>();
+
+        for (Desafio desafio : desafios.get(clave)){
+            if (desafio.getEstado() instanceof PendienteAceptacion){
+                arrDesafiosPendientes.add(desafio);
+            }
+        }
+        return arrDesafiosPendientes;
     }
 
-    /**
-     * @param clave 
-     * @param desafio
-     */
-    public void aniadirDesafio(Jugador clave, Desafío desafio) {
-        // TODO implement here
+
+    public void aniadirDesafio(Jugador clave, Desafio desafio) {
+        desafios.get(clave).add(desafio);
     }
 
 }

@@ -1,83 +1,42 @@
 package SistemaPersistencia;
 
+import Herramientas.Jugador;
+import Herramientas.Usuario;
+import Personajes.Personaje;
+
 import java.util.*;
 
-/**
- * 
- */
 public class UsersData {
 
-    /**
-     * Default constructor
-     */
-    public UsersData() {
-    }
-
-    /**
-     * 
-     */
     private Map <Jugador, Personaje> personajesJugadores;
-
-    /**
-     * 
-     */
     private Map <String, Usuario> usuarios;
-
-    /**
-     * 
-     */
-    private Login login;
-
-    /**
-     * 
-     */
-    private AlmacenDesafios almacenDesafios;
-
-    /**
-     * 
-     */
+    private final Login login;
+    private final AlmacenDesafios almacenDesafios;
     private List<Jugador> ranking;
 
-    /**
-     * @param nick 
-     * @return
-     */
+    public UsersData() {
+        login = new Login();
+        almacenDesafios = new AlmacenDesafios();
+    }
+
     public Usuario getUsuarioByNick(String nick) {
-        // TODO implement here
-        return null;
+        return usuarios.get(nick);
     }
 
-    /**
-     * @param user 
-     * @return
-     */
     public Personaje getPersonajeUsuario(Jugador user) {
-        // TODO implement here
-        return null;
+        return personajesJugadores.get(user);
     }
 
-    /**
-     * @return
-     */
     public Login getLogin() {
-        // TODO implement here
-        return null;
+        return login;
     }
 
-    /**
-     * @return
-     */
     public AlmacenDesafios getDesafios() {
-        // TODO implement here
-        return null;
+        return almacenDesafios;
     }
 
-    /**
-     * @return
-     */
     public List<Jugador> getRankingActual() {
-        // TODO implement here
-        return null;
+        return ranking;
     }
 
 }
