@@ -6,52 +6,31 @@ import java.util.*;
  */
 public class Modificadores {
 
-    /**
-     * Default constructor
-     */
     public Modificadores() {
+        this.debilidades= new ArrayList<Debilidad>();
+        this.fortalezas= new ArrayList<Fortaleza>();
     }
 
-    /**
-     * 
-     */
     private List<Debilidad> debilidades;
-
-    /**
-     * 
-     */
     private List<Fortaleza> fortalezas;
 
-    /**
-     * @return
-     */
+
     public List<Debilidad> getDebilidades() {
-        // TODO implement here
-        return null;
+        return this.debilidades;
     }
 
-    /**
-     * @return
-     */
     public List<Fortaleza> getFortalezas() {
-        // TODO implement here
-        return null;
+        return this.fortalezas;
     }
 
-    /**
-     * @param nombre 
-     * @param sens
-     */
-    public void aniadirFortaleza(String nombre, int sens) {
-        // TODO implement here
+    public void aniadirFortaleza(String nombre, int eficacia) {
+        Fortaleza fortaleza= new Fortaleza(nombre,eficacia);
+        this.fortalezas.add(fortaleza);
     }
 
-    /**
-     * @param nombre 
-     * @param sens
-     */
     public void aniadirDebildad(String nombre, int sens) {
-        // TODO implement here
+        Debilidad debilidad= new Debilidad(nombre,sens);
+        this.debilidades.add(debilidad);
     }
 
 }

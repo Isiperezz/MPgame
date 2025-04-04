@@ -6,36 +6,20 @@ import java.util.*;
  */
 public class Debilidad extends Equipo {
 
-    /**
-     * Default constructor
-     */
-    public Debilidad() {
+    public Debilidad(String nombre, int sens) {
+        this.nombreDebilidad=nombre;
+        this.sensibilidad=sens;
     }
 
-    /**
-     * 
-     */
     private String nombreDebilidad;
-
-    /**
-     * 
-     */
     private int sensibilidad;
 
-    /**
-     * @return
-     */
     public int getSensibilidad() {
-        // TODO implement here
-        return 0;
+        return this.sensibilidad;
     }
 
-    /**
-     * @return
-     */
     public String getNombre() {
-        // TODO implement here
-        return "";
+        return this.nombreDebilidad;
     }
 
 }
