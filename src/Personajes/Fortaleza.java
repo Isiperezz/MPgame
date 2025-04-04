@@ -6,36 +6,20 @@ import java.util.*;
  */
 public class Fortaleza extends Equipo {
 
-    /**
-     * Default constructor
-     */
-    public Fortaleza() {
+    public Fortaleza(String nombre, int eficacia) {
+        this.nombreFortaleza=nombre;
+        this.eficacia=eficacia;
     }
 
-    /**
-     * 
-     */
     private String nombreFortaleza;
+    private int eficacia;
 
-    /**
-     * 
-     */
-    private int getSensibilidad;
-
-    /**
-     * @return
-     */
-    public int getSensibilidad() {
-        // TODO implement here
-        return 0;
+    public int getEfiacia() {
+        return this.eficacia;
     }
 
-    /**
-     * @return
-     */
     public String getNombre() {
-        // TODO implement here
-        return "";
+        return this.nombreFortaleza;
     }
 
 }
