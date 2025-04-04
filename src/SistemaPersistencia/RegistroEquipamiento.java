@@ -2,37 +2,19 @@ package SistemaPersistencia;
 
 import java.util.*;
 
-/**
- * 
- */
 public class RegistroEquipamiento {
 
-    /**
-     * Default constructor
-     */
+    private Map <String, Equipamiento> equipamiento;
+
     public RegistroEquipamiento() {
     }
 
-    /**
-     * 
-     */
-    private Map <String, Equipamiento> equipamiento;
-
-    /**
-     * @param id 
-     * @param equipo
-     */
     public void addEquipment(String id, Equipamiento equipo) {
-        // TODO implement here
+        equipamiento.put(id, equipo);
     }
 
-    /**
-     * @param id 
-     * @return
-     */
     public Equipamiento getById(String id) {
-        // TODO implement here
-        return null;
+        return equipamiento.get(id);
     }
 
 }

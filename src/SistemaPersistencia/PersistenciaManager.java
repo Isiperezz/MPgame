@@ -1,12 +1,18 @@
 package SistemaPersistencia;
 
+import java.io.FileNotFoundException;
+
 public class PersistenciaManager {
 
     private static PersistenciaManager instance;
     private final InterfazPersistencia persistencia;
 
     private PersistenciaManager() {
-        persistencia = new PersistenciaXML();
+        try {
+            persistencia = PersistenciaXML.loadDataFromDisk();
+        }catch(Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static PersistenciaManager getInstance() {
