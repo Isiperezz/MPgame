@@ -1,67 +1,23 @@
 package Personajes;
-import java.util.*;
 
-/**
- * 
- */
-public class Demonios extends Esbirro implements Esbirro {
-
-    /**
-     * Default constructor
-     */
-    public Demonios() {
-    }
-
-    /**
-     * 
-     */
+public class Demonios implements Esbirro {
+    private String nombre;
+    private int salud;
+    private String pacto;
     private AlmacenEsbirros esbirros;
 
-    /**
-     * 
-     */
-    private String pacto;
-
-    /**
-     * 
-     */
-    private String nombre;
-
-    /**
-     * 
-     */
-    private int salud;
-
-    /**
-     * @return
-     */
     public String getPacto() {
-        // TODO implement here
-        return "";
+        return this.pacto;
     }
-
-    /**
-     * @return
-     */
-    public AlmacenEsbirros getDemonEsbirros() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
     public String getName() {
-        // TODO implement here
-        return "";
+        return this.nombre;
+    }
+    public int getSalud() {
+        return this.salud;
+    }
+    public AlmacenEsbirros getDemonEsbirros() {
+        return this.esbirros;
     }
 
-    /**
-     * @return
-     */
-    public int getSalud() {
-        // TODO implement here
-        return 0;
-    }
 
 }
