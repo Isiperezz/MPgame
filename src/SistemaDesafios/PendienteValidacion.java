@@ -11,18 +11,10 @@ public class PendienteValidacion implements EstadoDesafio {
     public PendienteValidacion() {
     }
 
-    /**
-     * @param desafio
-     */
+    @Override
     public void avanzarEstado(Desafio desafio) {
-        // TODO implement here
+        desafio.setEstado(new PendienteAceptacion());
     }
 
-    /**
-     * @param desafio
-     */
-    public void avanzarEstado(Desafio desafio) {
-        // TODO implement here
-    }
 
 }

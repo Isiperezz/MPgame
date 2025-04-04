@@ -8,6 +8,6 @@ public interface EstadoDesafio {
     /**
      * @param desafio
      */
-    svoid avanzarEstado(Desafio desafio);
+    void avanzarEstado(Desafio desafio);
 
 }

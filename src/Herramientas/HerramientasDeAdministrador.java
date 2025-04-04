@@ -7,28 +7,20 @@ import java.util.*;
  */
 public class HerramientasDeAdministrador extends HerramientasRol {
 
-    /**
-     * Default constructor
-     */
+    private EditarPersonaje editorPersonajes;
+    private GestorDesafiosAdmin desafios;
+
     public HerramientasDeAdministrador() {
     }
 
-    /**
-     * 
-     */
-    private EditarPersonaje editorPersonajes;
 
-    /**
-     * 
-     */
-    private GestorDesafiosAdmin desafios;
+
 
     /**
      * @return
      */
     public EditarPersonaje editarPersonaje() {
-        // TODO implement here
-        return null;
+        return this.editorPersonajes;
     }
 
     /**
@@ -49,8 +41,7 @@ public class HerramientasDeAdministrador extends HerramientasRol {
      * @return
      */
     public GestorDesafiosAdmin getDesafios() {
-        // TODO implement here
-        return null;
+        return this.desafios;
     }
 
 }
