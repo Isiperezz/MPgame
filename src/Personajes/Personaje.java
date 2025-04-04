@@ -1,89 +1,96 @@
 package Personajes;
 import java.util.*;
 
-/**
- * 
- */
-public interface Personaje {
 
-    /**
-     * 
-     */
-    public void Attribute1;
+public abstract class Personaje {
 
-    /**
-     * @return
-     */
-    public String getNombre();
+    protected String nombre;
+    protected Equipo equipo;
+    protected Modificadores modificadores;
+    protected AlmacenEsbirros esbirros;
+    protected int cantidadOro;
+    protected int poder;
+    protected int salud;
 
-    /**
-     * @return
-     */
-    public List<Arma> getArmas();
+    public String getNombre(){
 
-    /**
-     * @param arma
-     */
-    public void setArmaActiva(Arma arma);
+        return this.nombre;
+    }
 
-    /**
-     * @return
-     */
-    public List<Armadura> getArmadura();
+    public void setNombre(String nombre) {
 
-    /**
-     * @param arm
-     */
-    public void setArmaduraActiva(Armadura arm);
+        this.nombre = nombre;
+    }
 
-    /**
-     * @return
-     */
-    public Int getOro();
+    public List<Arma> getArmas(){
 
-    /**
-     * @return
-     */
-    public int getSalud();
+        return this.equipo.getArmas();
+    }
 
-    /**
-     * 
-     */
-    public void getPoder();
+    public void setArmaActiva(Arma arma){
 
-    /**
-     * @return
-     */
-    public List<Debilidades> getDebilidades();
+        this.equipo.setArmaActiva(arma);
+    }
 
-    /**
-     * @return
-     */
-    public List<Fortalezas> getFortalezas();
+    public List<Armadura> getArmaduras(){
 
-    /**
-     * @return
-     */
-    public AlmacenEsbirros getEsbirros();
+        return this.equipo.getArmaduras();
+    }
+    public void setArmaduraActiva(Armadura armadura){
 
-    /**
-     * @param name
-     */
-    public void setName(String name);
+        this.equipo.setArmaduraActiva(armadura);
 
-    /**
-     * @param oro
-     */
-    public void setOro(int oro);
+    }
+    public int getOro(){
 
-    /**
-     * @param salud
-     */
-    public void setSalud(int salud);
+        return this.cantidadOro;
+    }
+    public int getSalud(){
 
-    /**
-     * @param poder
-     */
-    public void setPoder(int poder);
+        return this.salud;
+    }
+    public int getPoder(){
+
+        return this.poder;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    public List<Debilidad> getDebilidades(){
+
+        return this.modificadores.getDebilidades();
+
+    }
+    public List<Fortaleza> getFortalezas(){
+
+        return this.modificadores.getFortalezas();
+    }
+
+    public AlmacenEsbirros getEsbirros(){
+
+        return this.esbirros;
+    }
+    public void setName(String nompersonaje){
+
+        this.nombre = nompersonaje;
+    }
+    public void setOro(int oro){
+
+        this.cantidadOro = oro;
+    }
+    public void setSalud(int salud){
+
+        this.salud = salud;
+    }
+    public void setPoder(int poderpersonaje){
+
+        this.poder = poderpersonaje;
+    }
 
 }
