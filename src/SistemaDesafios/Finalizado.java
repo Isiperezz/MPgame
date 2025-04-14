@@ -1,21 +1,10 @@
 package SistemaDesafios;
 
-/**
- * 
- */
-public class Finalizado {
+public class Finalizado implements EstadoDesafio {
 
-    /**
-     * Default constructor
-     */
-    public Finalizado() {
-    }
 
-    /**
-     * @param desafio
-     */
     public void avanzarEstado(Desafio desafio) {
-        // TODO implement here
+
     }
 
 }

@@ -5,9 +5,6 @@ package SistemaDesafios;
  */
 public class PendienteValidacion implements EstadoDesafio {
 
-    /**
-     * Default constructor
-     */
     public PendienteValidacion() {
     }
 

@@ -1,17 +1,9 @@
 package Personajes;
+import SistemaPersistencia.Equipamiento;
 
 import java.util.*;
 
-/**
- * 
- */
-public class Arma extends Equipo implements Equipamiento {
-
-    /**
-     * Default constructor
-     */
-    public Arma() {
-    }
+public class Arma implements Equipamiento {
 
     private String nombreArma;
     private boolean dosManos;
@@ -19,32 +11,32 @@ public class Arma extends Equipo implements Equipamiento {
     private int modificadorDefensa;
 
     public boolean esDosManos() {
-        // TODO implement here
-        return false;
+
+        return this.dosManos;
     }
 
     public int getModAtaque() {
-        // TODO implement here
-        return 0;
+
+        return this.modificadorAtaque;
     }
 
     public int getModDefensa() {
-        // TODO implement here
-        return 0;
+
+        return this.modificadorDefensa;
     }
 
     public boolean tieneModDefensa() {
-        // TODO implement here
-        return false;
+
+        return this.modificadorDefensa != 0;
     }
 
     public Arma clone() {
-        // TODO implement here
+
         return null;
     }
 
     public Equipamiento clone() {
-        // TODO implement here
+
         return null;
     }
 

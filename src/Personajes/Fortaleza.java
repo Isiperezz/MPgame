@@ -1,9 +1,6 @@
 package Personajes;
 import java.util.*;
 
-/**
- * 
- */
 public class Fortaleza extends Equipo {
 
     public Fortaleza(String nombre, int eficacia) {

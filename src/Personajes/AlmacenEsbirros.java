@@ -9,7 +9,10 @@ public class AlmacenEsbirros{
         return this.esbirros;
     }
 
-    public void añadirEsbirro(void Esbirro, int salud) {
+    public void añadirEsbirro(Esbirro esbirro, int salud) {
+
+        this.esbirros.add(esbirro);
+
 
     }
 

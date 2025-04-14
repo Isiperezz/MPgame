@@ -1,28 +1,12 @@
 package SistemaDesafios;
 
-/**
- * 
- */
 public class EnCombate implements EstadoDesafio {
 
-    /**
-     * Default constructor
-     */
-    public EnCombate() {
+    public void avanzarEstado(Desafio desafio) {
+        EstadoDesafio finalizado=new Finalizado();
+        desafio.setEstado(finalizado);
     }
 
-    /**
-     * @param desafio
-     */
-    public void avanzarEstado(Desafio desafio) {
-        // TODO implement here
-    }
 
-    /**
-     * @param desafio
-     */
-    public void avanzarEstado(Desafio desafio) {
-        // TODO implement here
-    }
 
 }

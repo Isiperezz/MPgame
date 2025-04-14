@@ -1,9 +1,6 @@
 package Personajes;
 import java.util.*;
 
-/**
- * 
- */
 public class Modificadores {
 
     public Modificadores() {

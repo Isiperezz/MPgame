@@ -1,38 +1,18 @@
 package Personajes;
 import java.util.*;
 
-/**
- * 
- */
 public class Disciplina extends Habilidades {
 
-    /**
-     * Default constructor
-     */
-    public Disciplina() {
-    }
-
-    /**
-     * 
-     */
     private int costeSangre;
 
-    /**
-     * @return
-     */
+    public Disciplina(String nombre, int ataque, int defensa, int costeSangre) {
+        this.nombre = nombre;
+        this.valorAtaque = ataque;
+        this.valorDefensa = defensa;
+        this.costeSangre = costeSangre;
+    }
+
     public int getCosteSangre() {
-        // TODO implement here
-        return 0;
+        return this.costeSangre;
     }
-
-    /**
-     * @param nombre 
-     * @param ataque 
-     * @param defensa 
-     * @param costeSangre
-     */
-    public void Disciplina(Str nombre, int ataque, int defensa, int costeSangre) {
-        // TODO implement here
-    }
-
 }

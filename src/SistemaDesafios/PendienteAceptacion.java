@@ -1,13 +1,8 @@
 package SistemaDesafios;
 
-/**
- * 
- */
+
 public class PendienteAceptacion implements EstadoDesafio {
 
-    /**
-     * Default constructor
-     */
     public PendienteAceptacion() {
     }
 

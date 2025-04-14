@@ -1,28 +1,10 @@
 package Personajes;
-import java.util.*;
 
-/**
- * 
- */
 public class CazadorFactory extends PersonajeFactory {
 
-    /**
-     * Default constructor
-     */
-    public CazadorFactory() {
-    }
-
-    /**
-     * @return
-     */
+    // Este metodo crea un objeto de tipo Cazador
     public Personaje crearPersonaje() {
-        // TODO implement here
-        return null;
+
+        return new Cazador();
     }
-
-    /**
-     * @return
-     */
-    public abstract Personaje crearPersonaje();
-
 }

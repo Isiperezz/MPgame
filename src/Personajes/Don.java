@@ -1,47 +1,27 @@
 package Personajes;
-import java.util.*;
 
-/**
- * 
- */
 public class Don extends Habilidades {
 
-    /**
-     * Default constructor
-     */
-    public Don() {
-    }
-
-    /**
-     * 
-     */
     private int valorRabia;
 
-    /**
-     * @return
-     */
+    public Don(String nombre, int ataque, int defensa, int rabia) {
+        this.nombre = nombre;
+        this.valorAtaque = ataque;
+        this.valorDefensa = defensa;
+        this.valorRabia = rabia;
+    }
+
     public int getValorRabia() {
-        // TODO implement here
-        return 0;
+
+        return this.valorRabia;
     }
 
-    /**
-     * @param rabia 
-     * @return
-     */
     public boolean permiteUtilizar(int rabia) {
-        // TODO implement here
-        return false;
+        //si rabia es mayor o igual al coste de la habilidad, se puede usar
+        return rabia >= this.valorRabia;
     }
 
-    /**
-     * @param nombre 
-     * @param ataque 
-     * @param defensa 
-     * @param rabia
-     */
-    public void Don(Str nombre, int ataque, int defensa, int rabia) {
-        // TODO implement here
-    }
+
+
 
 }
