@@ -5,8 +5,8 @@ import SistemaPersistencia.Equipamiento;
 public class Armadura implements Equipamiento {
 
     private String nombreArmadura;
-    private int modificadorDefensa;
-    private int modificadorAtaque;
+    private int modificadorDefensa = 0;
+    private int modificadorAtaque = 0;
 
     public int getModDefensa() {
 
@@ -23,10 +23,7 @@ public class Armadura implements Equipamiento {
         return this.modificadorAtaque != 0;
     }
 
-    public Armadura clone() {
 
-        return null;
-    }
     public Equipamiento clone() {
 
         return null;

@@ -42,5 +42,13 @@ public class Equipo {
 
         this.armaduras.add(armadura);
     }
+    public Arma getArmaActiva() {
+
+        return this.armaActiva;
+    }
+    public Armadura getArmaduraActiva() {
+
+        return this.armaduraActiva;
+    }
 
 }

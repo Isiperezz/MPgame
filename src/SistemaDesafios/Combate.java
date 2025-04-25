@@ -1,6 +1,7 @@
 package SistemaDesafios;
 
 import Herramientas.Jugador;
+import Personajes.*;
 
 import java.util.*;
 
@@ -27,8 +28,24 @@ public class Combate {
     }
 
     private void calcularPotenciales() {
-        int potencialDesafiante=desafiante.getPersonaje().getPoder();
-        int potencialDesafiado=desafiado.getPersonaje().getPoder();
+        Personaje personajeDesafiado = desafiado.getPersonaje();
+        // Cambiar parametros para que el if no sea tan repetitivo solo haga los calculos especificos en cada personaje
+        if (personajeDesafiado instanceof Vampiro) {
+            int poderBase = personajeDesafiado.getPoder();
+            int poderDisciplina = ((Vampiro) personajeDesafiado).getDisciplina().getValorAtaque();
+            int poderEquipos = personajeDesafiado.getArmaActiva().getModAtaque() + personajeDesafiado.getArmaduraActiva().getModAtaque();
+            int valorSangre = ((Vampiro) personajeDesafiado).getPuntosSangre();
+            if (valorSangre >= 5) {
+                poderBase += 2;
+            }
+            //Cambiar a que si se cumple el if entonces calculo el poder disciplana mejor
+            int costeDisciplina = ((Vampiro) personajeDesafiado).getDisciplina().getCosteSangre();
+            if (valorSangre <= costeDisciplina) {
+                poderDisciplina = 0;
+            }
+
+        }
+
 
 
     }
