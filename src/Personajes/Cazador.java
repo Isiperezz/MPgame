@@ -2,7 +2,7 @@ package Personajes;
 
 
 public class Cazador extends Personaje {
-    private int voluntad;
+    private int voluntad = 3;
     private Talento talento;
 
     public Talento getTalento() {

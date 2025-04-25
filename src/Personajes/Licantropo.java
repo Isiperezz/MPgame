@@ -3,17 +3,18 @@ import java.util.*;
 
 public class Licantropo extends Personaje {
 
-    private Habilidades habilidad;
+    private Don don;
     private int raza;
     private int peso;
     private int altura;
     private boolean formaBipeda;
+    private int rabia = 0;
 
-    public Habilidades getDon() {
-        return this.habilidad;
+    public Don getDon() {
+        return this.don;
     }
     public void setDon(Habilidades habilidad) {
-        this.habilidad = habilidad;
+        this.don = (Don)habilidad;
     }
     public int getRaza() {
         return this.raza;
@@ -30,13 +31,19 @@ public class Licantropo extends Personaje {
     public int getAltura() {
         return this.altura;
     }
-    public void setAltura(int altura) {
-        this.altura = altura;
+    public void setAltura(int altura){
+            this.altura = altura;
     }
     public boolean cambiarForma() {
         formaBipeda = !formaBipeda;
         return formaBipeda;
     }
 
+    public int getRabia() {
+        return this.rabia;
+    }
+    public void setRabia(int rabia) {
+        this.rabia = rabia;
+    }
 }
 

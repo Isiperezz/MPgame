@@ -100,5 +100,21 @@ public abstract class Personaje {
 
         return this.equipo.getArmaduraActiva();
     }
+    public int getValorFortalezas(){
+
+        int valorFortalezas = 0;
+        for (Fortaleza fortaleza : this.modificadores.getFortalezas()) {
+            valorFortalezas += fortaleza.getEfiacia();
+        }
+        return valorFortalezas;
+    }
+    public int getValorDebilidades(){
+
+        int valorDebilidades = 0;
+        for (Debilidad debilidad : this.modificadores.getDebilidades()) {
+            valorDebilidades += debilidad.getSensibilidad() ;
+        }
+        return valorDebilidades;
+    }
 
 }

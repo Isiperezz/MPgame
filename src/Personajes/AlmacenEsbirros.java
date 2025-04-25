@@ -15,5 +15,15 @@ public class AlmacenEsbirros{
 
 
     }
+    public int getSaludTotal(){
+        int saludTotal = 0;
+        for (Esbirro esbirro : this.esbirros) {
+            saludTotal += esbirro.getSalud();
+            if (esbirro instanceof Demonios) {
+                saludTotal +=((Demonios) esbirro).getDemonEsbirros().getSaludTotal();
+            }
+        }
+        return saludTotal;
+    }
 
 }
