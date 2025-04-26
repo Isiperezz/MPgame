@@ -14,12 +14,13 @@ public class GestorDesafiosJugador {
 
     public GestorDesafiosJugador(Jugador jugador) {
         this.jugador = jugador;
-        this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
+        this.desafios = (ArrayList<Desafio>) PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
         this.desafioPendiente = false;
         int i = 0;
         while (!this.desafioPendiente && i < this.desafios.size()) {
             if (desafios.get(i).getEstado() instanceof PendienteAceptacion)
                 this.desafioPendiente = true;
+            i++;
         }
     }
 
@@ -31,9 +32,6 @@ public class GestorDesafiosJugador {
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(desafiado, desafio);
     }
 
-    /**
-     * @param desafio Desafío
-     */
     public void aceptarDesafio(Desafio desafio) {
         if (this.desafioPendiente && desafio.getEstado() instanceof PendienteAceptacion){
             desafio.avanzarEstado();

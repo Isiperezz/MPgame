@@ -49,13 +49,13 @@ public class Desafio {
 
 
     public Jugador getDesafiado() {
-        // TODO implement here
-        return null;
+
+        return this.desafiado;
     }
 
     public Jugador getDesafiante() {
-        // TODO implement here
-        return null;
+
+        return this.desafiante;
     }
 
     @Override

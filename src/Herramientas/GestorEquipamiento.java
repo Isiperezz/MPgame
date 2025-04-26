@@ -15,7 +15,7 @@ public class GestorEquipamiento {
     }
 
     public void mostrarArmas() {
-        // TODO implement here
+
     }
 
 

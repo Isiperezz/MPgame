@@ -6,21 +6,12 @@ import java.util.*;
  * 
  */
 public class Manager {
+    private Usuario usuarioActual;
 
-    /**
-     * Default constructor
-     */
+
     public Manager() {
     }
 
-    /**
-     * 
-     */
-    private Usuario usuarioActual;
-
-    /**
-     * 
-     */
     public void start() {
         // TODO implement here
     }

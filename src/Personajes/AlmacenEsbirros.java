@@ -9,7 +9,7 @@ public class AlmacenEsbirros{
         return this.esbirros;
     }
 
-    public void añadirEsbirro(Esbirro esbirro, int salud) {
+    public void aniadirEsbirro(Esbirro esbirro) {
 
         this.esbirros.add(esbirro);
 

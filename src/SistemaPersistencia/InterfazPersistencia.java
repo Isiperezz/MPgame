@@ -15,7 +15,10 @@ public abstract class InterfazPersistencia {
     protected abstract void saveDataInDisk() throws FileNotFoundException;
 
     public UsersData getUsersData() {
-        return usersData;
+        return this.usersData;
+    }
+    public GameData getGameData() {
+        return this.gameData;
     }
 
 }

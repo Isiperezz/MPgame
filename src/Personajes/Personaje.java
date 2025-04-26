@@ -76,6 +76,10 @@ public abstract class Personaje {
 
         return this.esbirros;
     }
+    public void setEsbirros(AlmacenEsbirros esbirros) {
+
+        this.esbirros = esbirros;
+    }
     public void setName(String nompersonaje){
 
         this.nombre = nompersonaje;

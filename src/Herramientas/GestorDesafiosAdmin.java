@@ -4,15 +4,13 @@ import SistemaDesafios.Desafio;
 import SistemaDesafios.PendienteValidacion;
 import SistemaPersistencia.PersistenciaManager;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * 
- */
+
 public class GestorDesafiosAdmin {
 
     private List<Desafio> desafios;
-    private List<Desafio> desafiosPendientesValidacion
+    private List<Desafio> desafiosPendientesValidacion;
 
     public GestorDesafiosAdmin() {
         this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getTodosDesafios();
@@ -25,7 +23,7 @@ public class GestorDesafiosAdmin {
         }
     }
 
-    public void getDesafio(int desafioIndex){
+    public Desafio getDesafio(int desafioIndex){
         return desafios.get(desafioIndex);
     }
 

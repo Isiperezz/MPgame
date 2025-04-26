@@ -1,3 +1,4 @@
+
 package Personajes;
 
 
@@ -9,5 +10,12 @@ public class ServicioPersonaje {
 
         this.factory=factorycreate;
     }
+    public Personaje crearPersonaje() {
+
+        Personaje nuevoPersonaje = this.factory.crearPersonaje();
+
+        return nuevoPersonaje;
+    }
+
 
 }

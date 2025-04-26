@@ -18,6 +18,12 @@ public class Demonios implements Esbirro {
     public AlmacenEsbirros getDemonEsbirros() {
         return this.esbirros;
     }
+    public void setPacto(String pacto) {
+        this.pacto = pacto;
+    }
+    public void setEsbirros(AlmacenEsbirros esbirros) {
+        this.esbirros = esbirros;
+    }
 
 
 }
