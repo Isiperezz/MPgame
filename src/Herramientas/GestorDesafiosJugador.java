@@ -4,10 +4,11 @@ import SistemaDesafios.Desafio;
 import SistemaDesafios.PendienteAceptacion;
 import SistemaPersistencia.PersistenciaManager;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestorDesafiosJugador {
-    private final ArrayList<Desafio> desafios;
+    private final List<Desafio> desafios;
     private boolean desafioPendiente;
     private final Jugador jugador;
 

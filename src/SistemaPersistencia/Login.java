@@ -64,13 +64,12 @@ public class Login {
                     break;
             }
         }
+        if (valid) {
+            //Personaje newPersonaje = servicioPersonaje.crearPersonaje();
+        }
+        //newPlayer.setPersonaje(newPersonaje);
 
-        Personaje newPersonaje = servicioPersonaje.crearPersonaje();
-
-        newPlayer.setPersonaje(newPersonaje);
-
-        PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewUser(newPlayer.getUserName(), newPlayer);
-        PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewCharacter(newPlayer, newPersonaje);
+        PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewUser(newPlayer);
 
         return newPlayer;
     }

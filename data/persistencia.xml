@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="24" class="java.beans.XMLDecoder">
+ <object class="SistemaPersistencia.PersistenciaXML" id="PersistenciaXML0">
+  <void id="GameData0" property="gameData">
+   <void id="RegistroEquipamiento0" property="equipamiento">
+    <void property="equipamiento">
+     <void method="put">
+      <string>Hacha</string>
+      <object class="Personajes.Arma">
+       <void property="dosManos">
+        <boolean>true</boolean>
+       </void>
+       <void property="modificadorAtaque">
+        <int>25</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Hacha</string>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Guadaña</string>
+      <object class="Personajes.Arma">
+       <void property="dosManos">
+        <boolean>true</boolean>
+       </void>
+       <void property="modificadorAtaque">
+        <int>30</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Guadaña</string>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Cenit</string>
+      <object class="Personajes.Arma">
+       <void property="modificadorAtaque">
+        <int>40</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Cenit</string>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Espada</string>
+      <object class="Personajes.Arma">
+       <void property="modificadorAtaque">
+        <int>15</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Espada</string>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Lanza</string>
+      <object class="Personajes.Arma">
+       <void property="dosManos">
+        <boolean>true</boolean>
+       </void>
+       <void property="modificadorAtaque">
+        <int>20</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Lanza</string>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <string>Cuchillo</string>
+      <object class="Personajes.Arma">
+       <void property="modificadorAtaque">
+        <int>10</int>
+       </void>
+       <void property="modificadorDefensa">
+        <int>5</int>
+       </void>
+       <void property="nombreArma">
+        <string>Cuchillo</string>
+       </void>
+      </object>
+     </void>
+    </void>
+   </void>
+  </void>
+ </object>
+</java>

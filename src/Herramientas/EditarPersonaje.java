@@ -1,4 +1,7 @@
 package Herramientas;
+
+import Personajes.Personaje;
+
 /**
  * 
  */

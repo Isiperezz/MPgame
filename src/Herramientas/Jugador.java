@@ -14,4 +14,8 @@ public class Jugador extends Usuario {
         return this.personaje;
     }
 
+    public void setPersonaje(Personaje personaje) {
+        this.personaje = personaje;
+    }
+
 }

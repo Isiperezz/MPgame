@@ -4,15 +4,24 @@ import java.io.FileNotFoundException;
 
 public abstract class InterfazPersistencia {
 
-    protected final UsersData usersData;
-    protected final GameData gameData;
+    protected UsersData usersData;
+    protected GameData gameData;
+
+    public InterfazPersistencia(){
+            this.gameData =new GameData();
+
+    }
+
+    public void setUsersData(UsersData usersData) {this.usersData = usersData;}
+
+    public void setGameData(GameData gameData) {this.gameData = gameData;}
 
     public static InterfazPersistencia loadDataFromDisk() throws FileNotFoundException {
         return null;
     }
 
 
-    protected abstract void saveDataInDisk() throws FileNotFoundException;
+    public abstract void saveDataInDisk() throws FileNotFoundException;
 
     public UsersData getUsersData() {
         return this.usersData;

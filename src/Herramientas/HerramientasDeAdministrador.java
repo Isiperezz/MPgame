@@ -13,9 +13,6 @@ public class HerramientasDeAdministrador extends HerramientasRol {
     public HerramientasDeAdministrador() {
     }
 
-
-
-
     /**
      * @return
      */
@@ -44,4 +41,8 @@ public class HerramientasDeAdministrador extends HerramientasRol {
         return this.desafios;
     }
 
+    @Override
+    public void show() {
+
+    }
 }

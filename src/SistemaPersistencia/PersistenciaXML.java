@@ -7,6 +7,10 @@ import java.io.*;
 public class PersistenciaXML extends InterfazPersistencia {
 
 
+    public PersistenciaXML() {
+
+    }
+
     public static PersistenciaXML loadDataFromDisk() throws FileNotFoundException {
         InputStream stream = new FileInputStream("/data/persistencia.xml");
         XMLDecoder decoder = new XMLDecoder(stream);
@@ -16,8 +20,9 @@ public class PersistenciaXML extends InterfazPersistencia {
 
     }
 
+    @Override
     public void saveDataInDisk() throws FileNotFoundException {
-        OutputStream stream = new FileOutputStream("/data/persistencia.xml");
+        OutputStream stream = new FileOutputStream("data/persistencia.xml");
         XMLEncoder encoder = new XMLEncoder(stream);
 
         encoder.writeObject(this);

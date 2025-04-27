@@ -101,8 +101,8 @@ public class Combate {
         int poderBase = personaje.getPoder();
         // Se obtiene el poder de ataque o defensa del arma y armadura activa
         int poderEquipos = esAtaque ?
-                personaje.getArmaActiva().getModAtaque() + personaje.getArmaduraActiva().getModAtaque() :
-                personaje.getArmaActiva().getModDefensa() + personaje.getArmaduraActiva().getModDefensa();
+                personaje.getArmaActiva().getModificadorAtaque() + personaje.getArmaduraActiva().getModAtaque() :
+                personaje.getArmaActiva().getModificadorDefensa() + personaje.getArmaduraActiva().getModDefensa();
 
         int poderTotal = poderBase + poderEquipos;
 

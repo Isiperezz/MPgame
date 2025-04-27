@@ -1,5 +1,7 @@
 package Herramientas;
 
+import Personajes.Arma;
+import Personajes.Armadura;
 import Personajes.Personaje;
 
 import java.util.*;

@@ -63,8 +63,8 @@ public class Desafio {
         StringBuilder desafioString = new StringBuilder();
         desafioString.append("Desafio: "+"\n");
         desafioString.append("Estado: "+this.estado.toString()+"\n");
-        desafioString.append("Jugador desafiado: "+this.desafiado.getNick()+"\n");
-        desafioString.append("Jugador desafiante: "+this.desafiante.getNick()+"\n");
+        desafioString.append("Jugador desafiado: "+this.desafiado.getUserName()+"\n");
+        desafioString.append("Jugador desafiante: "+this.desafiante.getUserName()+"\n");
         Integer oro = this.oroApostado;
         desafioString.append("Oro: "+oro+"\n");
         return desafioString.toString();

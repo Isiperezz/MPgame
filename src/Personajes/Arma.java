@@ -10,19 +10,45 @@ public class Arma implements Equipamiento {
     private int modificadorAtaque;
     private int modificadorDefensa;
 
-    public boolean esDosManos() {
-
-        return this.dosManos;
+    public Arma(String nombreArma, boolean dosManos, int modificadorAtaque, int modificadorDefensa) {
+        this.nombreArma = nombreArma;
+        this.dosManos = dosManos;
+        this.modificadorAtaque = modificadorAtaque;
+        this.modificadorDefensa = modificadorDefensa;
     }
 
-    public int getModAtaque() {
+    public Arma(){}
 
-        return this.modificadorAtaque;
+    public String getNombreArma() {
+        return nombreArma;
     }
 
-    public int getModDefensa() {
+    public void setNombreArma(String nombreArma) {
+        this.nombreArma = nombreArma;
+    }
 
-        return this.modificadorDefensa;
+    public boolean isDosManos() {
+        return dosManos;
+    }
+
+    public void setDosManos(boolean dosManos) {
+        this.dosManos = dosManos;
+    }
+
+    public int getModificadorAtaque() {
+        return modificadorAtaque;
+    }
+
+    public void setModificadorAtaque(int modificadorAtaque) {
+        this.modificadorAtaque = modificadorAtaque;
+    }
+
+    public int getModificadorDefensa() {
+        return modificadorDefensa;
+    }
+
+    public void setModificadorDefensa(int modificadorDefensa) {
+        this.modificadorDefensa = modificadorDefensa;
     }
 
     public boolean tieneModDefensa() {
@@ -30,11 +56,8 @@ public class Arma implements Equipamiento {
         return this.modificadorDefensa != 0;
     }
 
-    public Arma clone() {
 
-        return null;
-    }
-
+    @Override
     public Equipamiento clone() {
 
         return null;

@@ -9,7 +9,8 @@ public class PersistenciaManager {
 
     private PersistenciaManager() {
         try {
-            persistencia = PersistenciaXML.loadDataFromDisk();
+            //PersistenciaXML.loadDataFromDisk()
+            this.persistencia = new PersistenciaXML();
         }catch(Exception e) {
             throw new RuntimeException(e);
         }

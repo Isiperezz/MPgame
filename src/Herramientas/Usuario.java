@@ -26,4 +26,8 @@ public abstract class Usuario {
         this.herramientas.show();
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

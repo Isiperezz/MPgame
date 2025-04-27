@@ -9,7 +9,16 @@ public class RegistroEquipamiento {
 
     private Map <String, Equipamiento> equipamiento;
 
+    public Map<String, Equipamiento> getEquipamiento() {
+        return equipamiento;
+    }
+
+    public void setEquipamiento(Map<String, Equipamiento> equipamiento) {
+        this.equipamiento = equipamiento;
+    }
+
     public RegistroEquipamiento() {
+        this.equipamiento = new HashMap<>();
     }
 
     public void addEquipment(String id, Equipamiento equipo) {
@@ -17,32 +26,24 @@ public class RegistroEquipamiento {
     }
 
     public Equipamiento getById(String id) {
-        return equipamiento.get(id);
+        return equipamiento.get(id).clone();
     }
 
     public void MostrarArmas() {
-        for (Map.Entry<String, Equipamiento> entry : equipamiento.entrySet()) {
-            String clave = entry.getKey();
-            Equipamiento valor = entry.getValue();
-            if (valor instanceof Arma) {
-                System.out.println(clave);
+        for (String id : equipamiento.keySet()) {
+            Equipamiento equip = equipamiento.get(id);
+            if (equip instanceof Arma) {
+                System.out.print(id + " ");
             }
-
-
         }
-
     }
     public void MostrarArmaduras() {
-        for (Map.Entry<String, Equipamiento> entry : equipamiento.entrySet()) {
-            String clave = entry.getKey();
-            Equipamiento valor = entry.getValue();
-            if (valor instanceof Armadura) {
-                System.out.println(clave);
+        for (String id : equipamiento.keySet()) {
+            Equipamiento equip = equipamiento.get(id);
+            if (equip instanceof Armadura) {
+                System.out.print(id + " ");
             }
-
-
         }
-
     }
 
 }
