@@ -19,6 +19,10 @@ public abstract class PersonajeFactory {
         System.out.println("¡Bienvenido a la creación de personaje!");
         System.out.println("Introduzca el nombre del personaje: ");
         String nombre = scanner.nextLine();
+        while (nombre.isEmpty()) {
+            System.out.println("El nombre no puede estar vacío. Introduzca el nombre de nuevo:");
+            nombre = scanner.nextLine().trim();
+        }
         personaje.setNombre(nombre);
         System.out.println("Por la estabilidad del juego, los valores de salud y poder se asignarán aleatoriamente, "
                 + "así como el oro tendrá un valor inicial.");
@@ -46,6 +50,7 @@ public abstract class PersonajeFactory {
             almacenDemonio.aniadirEsbirro(esbirro);
 
          }
+        personaje.setEsbirros(almacen);
 
         RegistroEquipamiento equipamientoDisponible =PersistenciaManager.getInstance().getPersistencia().getGameData().getEquipamiento();
         List<Arma> armasPersonaje = personaje.getArmas();
@@ -53,7 +58,7 @@ public abstract class PersonajeFactory {
 
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
-
+        //FALTA DEBILIDADES Y FORTALEZAS
 
     }
 

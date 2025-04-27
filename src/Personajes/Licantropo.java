@@ -1,26 +1,19 @@
 package Personajes;
-import java.util.*;
+
 
 public class Licantropo extends Personaje {
 
     private Don don;
-    private int raza;
     private int peso;
     private int altura;
     private boolean formaBipeda;
-    private int rabia = 0;
+    private int rabia;
 
     public Don getDon() {
         return this.don;
     }
     public void setDon(Habilidades habilidad) {
         this.don = (Don)habilidad;
-    }
-    public int getRaza() {
-        return this.raza;
-    }
-    public void setRaza(int raza) {
-        this.raza = raza;
     }
     public int getPeso() {
         return this.peso;
@@ -35,8 +28,22 @@ public class Licantropo extends Personaje {
             this.altura = altura;
     }
     public boolean cambiarForma() {
-        formaBipeda = !formaBipeda;
-        return formaBipeda;
+       if(!this.formaBipeda) {
+            this.formaBipeda = true;
+            this.peso = 110;
+            this.altura = 100; //centimetros
+        } else {
+            this.formaBipeda = false;
+            this.peso = 90;
+            this.altura = 50;
+        }
+        return this.formaBipeda;
+    }
+    public boolean getFormaBipeda() {
+        return this.formaBipeda;
+    }
+    public void setFormaBipeda(boolean formaBipeda) {
+        this.formaBipeda = formaBipeda;
     }
 
     public int getRabia() {

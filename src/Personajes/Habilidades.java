@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.util.Random;
+
 public abstract class Habilidades {
 
 
@@ -20,6 +22,12 @@ public abstract class Habilidades {
     public int getValorDefensa() {
 
         return this.valorDefensa;
+    }
+    public void inicializate(String nombre) {
+        Random random = new Random();
+        this.nombre = nombre;
+        this.valorAtaque = random.nextInt(3) + 1;
+        this.valorDefensa = random.nextInt(3) + 1;
     }
 
 }

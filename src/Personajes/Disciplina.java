@@ -5,11 +5,15 @@ public class Disciplina extends Habilidades {
 
     private int costeSangre;
 
-    public Disciplina(String nombre, int ataque, int defensa, int costeSangre) {
-        this.nombre = nombre;
-        this.valorAtaque = ataque;
-        this.valorDefensa = defensa;
-        this.costeSangre = costeSangre;
+    public Disciplina() {
+
+    }
+
+    @Override
+    public void inicializate(String nombre) {
+        super.inicializate(nombre);
+        Random random = new Random();
+        this.costeSangre = random.nextInt(3) + 1;
     }
 
     public int getCosteSangre() {

@@ -6,6 +6,9 @@ public class Vampiro extends Personaje {
     private Disciplina disciplina;
     private int edad;
 
+    public Vampiro() {
+        this.disciplina = new Disciplina();
+    }
     public int getPuntosSangre() {
 
         return this.puntosSangre;
@@ -21,5 +24,13 @@ public class Vampiro extends Personaje {
     public int getEdad() {
 
         return this.edad;
+    }
+    public void setEdad(int edad) {
+
+        this.edad = edad;
+    }
+    public void setDisciplina(Disciplina disciplina) {
+
+        this.disciplina = disciplina;
     }
 }

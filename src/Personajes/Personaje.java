@@ -7,7 +7,7 @@ public abstract class Personaje {
     protected String nombre;
     protected Equipo equipo;
     protected Modificadores modificadores;
-    protected AlmacenEsbirros esbirros;
+    protected AlmacenEsbirros esbirros ;
     protected int cantidadOro;
     protected int poder;
     protected int salud;

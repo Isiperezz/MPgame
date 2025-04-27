@@ -27,6 +27,8 @@ public class Combate {
 
         Personaje personajeDesafiante = desafiante.getPersonaje();
         Personaje personajeDesafiado = ganador.getPersonaje();
+        inicializarRabiaSiLicantropo(personajeDesafiante);
+        inicializarRabiaSiLicantropo(personajeDesafiado);
         int vidaTotalDesafiante = personajeDesafiante.getSalud() + personajeDesafiante.getEsbirros().getSaludTotal();
         int vidaTotalDesafiado = personajeDesafiado.getSalud() + personajeDesafiado.getEsbirros().getSaludTotal();
         Random random = new Random();
@@ -65,6 +67,12 @@ public class Combate {
         }
 
 
+    }
+
+    private static void inicializarRabiaSiLicantropo(Personaje personaje) {
+        if (personaje instanceof Licantropo ) {
+            ((Licantropo) personaje).setRabia(0);
+        }
     }
 
     private void disminuirTalentoSiEsCazador(Personaje personajeDesafiante) {
