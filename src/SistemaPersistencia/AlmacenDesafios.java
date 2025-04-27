@@ -28,6 +28,10 @@ public class AlmacenDesafios {
         return desafios.get(clave);
     }
 
+    public void setDesafios(Map<Jugador, List<Desafio>> desafios) {
+        this.desafios = desafios;
+    }
+
     /**
      * @return
      */

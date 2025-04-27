@@ -21,9 +21,7 @@ public class GameData {
         this.equipamiento = equipamiento;
     }
 
-    public GameData() {
-        this.equipamiento = new RegistroEquipamiento();
-    }
+    public GameData() {}
 
     public RegistroEquipamiento getEquipamiento() {
         return equipamiento;

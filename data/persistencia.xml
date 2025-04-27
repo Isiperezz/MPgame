@@ -1,104 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="24" class="java.beans.XMLDecoder">
- <object class="SistemaPersistencia.PersistenciaXML" id="PersistenciaXML0">
-  <void id="GameData0" property="gameData">
-   <void id="RegistroEquipamiento0" property="equipamiento">
+ <object class="SistemaPersistencia.PersistenciaXML">
+  <void property="gameData">
+   <object class="SistemaPersistencia.GameData">
     <void property="equipamiento">
-     <void method="put">
-      <string>Hacha</string>
-      <object class="Personajes.Arma">
-       <void property="dosManos">
-        <boolean>true</boolean>
-       </void>
-       <void property="modificadorAtaque">
-        <int>25</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+     <object class="SistemaPersistencia.RegistroEquipamiento" id="RegistroEquipamiento0">
+      <void property="equipamiento">
+       <void method="put">
         <string>Hacha</string>
+        <object class="Personajes.Arma">
+         <void property="dosManos">
+          <boolean>true</boolean>
+         </void>
+         <void property="modificadorAtaque">
+          <int>25</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Hacha</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
-     <void method="put">
-      <string>Guadaña</string>
-      <object class="Personajes.Arma">
-       <void property="dosManos">
-        <boolean>true</boolean>
-       </void>
-       <void property="modificadorAtaque">
-        <int>30</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+       <void method="put">
         <string>Guadaña</string>
+        <object class="Personajes.Arma">
+         <void property="dosManos">
+          <boolean>true</boolean>
+         </void>
+         <void property="modificadorAtaque">
+          <int>30</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Guadaña</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
-     <void method="put">
-      <string>Cenit</string>
-      <object class="Personajes.Arma">
-       <void property="modificadorAtaque">
-        <int>40</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+       <void method="put">
         <string>Cenit</string>
+        <object class="Personajes.Arma">
+         <void property="modificadorAtaque">
+          <int>40</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Cenit</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
-     <void method="put">
-      <string>Espada</string>
-      <object class="Personajes.Arma">
-       <void property="modificadorAtaque">
-        <int>15</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+       <void method="put">
         <string>Espada</string>
+        <object class="Personajes.Arma">
+         <void property="modificadorAtaque">
+          <int>15</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Espada</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
-     <void method="put">
-      <string>Lanza</string>
-      <object class="Personajes.Arma">
-       <void property="dosManos">
-        <boolean>true</boolean>
-       </void>
-       <void property="modificadorAtaque">
-        <int>20</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+       <void method="put">
         <string>Lanza</string>
+        <object class="Personajes.Arma">
+         <void property="dosManos">
+          <boolean>true</boolean>
+         </void>
+         <void property="modificadorAtaque">
+          <int>20</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Lanza</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
-     <void method="put">
-      <string>Cuchillo</string>
-      <object class="Personajes.Arma">
-       <void property="modificadorAtaque">
-        <int>10</int>
-       </void>
-       <void property="modificadorDefensa">
-        <int>5</int>
-       </void>
-       <void property="nombreArma">
+       <void method="put">
         <string>Cuchillo</string>
+        <object class="Personajes.Arma">
+         <void property="modificadorAtaque">
+          <int>10</int>
+         </void>
+         <void property="modificadorDefensa">
+          <int>5</int>
+         </void>
+         <void property="nombreArma">
+          <string>Cuchillo</string>
+         </void>
+        </object>
        </void>
-      </object>
-     </void>
+      </void>
+     </object>
     </void>
-   </void>
+    <void property="personajes">
+     <object class="java.util.HashMap"/>
+    </void>
+   </object>
+  </void>
+  <void property="usersData">
+   <object class="SistemaPersistencia.UsersData">
+    <void property="almacenDesafios">
+     <object class="SistemaPersistencia.AlmacenDesafios"/>
+    </void>
+    <void property="login">
+     <object class="SistemaPersistencia.Login"/>
+    </void>
+    <void property="personajesJugadores">
+     <object class="java.util.HashMap"/>
+    </void>
+    <void property="ranking">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="usuarios">
+     <object class="java.util.HashMap"/>
+    </void>
+   </object>
   </void>
  </object>
 </java>
