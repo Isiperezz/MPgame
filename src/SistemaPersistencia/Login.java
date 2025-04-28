@@ -27,7 +27,7 @@ public class Login {
     }
 
     public Jugador registrarJugador() {
-        Jugador newPlayer = new Jugador();
+        Jugador newPlayer = new Jugador(false);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Registrando Nuevo Jugador:");
@@ -42,32 +42,32 @@ public class Login {
         newPlayer.setPassword(newUserPassword);
 
         boolean valid = false;
-        ServicioPersonaje servicioPersonaje;
+        PersonajeFactory factory = null;
+
 
         while (!valid){
             System.out.println("Elige el personaje entre Licantropo, Cazador o Vampiro");
             String option = sc.nextLine();
             switch (option){
                 case "Cazador":
-                    servicioPersonaje = new ServicioPersonaje(new CazadorFactory());
+                    factory = new CazadorFactory();
                     valid = true;
                     break;
                 case "Vampiro":
-                    servicioPersonaje = new ServicioPersonaje(new VampiroFactory());
+                    factory  = new VampiroFactory();
                     valid = true;
                     break;
                 case "Licantropo":
-                    servicioPersonaje = new ServicioPersonaje(new LicantropoFactory());
+                    factory = new LicantropoFactory();
                     valid = true;
                     break;
                 default:
                     break;
             }
         }
-        if (valid) {
-            //Personaje newPersonaje = servicioPersonaje.crearPersonaje();
-        }
-        //newPlayer.setPersonaje(newPersonaje);
+        ServicioPersonaje servicioPersonaje = new ServicioPersonaje(factory);
+        Personaje newPersonaje = servicioPersonaje.crearPersonaje();
+        newPlayer.setPersonaje(newPersonaje);
 
         PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewUser(newPlayer);
 

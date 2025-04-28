@@ -8,18 +8,39 @@ public class Armadura implements Equipamiento {
     private int modificadorDefensa = 0;
     private int modificadorAtaque = 0;
 
-    public int getModDefensa() {
-
-        return this.modificadorDefensa;
+    public Armadura(String name, int ataque, int defensa) {
+        nombreArmadura = name;
+        modificadorDefensa = defensa;
+        modificadorAtaque = ataque;
     }
 
-    public int getModAtaque() {
+    public Armadura() { }
 
-        return this.modificadorAtaque;
+    public String getNombreArmadura() {
+        return nombreArmadura;
+    }
+
+    public void setNombreArmadura(String nombreArmadura) {
+        this.nombreArmadura = nombreArmadura;
+    }
+
+    public int getModificadorDefensa() {
+        return modificadorDefensa;
+    }
+
+    public void setModificadorDefensa(int modificadorDefensa) {
+        this.modificadorDefensa = modificadorDefensa;
+    }
+
+    public int getModificadorAtaque() {
+        return modificadorAtaque;
+    }
+
+    public void setModificadorAtaque(int modificadorAtaque) {
+        this.modificadorAtaque = modificadorAtaque;
     }
 
     public boolean tieneModAtaque() {
-
         return this.modificadorAtaque != 0;
     }
 

@@ -4,10 +4,22 @@ import Personajes.Personaje;
 
 public class Jugador extends Usuario {
     private Personaje personaje;
+    private boolean block;
 
 
-    public Jugador() {
+    public Jugador(boolean block) {
+        this.block = block;
         this.herramientas = new HerramientasDeJugador(this);
+    }
+
+    public Jugador() { }
+
+    public boolean isBlock() {
+        return block;
+    }
+
+    public void setBlock(boolean block) {
+        this.block = block;
     }
 
     public Personaje getPersonaje() {

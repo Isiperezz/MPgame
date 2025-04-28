@@ -5,6 +5,8 @@ import SistemaPersistencia.AlmacenDesafios;
 import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.UsersData;
 
+import java.sql.SQLOutput;
+
 public class Finalizado implements EstadoDesafio {
 
 
@@ -17,7 +19,7 @@ public class Finalizado implements EstadoDesafio {
         Jugador desafiante = desafio.getDesafiante();
         almacenDesafios.aniadirDesafio(desafiante, desafio);
 
-
+        System.out.println("El desafío ha terminado");
     }
 
 }

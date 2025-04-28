@@ -29,7 +29,7 @@ public class RegistroEquipamiento {
         return equipamiento.get(id).clone();
     }
 
-    public void MostrarArmas() {
+    public void mostrarArmas() {
         for (String id : equipamiento.keySet()) {
             Equipamiento equip = equipamiento.get(id);
             if (equip instanceof Arma) {
@@ -37,7 +37,7 @@ public class RegistroEquipamiento {
             }
         }
     }
-    public void MostrarArmaduras() {
+    public void mostrarArmaduras() {
         for (String id : equipamiento.keySet()) {
             Equipamiento equip = equipamiento.get(id);
             if (equip instanceof Armadura) {

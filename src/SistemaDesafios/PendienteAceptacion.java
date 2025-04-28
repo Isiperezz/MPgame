@@ -9,6 +9,7 @@ public class PendienteAceptacion implements EstadoDesafio {
     @Override
     public void avanzarEstado(Desafio desafio) {
         desafio.setEstado(new EnCombate());
+        desafio.iniciarCombate();
     }
 
 

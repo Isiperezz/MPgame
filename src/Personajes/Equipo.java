@@ -4,43 +4,39 @@ import java.util.*;
 public class Equipo {
 
     public Equipo() {
-        this.armas= new ArrayList<Arma>();
-        this.armaduras=new ArrayList<Armadura>();
-        this.armaActiva= null;
-        this.armaduraActiva=null;
+        this.armas= new HashMap<String, Arma>();
+        this.armaduras=new HashMap<String, Armadura>();
     }
 
-    private List<Arma> armas;
-    private List<Armadura> armaduras;
+    private Map<String, Arma> armas;
+    private Map<String, Armadura> armaduras;
     private Arma armaActiva;
     private Armadura armaduraActiva;
 
-    public void setArmaActiva(Arma arma) {
-
-        this.armaActiva = arma;
+    public void setArmaActiva(String name) {
+        this.armaActiva = armas.get(name);
     }
 
-    public void setArmaduraActiva(Armadura armadura) {
-       this.armaduraActiva = armadura;
+    public void setArmaduraActiva(String name) {
+        this.armaduraActiva = armaduras.get(name);
     }
 
-    public List<Armadura> getArmaduras() {
+    public Map<String, Armadura> getArmaduras() {
 
         return this.armaduras;
     }
 
-    public List<Arma> getArmas() {
+    public Map<String, Arma> getArmas() {
         return this.armas;
     }
 
-    public void aniadirArma(Arma arma) {
-
-        this.armas.add(arma);
+    public void aniadirArma(String name, Arma arma) {
+        this.armas.put(name, arma);
     }
 
-    public void aniadirArmadura(Armadura armadura) {
+    public void aniadirArmadura(String name, Armadura armadura) {
 
-        this.armaduras.add(armadura);
+        this.armaduras.put(name, armadura);
     }
     public Arma getArmaActiva() {
 

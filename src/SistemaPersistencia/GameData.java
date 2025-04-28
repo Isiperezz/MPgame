@@ -31,4 +31,10 @@ public class GameData {
         return personajes.get(key);
     }
 
+    public void verPersonajes(){
+        for (String name : personajes.keySet()) {
+            System.out.print(name +" ");
+        }
+    }
+
 }

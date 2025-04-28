@@ -33,20 +33,32 @@ public class Desafio {
 
 
     public void iniciarCombate() {
-        // TODO implement here
+        this.combate = new Combate();
+        this.combate.setDesafiante(this.desafiante);
+        this.combate.setDesafiado(this.desafiado);
+        this.combate.empezarCombate();
     }
 
 
-    public boolean estaValidado() {
-        // TODO implement here
-        return false;
+    public boolean isValidado() {
+        return this.validado;
     }
 
-
-    public void validarDesafio() {
-        // TODO implement here
+    public void setValidado(boolean validado) {
+        this.validado = validado;
     }
 
+    public Combate getCombate() {
+        return combate;
+    }
+
+    public void setCombate(Combate combate) {
+        this.combate = combate;
+    }
+
+    public int getOroApostado() {
+        return oroApostado;
+    }
 
     public Jugador getDesafiado() {
 

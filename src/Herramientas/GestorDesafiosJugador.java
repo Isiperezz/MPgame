@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDesafiosJugador {
-    private final List<Desafio> desafios;
+    private List<Desafio> desafios;
     private boolean desafioPendiente;
-    private final Jugador jugador;
+    private Jugador jugador;
 
 
     public GestorDesafiosJugador(Jugador jugador) {
@@ -25,6 +25,31 @@ public class GestorDesafiosJugador {
         }
     }
 
+    public GestorDesafiosJugador(){ }
+
+    public List<Desafio> getDesafios() {
+        return desafios;
+    }
+
+    public void setDesafios(List<Desafio> desafios) {
+        this.desafios = desafios;
+    }
+
+    public boolean isDesafioPendiente() {
+        return desafioPendiente;
+    }
+
+    public void setDesafioPendiente(boolean desafioPendiente) {
+        this.desafioPendiente = desafioPendiente;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
 
     public void desafiarJugador(String jugadorDesafiado, int oro) {
         Jugador desafiado = (Jugador)PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(jugadorDesafiado);

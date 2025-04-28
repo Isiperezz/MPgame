@@ -1,17 +1,17 @@
 package Herramientas;
 
 public abstract class Usuario {
-    protected String name;
+    protected String userName;
     protected String password;
 
     protected HerramientasRol herramientas;
 
     public String getUserName() {
-        return this.name;
+        return this.userName;
     }
 
     public void setUserName(String name) {
-        this.name = name;
+        this.userName = name;
     }
 
     public String getPassword() {
@@ -21,6 +21,8 @@ public abstract class Usuario {
     public HerramientasRol getHerramientas() {
         return this.herramientas;
     }
+
+    public void setHerramientas(HerramientasRol herramientas) {}
 
     public void mostrarHerramientas(){
         this.herramientas.show();

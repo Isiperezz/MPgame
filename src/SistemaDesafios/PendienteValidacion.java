@@ -11,6 +11,7 @@ public class PendienteValidacion implements EstadoDesafio {
     @Override
     public void avanzarEstado(Desafio desafio) {
         desafio.setEstado(new PendienteAceptacion());
+        desafio.setValidado(true);
     }
 
 

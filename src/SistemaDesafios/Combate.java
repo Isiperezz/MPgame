@@ -9,9 +9,41 @@ public class Combate {
     private Jugador desafiante;
     private Jugador desafiado;
     private Jugador ganador;
-    private boolean esEmpate = false;
-    private int numRondas = 0;
+    private boolean esEmpate;
+    private int numRondas;
 
+
+    public Jugador getDesafiante() {
+        return desafiante;
+    }
+
+    public void setDesafiante(Jugador desafiante) {
+        this.desafiante = desafiante;
+    }
+
+    public Jugador getDesafiado() {
+        return desafiado;
+    }
+
+    public void setDesafiado(Jugador desafiado) {
+        this.desafiado = desafiado;
+    }
+
+    public void setGanador(Jugador ganador) {
+        this.ganador = ganador;
+    }
+
+    public boolean isEsEmpate() {
+        return esEmpate;
+    }
+
+    public void setEsEmpate(boolean esEmpate) {
+        this.esEmpate = esEmpate;
+    }
+
+    public void setNumRondas(int numRondas) {
+        this.numRondas = numRondas;
+    }
 
     public Jugador getGanador() {
         if (this.esEmpate) {
@@ -101,7 +133,6 @@ public class Combate {
     }
 
     public int getNumRondas() {
-
         return this.numRondas;
     }
 
@@ -109,8 +140,8 @@ public class Combate {
         int poderBase = personaje.getPoder();
         // Se obtiene el poder de ataque o defensa del arma y armadura activa
         int poderEquipos = esAtaque ?
-                personaje.getArmaActiva().getModificadorAtaque() + personaje.getArmaduraActiva().getModAtaque() :
-                personaje.getArmaActiva().getModificadorDefensa() + personaje.getArmaduraActiva().getModDefensa();
+                personaje.getArmaActiva().getModificadorAtaque() + personaje.getArmaduraActiva().getModificadorAtaque():
+                personaje.getArmaActiva().getModificadorDefensa() + personaje.getArmaduraActiva().getModificadorDefensa();
 
         int poderTotal = poderBase + poderEquipos;
 

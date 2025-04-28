@@ -5,6 +5,7 @@ import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.RegistroEquipamiento;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -53,8 +54,8 @@ public abstract class PersonajeFactory {
         personaje.setEsbirros(almacen);
 
         RegistroEquipamiento equipamientoDisponible =PersistenciaManager.getInstance().getPersistencia().getGameData().getEquipamiento();
-        List<Arma> armasPersonaje = personaje.getArmas();
-        List<Armadura> armadurasPersonaje = personaje.getArmaduras();
+        Map<String, Arma> armasPersonaje = personaje.getEquipo().getArmas();
+        Map<String, Armadura> armadurasPersonaje = personaje.getEquipo().getArmaduras();
 
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
@@ -62,15 +63,15 @@ public abstract class PersonajeFactory {
 
     }
 
-    private void insertarArmaduras(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, List<Armadura> armadurasPersonaje) {
-        for (int i = 1; i <3 ; i++) {
+    private void insertarArmaduras(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, Map<String, Armadura> armadurasPersonaje) {
+        for (int i = 0; i <2 ; i++) {
             System.out.println("Seleccione una armadura para su personaje:");
-            equipamientoDisponible.MostrarArmaduras();
+            equipamientoDisponible.mostrarArmaduras();
             String idArmadura = scanner.nextLine();
             Equipamiento armadura = equipamientoDisponible.getById(idArmadura);
-            armadurasPersonaje.add((Armadura) armadura);
-            if (i == 1) {
-                personaje.setArmaduraActiva((Armadura) armadura);
+            armadurasPersonaje.put(idArmadura, (Armadura) armadura);
+            if (i == 0) {
+                personaje.getEquipo().setArmaduraActiva(idArmadura);
                 System.out.println("Has seleccionado su armadura activa");
             }
             else {
@@ -81,15 +82,15 @@ public abstract class PersonajeFactory {
         }
     }
 
-    private void insertarArmas(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, List<Arma> armasPersonaje) {
-        for (int i = 1; i <3 ; i++) {
+    private void insertarArmas(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, Map<String, Arma> armasPersonaje) {
+        for (int i = 0; i <3 ; i++) {
             System.out.println("Seleccione un arma para su personaje:");
-            equipamientoDisponible.MostrarArmas();
+            equipamientoDisponible.mostrarArmas();
             String idArma = scanner.nextLine();
             Equipamiento arma = equipamientoDisponible.getById(idArma);
-            armasPersonaje.add((Arma) arma);
+            armasPersonaje.put(idArma, (Arma) arma);
             if (i == 1) {
-                personaje.setArmaActiva((Arma) arma);
+                personaje.getEquipo().setArmaActiva(idArma);
                 System.out.println("Has seleccionado su arma activa");
             }
             else {

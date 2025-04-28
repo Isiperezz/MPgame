@@ -13,33 +13,15 @@ public abstract class Personaje {
     protected int salud;
 
     public String getNombre(){
-
         return this.nombre;
     }
 
     public void setNombre(String nombre) {
-
         this.nombre = nombre;
     }
 
-    public List<Arma> getArmas(){
-
-        return this.equipo.getArmas();
-    }
-
-    public void setArmaActiva(Arma arma){
-
-        this.equipo.setArmaActiva(arma);
-    }
-
-    public List<Armadura> getArmaduras(){
-
-        return this.equipo.getArmaduras();
-    }
-    public void setArmaduraActiva(Armadura armadura){
-
-        this.equipo.setArmaduraActiva(armadura);
-
+    public Equipo getEquipo(){
+        return this.equipo;
     }
     public int getOro(){
 
@@ -52,10 +34,6 @@ public abstract class Personaje {
     public int getPoder(){
 
         return this.poder;
-    }
-
-    public Equipo getEquipo() {
-        return equipo;
     }
 
     public void setEquipo(Equipo equipo) {
@@ -80,10 +58,7 @@ public abstract class Personaje {
 
         this.esbirros = esbirros;
     }
-    public void setName(String nompersonaje){
 
-        this.nombre = nompersonaje;
-    }
     public void setOro(int oro){
 
         this.cantidadOro = oro;

@@ -75,7 +75,7 @@ public class UsersData {
 
     public void addNewUser(Usuario user) {
         this.usuarios.put((user.getUserName()), user);
-        if (user instanceof Jugador) {
+        if (user instanceof Jugador && ((Jugador) user).getPersonaje() != null ) {
             this.personajesJugadores.put((Jugador)user, ((Jugador) user).getPersonaje());
         }
     }
