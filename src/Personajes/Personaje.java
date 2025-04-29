@@ -46,7 +46,6 @@ public abstract class Personaje {
 
     }
     public List<Fortaleza> getFortalezas(){
-
         return this.modificadores.getFortalezas();
     }
 
@@ -94,6 +93,14 @@ public abstract class Personaje {
             valorDebilidades += debilidad.getSensibilidad() ;
         }
         return valorDebilidades;
+    }
+
+    public void setModificadores(Modificadores mod){
+        this.modificadores = mod;
+    }
+
+    public Modificadores getModificadores(){
+        return this.modificadores;
     }
 
 }

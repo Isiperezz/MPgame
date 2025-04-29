@@ -22,7 +22,7 @@ public class LicantropoFactory extends PersonajeFactory {
         Debilidad debilidad = new Debilidad();
         debilidad.initialize("Lazo Lunar");
         licantropo.getDebilidades().add(debilidad);
-        System.out.println("El licantropo tiene la debilidad: " + debilidad.getNombre() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El licantropo tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
 
         return licantropo;
     }

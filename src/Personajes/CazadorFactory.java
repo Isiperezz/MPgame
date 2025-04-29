@@ -21,7 +21,7 @@ public class CazadorFactory extends PersonajeFactory {
         Debilidad debilidad = new Debilidad();
         debilidad.initialize("Fe Quebrada");
         cazador.getDebilidades().add(debilidad);
-        System.out.println("El cazador tiene la debilidad: " + debilidad.getNombre() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El cazador tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
         return cazador;
     }
 }

@@ -2,7 +2,7 @@ package Personajes;
 
 public interface Esbirro {
 
-    public String getName();
-    public int getSalud();
-
+    String getName();
+    int getSalud();
+    void initialize();
 }

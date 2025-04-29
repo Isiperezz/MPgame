@@ -26,7 +26,11 @@ public class RegistroEquipamiento {
     }
 
     public Equipamiento getById(String id) {
-        return equipamiento.get(id).clone();
+        Equipamiento eq = equipamiento.get(id);
+        if (eq != null) {
+            return eq.clone();
+        }
+        return null;
     }
 
     public void mostrarArmas() {

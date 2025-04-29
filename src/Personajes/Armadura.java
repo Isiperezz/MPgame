@@ -45,9 +45,14 @@ public class Armadura implements Equipamiento {
     }
 
 
+    @Override
     public Equipamiento clone() {
+        Armadura newArmadura = new Armadura();
+        newArmadura.setNombreArmadura(this.nombreArmadura);
+        newArmadura.setModificadorDefensa(this.modificadorDefensa);
+        newArmadura.setModificadorAtaque(this.modificadorAtaque);
 
-        return null;
+        return newArmadura;
     }
 
 }

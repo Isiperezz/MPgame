@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Modificadores {
 
-    public Modificadores() {
-        this.debilidades= new ArrayList<Debilidad>();
-        this.fortalezas= new ArrayList<Fortaleza>();
+    public Modificadores(ArrayList<Debilidad> d, ArrayList<Fortaleza> f) {
+        this.debilidades= d;
+        this.fortalezas= f;
     }
 
     private List<Debilidad> debilidades;
@@ -20,13 +20,23 @@ public class Modificadores {
         return this.fortalezas;
     }
 
-    public void aniadirFortaleza(String nombre, int eficacia) {
-        Fortaleza fortaleza= new Fortaleza(nombre,eficacia);
+    public void setDebilidades(List<Debilidad> debilidades) {
+        this.debilidades = debilidades;
+    }
+
+    public void setFortalezas(List<Fortaleza> fortalezas) {
+        this.fortalezas = fortalezas;
+    }
+
+    public void aniadirFortaleza(String nombre) {
+        Fortaleza fortaleza= new Fortaleza();
+        fortaleza.initialize(nombre);
         this.fortalezas.add(fortaleza);
     }
 
-    public void aniadirDebildad(String nombre, int sens) {
-        Debilidad debilidad= new Debilidad(nombre,sens);
+    public void aniadirDebildad(String nombre) {
+        Debilidad debilidad= new Debilidad();
+        debilidad.initialize(nombre);
         this.debilidades.add(debilidad);
     }
 

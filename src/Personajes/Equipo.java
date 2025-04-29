@@ -4,8 +4,7 @@ import java.util.*;
 public class Equipo {
 
     public Equipo() {
-        this.armas= new HashMap<String, Arma>();
-        this.armaduras=new HashMap<String, Armadura>();
+
     }
 
     private Map<String, Arma> armas;
@@ -19,6 +18,14 @@ public class Equipo {
 
     public void setArmaduraActiva(String name) {
         this.armaduraActiva = armaduras.get(name);
+    }
+
+    public void setArmas(Map<String, Arma> armas) {
+        this.armas = armas;
+    }
+
+    public void setArmaduras(Map<String, Armadura> armaduras) {
+        this.armaduras = armaduras;
     }
 
     public Map<String, Armadura> getArmaduras() {

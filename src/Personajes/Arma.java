@@ -59,8 +59,12 @@ public class Arma implements Equipamiento {
 
     @Override
     public Equipamiento clone() {
-
-        return null;
+        Arma newArma = new Arma();
+        newArma.setNombreArma(this.nombreArma);
+        newArma.setDosManos(this.dosManos);
+        newArma.setModificadorAtaque(this.modificadorAtaque);
+        newArma.setModificadorDefensa(this.modificadorDefensa);
+        return newArma;
     }
 
 }

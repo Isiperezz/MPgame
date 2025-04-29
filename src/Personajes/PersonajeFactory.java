@@ -3,9 +3,9 @@ package Personajes;
 import SistemaPersistencia.Equipamiento;
 import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.RegistroEquipamiento;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
+
+import java.util.*;
+import java.util.jar.JarOutputStream;
 
 public abstract class PersonajeFactory {
 
@@ -36,20 +36,24 @@ public abstract class PersonajeFactory {
         personaje.setPoder(poder);
 
         System.out.println("Su personaje obtendra aleatoriamente un numero aleatorio de esbirros que podran ser de diferentes tipos");
-        AlmacenEsbirros almacen = new AlmacenEsbirros();
-        int max_esbirros = 5;
-        Esbirro esbirro = generarEsbirro(random);
-        max_esbirros--;
+        AlmacenEsbirros almacen = new AlmacenEsbirros(new ArrayList<Esbirro>());
+        int maxEsbirros = 5;
+        Esbirro esbirro = this.generarEsbirro(random);
+        maxEsbirros--;
         almacen.aniadirEsbirro(esbirro);
 
-        while (esbirro instanceof Demonios && max_esbirros>0) {
-            AlmacenEsbirros almacenDemonio = ((Demonios) esbirro).getDemonEsbirros();
+        while (esbirro instanceof Demonios && maxEsbirros>0) {
+            AlmacenEsbirros almacenDemonio = ((Demonios) esbirro).getEsbirros();
             esbirro = generarEsbirro(random);
-            max_esbirros--;
+            maxEsbirros--;
             almacenDemonio.aniadirEsbirro(esbirro);
 
          }
         personaje.setEsbirros(almacen);
+
+        personaje.setEquipo(new Equipo());
+        personaje.getEquipo().setArmaduras(new HashMap<String, Armadura>());
+        personaje.getEquipo().setArmas(new HashMap<String, Arma>());
 
         RegistroEquipamiento equipamientoDisponible =PersistenciaManager.getInstance().getPersistencia().getGameData().getEquipamiento();
         Map<String, Arma> armasPersonaje = personaje.getEquipo().getArmas();
@@ -58,41 +62,55 @@ public abstract class PersonajeFactory {
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
 
+        personaje.setModificadores( new Modificadores(new ArrayList<Debilidad>(), new ArrayList<Fortaleza>()));
+
     }
 
     private void insertarArmaduras(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, Map<String, Armadura> armadurasPersonaje) {
-        for (int i = 0; i <2 ; i++) {
+        TreeSet<String> equipPicked = new TreeSet<>();
+        int i = 0;
+        while (equipPicked.size() < 2) {
             System.out.println("Seleccione una armadura para su personaje:");
             equipamientoDisponible.mostrarArmaduras();
             String idArmadura = scanner.nextLine();
             Equipamiento armadura = equipamientoDisponible.getById(idArmadura);
-            armadurasPersonaje.put(idArmadura, (Armadura) armadura);
-            if (i == 0) {
-                personaje.getEquipo().setArmaduraActiva(idArmadura);
-                System.out.println("Has seleccionado su armadura activa");
+            if (armadura == null || equipPicked.contains(idArmadura)) {
+                System.out.println("Pieza de equipo no válida, elija otra vez");
+            } else {
+                equipPicked.add(idArmadura);
+                armadurasPersonaje.put(idArmadura, (Armadura) armadura);
+                if (i == 0) {
+                    personaje.getEquipo().setArmaduraActiva(idArmadura);
+                    System.out.println("Ha seleccionado su armadura activa");
+                } else  {
+                    System.out.println("Ha seleccionado su armadura secundaria");
+                }
+                i++;
             }
-            else {
-                System.out.println("Has seleccionado su armadura secundaria");
-
-            }
-
         }
     }
 
     private void insertarArmas(Personaje personaje, RegistroEquipamiento equipamientoDisponible, Scanner scanner, Map<String, Arma> armasPersonaje) {
-        for (int i = 0; i <3 ; i++) {
+        TreeSet<String> equipPicked = new TreeSet<>();
+        int i = 0;
+        while (equipPicked.size() < 2) {
             System.out.println("Seleccione un arma para su personaje:");
             equipamientoDisponible.mostrarArmas();
             String idArma = scanner.nextLine();
             Equipamiento arma = equipamientoDisponible.getById(idArma);
-            armasPersonaje.put(idArma, (Arma) arma);
-            if (i == 1) {
-                personaje.getEquipo().setArmaActiva(idArma);
-                System.out.println("Has seleccionado su arma activa");
-            }
-            else {
-                System.out.println("Has seleccionado su arma secundaria");
-
+            if (arma == null || equipPicked.contains(idArma)){
+                System.out.println("Pieza de equipo no válida, elija otra vez");
+            } else {
+                equipPicked.add(idArma);
+                armasPersonaje.put(idArma, (Arma) arma);
+                if (i == 0) {
+                    personaje.getEquipo().setArmaActiva(idArma);
+                    System.out.println("Ha seleccionado su arma activa");
+                }
+                else {
+                    System.out.println("Ha seleccionado su arma secundaria");
+                }
+                i++;
             }
 
         }
@@ -101,14 +119,20 @@ public abstract class PersonajeFactory {
 
     private Esbirro generarEsbirro(Random random) {
         int tipoEsbirro = random.nextInt(3);
-        return switch (tipoEsbirro) {
-            case 0 -> new Humanos();
-            case 1 -> new Demonios();
-            case 2 -> new Ghouls();
-            default -> throw new IllegalStateException("Tipo de esbirro desconocido: " + tipoEsbirro);
-        };
+        Esbirro e;
+        switch (tipoEsbirro){
+            case 0: e = new Humanos();
+                    e.initialize();
+                    break;
+            case 1: e = new Demonios();
+                    e.initialize();
+                    break;
+            case 2: e = new Ghouls();
+                    e.initialize();
+                    break;
+            default: throw new IllegalStateException("Tipo de esbirro desconocido: " + tipoEsbirro);
+        }
+        return e;
     }
-
-
 
 }

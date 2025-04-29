@@ -38,7 +38,7 @@ public class VampiroFactory extends PersonajeFactory {
         Debilidad debilidad = new Debilidad();
         debilidad.initialize("El Beso del Alba");
         vampiro.getDebilidades().add(debilidad);
-        System.out.println("El vampiro tiene la debilidad: " + debilidad.getNombre() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El vampiro tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
 
 
         return vampiro;

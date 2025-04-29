@@ -14,7 +14,21 @@ public class Fortaleza {
         this.nombreFortaleza = nombre;
     }
 
+    public String getNombreFortaleza() {
+        return nombreFortaleza;
+    }
 
+    public void setNombreFortaleza(String nombreFortaleza) {
+        this.nombreFortaleza = nombreFortaleza;
+    }
+
+    public int getEficacia() {
+        return eficacia;
+    }
+
+    public void setEficacia(int eficacia) {
+        this.eficacia = eficacia;
+    }
 
     public int getEfiacia() {
         return this.eficacia;

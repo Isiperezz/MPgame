@@ -12,6 +12,14 @@ public class AlmacenDesafios {
 
     private Map <Jugador, List <Desafio>> desafios;
 
+    public void addJugador(Jugador clave) {
+        this.desafios.put(clave, new ArrayList<Desafio>());
+    }
+
+    public Map<Jugador, List<Desafio>> getDesafios() {
+        return desafios;
+    }
+
     public AlmacenDesafios() {
         //añadir
     }
@@ -62,5 +70,7 @@ public class AlmacenDesafios {
     public void aniadirDesafio(Jugador clave, Desafio desafio) {
         desafios.get(clave).add(desafio);
     }
+
+
 
 }

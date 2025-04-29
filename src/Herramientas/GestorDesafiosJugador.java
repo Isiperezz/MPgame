@@ -15,8 +15,13 @@ public class GestorDesafiosJugador {
 
     public GestorDesafiosJugador(Jugador jugador) {
         this.jugador = jugador;
-        this.desafios = (ArrayList<Desafio>) PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
+        this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
         this.desafioPendiente = false;
+
+        if (this.desafios == null){
+            PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().addJugador(jugador);
+            return;
+        }
         int i = 0;
         while (!this.desafioPendiente && i < this.desafios.size()) {
             if (desafios.get(i).getEstado() instanceof PendienteAceptacion)

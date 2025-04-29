@@ -18,12 +18,21 @@ public class Debilidad {
         this.sensibilidad = random.nextInt(5) + 1;
     }
 
+    public String getNombreDebilidad() {
+        return nombreDebilidad;
+    }
+
+    public void setNombreDebilidad(String nombreDebilidad) {
+        this.nombreDebilidad = nombreDebilidad;
+    }
+
+    public void setSensibilidad(int sensibilidad) {
+        this.sensibilidad = sensibilidad;
+    }
+
     public int getSensibilidad() {
         return this.sensibilidad;
     }
 
-    public String getNombre() {
-        return this.nombreDebilidad;
-    }
 
 }
