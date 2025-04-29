@@ -22,7 +22,7 @@ public abstract class Usuario {
         return this.herramientas;
     }
 
-    public void setHerramientas(HerramientasRol herramientas) {}
+    public void setHerramientas(HerramientasRol herramientas) {this.herramientas = herramientas;}
 
     public void mostrarHerramientas(){
         this.herramientas.show();

@@ -23,12 +23,12 @@ public abstract class PersonajeFactory {
             nombre = scanner.nextLine().trim();
         }
         personaje.setNombre(nombre);
-        System.out.println("Por la estabilidad del juego, los valores de salud y poder se asignarán aleatoriamente, "
+        System.out.println("Por la estabilidad del juego, el valor de poder se asignarán aleatoriamente, "
                 + "así como el oro tendrá un valor inicial.");
         int oro = 100;
         System.out.println("Oro inicial: " + oro + " monedas brillantes");
         personaje.setOro(oro);
-        int salud =random.nextInt(5)+1;
+        int salud = personaje.getSalud();
         System.out.println("Salud inicial: " + salud + " puntos (entre 1 y 5)");
         personaje.setSalud(5);
         int poder = random.nextInt(5)+1;

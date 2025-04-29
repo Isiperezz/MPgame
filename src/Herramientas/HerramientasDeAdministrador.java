@@ -11,11 +11,22 @@ public class HerramientasDeAdministrador extends HerramientasRol {
     private GestorDesafiosAdmin desafios;
 
     public HerramientasDeAdministrador() {
+        this.editorPersonajes = new EditarPersonaje();
+        this.desafios = new GestorDesafiosAdmin();
     }
 
-    /**
-     * @return
-     */
+    public EditarPersonaje getEditorPersonajes() {
+        return editorPersonajes;
+    }
+
+    public void setEditorPersonajes(EditarPersonaje editorPersonajes) {
+        this.editorPersonajes = editorPersonajes;
+    }
+
+    public void setDesafios(GestorDesafiosAdmin desafios) {
+        this.desafios = desafios;
+    }
+
     public EditarPersonaje editarPersonaje() {
         return this.editorPersonajes;
     }
@@ -43,6 +54,6 @@ public class HerramientasDeAdministrador extends HerramientasRol {
 
     @Override
     public void show() {
-
+        System.out.println("1.Gestionar Desafíosz\n2.Editar personajes\n3.Bloquear Usuario\n4.Crear Equipamiento");
     }
 }

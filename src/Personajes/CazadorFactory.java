@@ -7,6 +7,7 @@ public class CazadorFactory extends PersonajeFactory {
     // Este metodo crea un objeto de tipo Cazador
     public Personaje crearPersonaje() {
         Cazador cazador = new Cazador();
+        cazador.initializeSalud();
         Scanner scanner = new Scanner(System.in);
         solicitarDatos(cazador);
         System.out.println("Tu cazador tendrá un valor de Voluntad, el cual se reducirá cada vez que reciba daño.");

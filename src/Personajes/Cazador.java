@@ -1,6 +1,8 @@
 package Personajes;
 
 
+import SistemaPersistencia.PersistenciaManager;
+
 public class Cazador extends Personaje {
     private int voluntad;
     private Talento talento;
@@ -28,4 +30,8 @@ public class Cazador extends Personaje {
     }
 
 
+    @Override
+    public void initializeSalud() {
+        this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Cazador").getSalud();
+    }
 }

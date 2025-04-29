@@ -6,6 +6,7 @@ public class LicantropoFactory extends PersonajeFactory {
 
     public Personaje crearPersonaje() {
         Licantropo licantropo = new Licantropo();
+        licantropo.initializeSalud();
         solicitarDatos(licantropo);
         licantropo.setRabia(0);
         licantropo.setPeso(90);

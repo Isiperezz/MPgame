@@ -9,6 +9,7 @@ public class VampiroFactory extends PersonajeFactory {
     public Personaje crearPersonaje() {
         Scanner scanner = new Scanner(System.in);
         Vampiro vampiro = new Vampiro();
+        vampiro.initializeSalud();
         solicitarDatos(vampiro);
         boolean entradaValida = false;
         System.out.println("Introduzca la edad de su vampiro: ");

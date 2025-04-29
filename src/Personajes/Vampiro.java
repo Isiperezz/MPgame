@@ -1,5 +1,7 @@
 package Personajes;
 
+import SistemaPersistencia.PersistenciaManager;
+
 public class Vampiro extends Personaje {
 
     private int puntosSangre;
@@ -31,5 +33,10 @@ public class Vampiro extends Personaje {
     public void setDisciplina(Disciplina disciplina) {
 
         this.disciplina = disciplina;
+    }
+
+    @Override
+    public void initializeSalud() {
+        this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Vampiro").getSalud();
     }
 }

@@ -1,6 +1,8 @@
 package Personajes;
 
 
+import SistemaPersistencia.PersistenciaManager;
+
 public class Licantropo extends Personaje {
 
     private Don don;
@@ -52,6 +54,11 @@ public class Licantropo extends Personaje {
     }
     public void setRabia(int rabia) {
         this.rabia = rabia;
+    }
+
+    @Override
+    public void initializeSalud() {
+        this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Licantropo").getSalud();
     }
 }
 

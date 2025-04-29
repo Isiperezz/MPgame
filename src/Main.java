@@ -1,6 +1,9 @@
 
+import Herramientas.Administrador;
+import Herramientas.HerramientasDeAdministrador;
 import Herramientas.Jugador;
-import Personajes.Armadura;
+import Herramientas.Usuario;
+import Personajes.*;
 import SistemaDesafios.Desafio;
 import SistemaPersistencia.*;
 
@@ -14,10 +17,5 @@ public class Main {
         PersistenciaManager p = PersistenciaManager.getInstance();
         Login l = p.getPersistencia().getUsersData().getLogin();
         Jugador j = l.registrarJugador();
-
-
-
-
-
     }
 }
