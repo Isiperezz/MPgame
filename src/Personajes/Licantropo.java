@@ -12,8 +12,9 @@ public class Licantropo extends Personaje {
     public Don getDon() {
         return this.don;
     }
-    public void setDon(Habilidades habilidad) {
-        this.don = (Don)habilidad;
+
+    public void setDon(Don don) {
+        this.don = don;
     }
     public int getPeso() {
         return this.peso;

@@ -1,15 +1,20 @@
 package Personajes;
 import java.util.*;
 
-public class Fortaleza extends Equipo {
-
-    public Fortaleza(String nombre, int eficacia) {
-        this.nombreFortaleza=nombre;
-        this.eficacia=eficacia;
-    }
-
+public class Fortaleza {
     private String nombreFortaleza;
     private int eficacia;
+
+    public Fortaleza() {
+
+    }
+    public void initialize(String nombre){
+        Random random = new Random();
+        this.eficacia = random.nextInt(5) + 1;
+        this.nombreFortaleza = nombre;
+    }
+
+
 
     public int getEfiacia() {
         return this.eficacia;

@@ -1,14 +1,21 @@
 package Personajes;
 
-public class Debilidad extends Equipo {
+import java.util.Random;
+
+public class Debilidad {
 
     private String nombreDebilidad;
     private int sensibilidad;
 
 
-    public Debilidad(String nombre, int sens) {
-        this.nombreDebilidad=nombre;
-        this.sensibilidad=sens;
+    public Debilidad() {
+
+    }
+
+    public void initialize(String nombre) {
+        Random random = new Random();
+        this.nombreDebilidad= nombre;
+        this.sensibilidad = random.nextInt(5) + 1;
     }
 
     public int getSensibilidad() {

@@ -2,16 +2,16 @@ package Personajes;
 
 
 public class Cazador extends Personaje {
-    private int voluntad = 3;
+    private int voluntad;
     private Talento talento;
 
     public Talento getTalento() {
 
         return this.talento;
     }
-    public void setTalento(String nombre, int ataque, int defensa) {
+    public void setTalento(Talento talento) {
 
-        this.talento = new Talento(nombre, ataque, defensa);
+        this.talento = talento;
     }
     public int getVoluntad() {
 
@@ -21,6 +21,10 @@ public class Cazador extends Personaje {
     public void disminuirVoluntad() {
 
         this.voluntad -= 1;
+    }
+    public void setVoluntad(int voluntad) {
+
+        this.voluntad = voluntad;
     }
 
 

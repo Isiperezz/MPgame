@@ -3,8 +3,6 @@ package Personajes;
 import SistemaPersistencia.Equipamiento;
 import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.RegistroEquipamiento;
-
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
@@ -59,7 +57,6 @@ public abstract class PersonajeFactory {
 
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
-        //FALTA DEBILIDADES Y FORTALEZAS
 
     }
 

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class LicantropoFactory extends PersonajeFactory {
 
     public Personaje crearPersonaje() {
-        Scanner scanner = new Scanner(System.in);
         Licantropo licantropo = new Licantropo();
         solicitarDatos(licantropo);
         licantropo.setRabia(0);
@@ -17,11 +16,13 @@ public class LicantropoFactory extends PersonajeFactory {
         licantropo.setDon(don);
         licantropo.setFormaBipeda(false);
         System.out.println("Tu licantropo podra cambiar de forma aumentando su peso y altura");
-
-
-
-
-
+        Fortaleza fortaleza = new Fortaleza();
+        fortaleza.initialize("Furia Primigenia");
+        licantropo.getFortalezas().add(fortaleza);
+        Debilidad debilidad = new Debilidad();
+        debilidad.initialize("Lazo Lunar");
+        licantropo.getDebilidades().add(debilidad);
+        System.out.println("El licantropo tiene la debilidad: " + debilidad.getNombre() + " y la fortaleza: " + fortaleza.getNombre());
 
         return licantropo;
     }
