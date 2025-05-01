@@ -9,8 +9,8 @@ import java.util.List;
 
 public class GestorDesafiosAdmin {
 
-    private List<Desafio> desafios;
-    private List<Desafio> desafiosPendientesValidacion;
+    private final List<Desafio> desafios;
+    private final List<Desafio> desafiosPendientesValidacion;
 
     public GestorDesafiosAdmin() {
         this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getTodosDesafios();
@@ -32,6 +32,16 @@ public class GestorDesafiosAdmin {
         for (Desafio desafio : desafios) {
             System.out.println(i);
             System.out.println(desafio.toString());
+            i++;
+        }
+    }
+
+    public void mostrarPendientesValidacion() {
+        int i = 0;
+        for (Desafio desafio : desafiosPendientesValidacion) {
+            System.out.println(i);
+            System.out.println(desafio.toString());
+            i++;
         }
     }
 

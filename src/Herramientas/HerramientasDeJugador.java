@@ -1,6 +1,8 @@
 package Herramientas;
 
 import Personajes.Personaje;
+import SistemaPersistencia.PersistenciaManager;
+import SistemaPersistencia.UsersData;
 
 import java.util.*;
 
@@ -61,22 +63,34 @@ public class HerramientasDeJugador extends HerramientasRol {
 
 
     public void eliminarCuenta() {
-        // TODO implement here
+        System.out.println("Para eliminar su cuenta introduzca su contraseña:");
+        Scanner sc = new Scanner(System.in);
+        String pass = sc.nextLine();
+        if (!pass.equals(this.user.getPassword())){
+            System.out.println("Contraseña incorrecta no se puedo eliminar la cuenta");
+            return;
+        }
+        UsersData u = PersistenciaManager.getInstance().getPersistencia().getUsersData();
+        u.getPersonajesJugadores().remove(this.user);
+        u.getUsuarios().remove(this.user.getUserName());
+        u.getAlmacenDesafios().getDesafios().remove(this.user);
+        System.out.println("Cuenta eliminada con éxito");
     }
 
-
+    public void verDesafiosPendientes(){
+        this.desafios.mostrarDesafiosPendientes();
+        System.out.println("Si quiere aceptar un desafio introduzca su índice, si no pulse cualquier otra tecla:");
+        Scanner sc = new Scanner(System.in);
+        String opcion = sc.nextLine();
+        try {
+            int opIndex = Integer.parseInt(opcion);
+            this.desafios.aceptarDesafio(opIndex);
+        } catch (NumberFormatException e) {
+            System.out.println("Ningún desafío aceptado");
+        }
+    }
     public void consultarCombates() {
-        // TODO implement here
-    }
 
-
-    public void consultarRanking() {
-        // TODO implement here
-    }
-
-
-    public void modifcarEquipamiento(Personaje personaje) {
-        // TODO implement here
     }
 
 }

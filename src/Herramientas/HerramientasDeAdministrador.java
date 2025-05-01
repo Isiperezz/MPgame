@@ -11,11 +11,12 @@ public class HerramientasDeAdministrador extends HerramientasRol {
     private GestorDesafiosAdmin desafios;
 
     public HerramientasDeAdministrador() {
-        this.editorPersonajes = new EditarPersonaje();
-        this.desafios = new GestorDesafiosAdmin();
     }
 
     public EditarPersonaje getEditorPersonajes() {
+        if (editorPersonajes == null) {
+            editorPersonajes = new EditarPersonaje();
+        }
         return editorPersonajes;
     }
 
@@ -27,13 +28,6 @@ public class HerramientasDeAdministrador extends HerramientasRol {
         this.desafios = desafios;
     }
 
-    public EditarPersonaje editarPersonaje() {
-        return this.editorPersonajes;
-    }
-
-    /**
-     * 
-     */
     public void crearArmadura() {
         // TODO implement here
     }
@@ -49,6 +43,9 @@ public class HerramientasDeAdministrador extends HerramientasRol {
      * @return
      */
     public GestorDesafiosAdmin getDesafios() {
+        if (desafios == null) {
+            desafios = new GestorDesafiosAdmin();
+        }
         return this.desafios;
     }
 

@@ -1,67 +1,22 @@
 package Herramientas;
 
 import Personajes.Personaje;
+import SistemaPersistencia.PersistenciaManager;
 
-/**
- * 
- */
 public class EditarPersonaje {
 
-    /**
-     * Default constructor
-     */
+    private String tipo;
+
     public EditarPersonaje() {
     }
 
-    /**
-     * 
-     */
-    private Personaje personajeEditado;
+    public void setTipo(String tipo) { this.tipo = tipo; }
 
-    /**
-     * 
-     */
-    private String tipo;
-
-    /**
-     * @param nuevoValor 
-     * @return
-     */
-    public EditarPersonaje editarHabilidadEspecial(int nuevoValor) {
-        // TODO implement here
-        return null;
+    public void editarSalud(int nuevoValor) {
+        Personaje personaje = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje(tipo);
+        personaje.setSalud(nuevoValor);
     }
 
-    /**
-     * @param nuevoValor 
-     * @return
-     */
-    public EditarPersonaje editarSalud(int nuevoValor) {
-        // TODO implement here
-        return null;
-    }
 
-    /**
-     * @param nuevoValor 
-     * @return
-     */
-    public EditarPersonaje editarPoder(int nuevoValor) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * 
-     */
-    public void completarEdicion() {
-        // TODO implement here
-    }
-
-    /**
-     * @param tipo
-     */
-    public void EditarPersonaje(String tipo) {
-        // TODO implement here
-    }
 
 }

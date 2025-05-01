@@ -10,7 +10,7 @@
         <string>Armadura de hierro</string>
         <object class="Personajes.Armadura">
          <void property="modificadorDefensa">
-          <int>40</int>
+          <int>2</int>
          </void>
          <void property="nombreArmadura">
           <string>Armadura de hierro</string>
@@ -21,10 +21,10 @@
         <string>Armadura de caballero</string>
         <object class="Personajes.Armadura">
          <void property="modificadorAtaque">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="modificadorDefensa">
-          <int>45</int>
+          <int>3</int>
          </void>
          <void property="nombreArmadura">
           <string>Armadura de caballero</string>
@@ -38,10 +38,10 @@
           <boolean>true</boolean>
          </void>
          <void property="modificadorAtaque">
-          <int>25</int>
+          <int>2</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="nombreArma">
           <string>Hacha</string>
@@ -55,10 +55,10 @@
           <boolean>true</boolean>
          </void>
          <void property="modificadorAtaque">
-          <int>30</int>
+          <int>3</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="nombreArma">
           <string>Guadaña</string>
@@ -69,10 +69,10 @@
         <string>Cenit</string>
         <object class="Personajes.Arma">
          <void property="modificadorAtaque">
-          <int>40</int>
+          <int>3</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>3</int>
          </void>
          <void property="nombreArma">
           <string>Cenit</string>
@@ -83,7 +83,7 @@
         <string>Armadura de cuero</string>
         <object class="Personajes.Armadura">
          <void property="modificadorDefensa">
-          <int>20</int>
+          <int>1</int>
          </void>
          <void property="nombreArmadura">
           <string>Armadura de cuero</string>
@@ -94,10 +94,10 @@
         <string>Espada</string>
         <object class="Personajes.Arma">
          <void property="modificadorAtaque">
-          <int>15</int>
+          <int>2</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="nombreArma">
           <string>Espada</string>
@@ -111,10 +111,10 @@
           <boolean>true</boolean>
          </void>
          <void property="modificadorAtaque">
-          <int>20</int>
+          <int>3</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="nombreArma">
           <string>Lanza</string>
@@ -125,10 +125,10 @@
         <string>Armadura con pinchos</string>
         <object class="Personajes.Armadura">
          <void property="modificadorAtaque">
-          <int>15</int>
+          <int>2</int>
          </void>
          <void property="modificadorDefensa">
-          <int>35</int>
+          <int>2</int>
          </void>
          <void property="nombreArmadura">
           <string>Armadura con pinchos</string>
@@ -139,10 +139,10 @@
         <string>Cuchillo</string>
         <object class="Personajes.Arma">
          <void property="modificadorAtaque">
-          <int>10</int>
+          <int>1</int>
          </void>
          <void property="modificadorDefensa">
-          <int>5</int>
+          <int>1</int>
          </void>
          <void property="nombreArma">
           <string>Cuchillo</string>
@@ -158,7 +158,7 @@
        <string>Licantropo</string>
        <object class="Personajes.Licantropo">
         <void property="salud">
-         <int>350</int>
+         <int>5</int>
         </void>
        </object>
       </void>
@@ -166,7 +166,7 @@
        <string>Vampiro</string>
        <object class="Personajes.Vampiro">
         <void property="salud">
-         <int>300</int>
+         <int>4</int>
         </void>
        </object>
       </void>
@@ -174,7 +174,7 @@
        <string>Cazador</string>
        <object class="Personajes.Cazador">
         <void property="salud">
-         <int>250</int>
+         <int>3</int>
         </void>
        </object>
       </void>

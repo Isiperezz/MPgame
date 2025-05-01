@@ -63,18 +63,22 @@ public class GestorDesafiosJugador {
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(desafiado, desafio);
     }
 
-    public void aceptarDesafio(Desafio desafio) {
+    public void aceptarDesafio(int desafioIndex) {
+        Desafio desafio = desafios.get(desafioIndex);
         if (this.desafioPendiente && desafio.getEstado() instanceof PendienteAceptacion){
             desafio.avanzarEstado();
         }
 
     }
 
-    public void mostrarDesafios() {
+    public void mostrarDesafiosPendientes() {
+        int i = 0;
         for (Desafio desafio : this.desafios) {
+            System.out.println(i);
             if (desafio.getEstado() instanceof PendienteAceptacion){
                 System.out.println(desafio.toString());
             }
+            i++;
         }
     }
 
