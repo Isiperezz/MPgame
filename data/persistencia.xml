@@ -166,7 +166,7 @@
        <string>Vampiro</string>
        <object class="Personajes.Vampiro">
         <void property="salud">
-         <int>4</int>
+         <int>5</int>
         </void>
        </object>
       </void>
@@ -174,7 +174,7 @@
        <string>Cazador</string>
        <object class="Personajes.Cazador">
         <void property="salud">
-         <int>3</int>
+         <int>5</int>
         </void>
        </object>
       </void>

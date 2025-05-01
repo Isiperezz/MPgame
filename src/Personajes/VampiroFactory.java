@@ -12,10 +12,9 @@ public class VampiroFactory extends PersonajeFactory {
         vampiro.initializeSalud();
         solicitarDatos(vampiro);
         boolean entradaValida = false;
-        System.out.println("Introduzca la edad de su vampiro: ");
-        int valorEdad = scanner.nextInt();
+        int valorEdad = 0;
         while (!entradaValida) {
-            System.out.print("Introduce un número: ");
+            System.out.print("Introduce un la edad de tu vampiro: ");
             if (scanner.hasNextInt()) { // Mira si lo que hay es un entero
                 valorEdad = scanner.nextInt();
                 entradaValida = true;
@@ -29,7 +28,7 @@ public class VampiroFactory extends PersonajeFactory {
         Disciplina disciplina = new Disciplina();
         disciplina.inicializate("Disciplina");
         vampiro.setDisciplina(disciplina);
-        System.out.println("\"Tu vampiro tendrá un valor de Sangre, el cual se utilizará para activar sus disciplinas.");
+        System.out.println("Tu vampiro tendrá un valor de Sangre, el cual se utilizará para activar sus disciplinas.");
         Random random = new Random();
         int sangre = random.nextInt(10)+1;
         vampiro.setPuntosSangre(sangre);
