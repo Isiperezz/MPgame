@@ -198,7 +198,7 @@
      <object class="java.util.HashMap"/>
     </void>
     <void property="ranking">
-     <object class="java.util.ArrayList"/>
+     <object class="java.util.PriorityQueue"/>
     </void>
     <void property="usuarios">
      <object class="java.util.HashMap">

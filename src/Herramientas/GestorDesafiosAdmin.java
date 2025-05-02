@@ -45,7 +45,7 @@ public class GestorDesafiosAdmin {
         }
     }
 
-    public int lenPendientesValidacion() {
+    public int getNumPendientesValidacion() {
         return desafiosPendientesValidacion.size();
     }
 

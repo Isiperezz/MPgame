@@ -6,20 +6,23 @@ import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.UsersData;
 
 import java.sql.SQLOutput;
+import java.util.PriorityQueue;
 
 public class Finalizado implements EstadoDesafio {
 
 
     public void avanzarEstado(Desafio desafio) {
-        PersistenciaManager persistencia = PersistenciaManager.getInstance();
-        UsersData usersData = persistencia.getPersistencia().getUsersData();
-        AlmacenDesafios almacenDesafios = usersData.getDesafios();
-        Jugador desafiado = desafio.getDesafiado();
-        almacenDesafios.aniadirDesafio(desafiado, desafio);
-        Jugador desafiante = desafio.getDesafiante();
-        almacenDesafios.aniadirDesafio(desafiante, desafio);
-
-        System.out.println("El desafío ha terminado");
+        Jugador ganador = desafio.getCombate().getGanador();
+        Jugador perdedor = desafio.getCombate().getPerdedor();
+        PriorityQueue<Jugador> ranking = PersistenciaManager.getInstance().getPersistencia().getUsersData().getRanking();
+        ranking.remove(ganador);
+        ranking.remove(perdedor);
+        ganador.getPersonaje().setOro(ganador.getPersonaje().getOro() + desafio.getOroApostado());
+        perdedor.getPersonaje().setOro(perdedor.getPersonaje().getOro() - desafio.getOroApostado());
+        ranking.add(perdedor);
+        ranking.add(ganador);
+        System.out.println("El desafío ha terminado el ganador "+ ganador.getUserName()+ " ha ganado "+desafio.getOroApostado());
+        System.out.println("El jugador "+ perdedor.getUserName() + " ha perdido "+desafio.getOroApostado());
     }
 
 }

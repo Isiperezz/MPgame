@@ -9,6 +9,7 @@ public class Combate {
     private Jugador desafiante;
     private Jugador desafiado;
     private Jugador ganador;
+    private Jugador perdedor;
     private boolean esEmpate;
     private int numRondas;
 
@@ -93,8 +94,10 @@ public class Combate {
                 this.esEmpate = true; // Empate
             } else if (vidaTotalDesafiante <= 0) {
                 this.ganador = desafiado;
+                this.perdedor = desafiante;
             } else if (vidaTotalDesafiado <= 0) {
                 this.ganador = desafiante;
+                this.perdedor = desafiado;
             }
         }
 
@@ -181,7 +184,23 @@ public class Combate {
         return poderTotal;
     }
 
+    public Jugador getPerdedor() {
+        return perdedor;
+    }
 
+    public void setPerdedor(Jugador perdedor) {
+        this.perdedor = perdedor;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        builder.append("\n");
+        builder.append("Ganador: "+ this.ganador.getUserName()+"\n");
+        builder.append("Perdedor: "+this.perdedor.getUserName()+"\n");
+        builder.append("Número de rondas: "+this.numRondas);
+        return builder.toString();
+    }
 }
 
 

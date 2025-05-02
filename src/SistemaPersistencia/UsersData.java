@@ -12,7 +12,7 @@ public class UsersData {
     private Map <String, Usuario> usuarios;
     private Login login;
     private AlmacenDesafios almacenDesafios;
-    private List<Jugador> ranking;
+    private PriorityQueue<Jugador> ranking;
 
     public UsersData() {
     }
@@ -45,11 +45,11 @@ public class UsersData {
         this.almacenDesafios = almacenDesafios;
     }
 
-    public List<Jugador> getRanking() {
+    public PriorityQueue<Jugador> getRanking() {
         return ranking;
     }
 
-    public void setRanking(List<Jugador> ranking) {
+    public void setRanking(PriorityQueue<Jugador> ranking) {
         this.ranking = ranking;
     }
 
@@ -69,9 +69,6 @@ public class UsersData {
         return almacenDesafios;
     }
 
-    public List<Jugador> getRankingActual() {
-        return ranking;
-    }
 
     public void addNewUser(Usuario user) {
         this.usuarios.put((user.getUserName()), user);
@@ -80,4 +77,20 @@ public class UsersData {
         }
     }
 
+    public void mostrarJugadores(){
+        for (Usuario u : usuarios.values()){
+            if (u instanceof Jugador){
+                System.out.println(u.getUserName());
+            }
+        }
+    }
+
+    public void mostrarBloqueados(){
+        for (Usuario u : usuarios.values()){
+            if (u instanceof Jugador j){
+                if (j.isBlock())
+                    System.out.println(u.getUserName());
+            }
+        }
+    }
 }

@@ -28,6 +28,8 @@ public class Jugador extends Usuario {
 
     public void setPersonaje(Personaje personaje) {
         this.personaje = personaje;
+        ((HerramientasDeJugador) this.herramientas).getGestorEquipamiento().setPersonaje(personaje);
     }
+
 
 }

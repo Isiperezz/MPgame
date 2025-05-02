@@ -54,13 +54,12 @@ public class HerramientasDeJugador extends HerramientasRol {
 
     @Override
     public void show(){
-        System.out.println("1: Gestionar desafíos"+"\n"+"2: Gestionar equipamiento"+"\n"+"3: Consultas");
+        System.out.println("1: Gestionar desafíos"+"\n"+"2: Gestionar equipamiento"+"\n"+"3: Consultas\n4: Salir");
     }
 
     public GestorDesafiosJugador getDesafios() {
         return this.desafios;
     }
-
 
     public void eliminarCuenta() {
         System.out.println("Para eliminar su cuenta introduzca su contraseña:");
@@ -89,6 +88,7 @@ public class HerramientasDeJugador extends HerramientasRol {
             System.out.println("Ningún desafío aceptado");
         }
     }
+
     public void consultarCombates() {
 
     }

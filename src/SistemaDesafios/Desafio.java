@@ -1,12 +1,13 @@
 package SistemaDesafios;
 
 import Herramientas.Jugador;
+import SistemaPersistencia.PersistenciaManager;
 
 public class Desafio {
     private EstadoDesafio estado;
-    private final Jugador desafiante;
-    private final Jugador desafiado;
-    private final int oroApostado;
+    private Jugador desafiante;
+    private Jugador desafiado;
+    private int oroApostado;
     private Combate combate;
     private boolean validado;
 
@@ -17,6 +18,8 @@ public class Desafio {
         this.oroApostado = oro;
         this.validado = false;
     }
+
+    public Desafio(){ }
 
     public EstadoDesafio getEstado() {
         return this.estado;
@@ -70,6 +73,18 @@ public class Desafio {
         return this.desafiante;
     }
 
+    public void setDesafiante(Jugador desafiante) {
+        this.desafiante = desafiante;
+    }
+
+    public void setDesafiado(Jugador desafiado) {
+        this.desafiado = desafiado;
+    }
+
+    public void setOroApostado(int oroApostado) {
+        this.oroApostado = oroApostado;
+    }
+
     @Override
     public String toString(){
         StringBuilder desafioString = new StringBuilder();
@@ -79,6 +94,10 @@ public class Desafio {
         desafioString.append("Jugador desafiante: "+this.desafiante.getUserName()+"\n");
         Integer oro = this.oroApostado;
         desafioString.append("Oro: "+oro+"\n");
+        if (this.combate == null)
+            desafioString.append("Combate: Aún por realizar");
+        else
+            desafioString.append("Combate: "+this.combate.toString()+"\n");
         return desafioString.toString();
 
     }

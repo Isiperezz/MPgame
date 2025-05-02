@@ -17,6 +17,9 @@ public class AlmacenEsbirros{
         this.esbirros = l;
     }
 
+    public AlmacenEsbirros(){ }
+
+
     public void aniadirEsbirro(Esbirro esbirro) {
 
         this.esbirros.add(esbirro);

@@ -8,11 +8,12 @@ public abstract class Personaje {
     protected Equipo equipo;
     protected Modificadores modificadores;
     protected AlmacenEsbirros esbirros ;
-    protected int cantidadOro;
+    protected int oro;
     protected int poder;
     protected int salud;
 
     public abstract void initializeSalud();
+
 
     public String getNombre(){
         return this.nombre;
@@ -26,8 +27,7 @@ public abstract class Personaje {
         return this.equipo;
     }
     public int getOro(){
-
-        return this.cantidadOro;
+        return this.oro;
     }
     public int getSalud(){
 
@@ -61,8 +61,7 @@ public abstract class Personaje {
     }
 
     public void setOro(int oro){
-
-        this.cantidadOro = oro;
+        this.oro = oro;
     }
     public void setSalud(int salud){
 

@@ -16,10 +16,12 @@ public class GestorDesafiosJugador {
     public GestorDesafiosJugador(Jugador jugador) {
         this.jugador = jugador;
         this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
+
         this.desafioPendiente = false;
 
         if (this.desafios == null){
             PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().addJugador(jugador);
+            this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
             return;
         }
         int i = 0;
@@ -56,8 +58,7 @@ public class GestorDesafiosJugador {
         this.jugador = jugador;
     }
 
-    public void desafiarJugador(String jugadorDesafiado, int oro) {
-        Jugador desafiado = (Jugador)PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(jugadorDesafiado);
+    public void desafiarJugador(Jugador desafiado, int oro) {
         Desafio desafio = new Desafio(this.jugador, desafiado, oro);
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(this.jugador, desafio);
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(desafiado, desafio);
@@ -80,6 +81,10 @@ public class GestorDesafiosJugador {
             }
             i++;
         }
+    }
+
+    public int getNumDesafios(){
+        return this.desafios.size();
     }
 
 }

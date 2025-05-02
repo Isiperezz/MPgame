@@ -13,10 +13,9 @@ public class Login {
 
     public Usuario iniciarSesion(String usuario, String password) {
         Usuario userToLogin = PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(usuario);
-        boolean result = validarInicioSesion(userToLogin, password);
-        if (result){
+        if (userToLogin != null && validarInicioSesion(userToLogin, password)){
             return userToLogin;
-        }else{
+        } else {
             return null;
         }
     }
@@ -26,19 +25,22 @@ public class Login {
         return passw.equals(password);
     }
 
-    public Jugador registrarJugador() {
-        Jugador newPlayer = new Jugador(false);
+    public Usuario registrarJugador() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Registrando Nuevo Jugador:");
         System.out.println("Introduce el nickname del jugador:");
-
         String newUserName = sc.nextLine();
-        newPlayer.setUserName(newUserName);
-
         System.out.println("Introduce la contraseña del jugador:");
-
         String newUserPassword = sc.nextLine();
+
+        Usuario checkNoExiste = this.iniciarSesion(newUserName, newUserPassword);
+        if (checkNoExiste != null) {
+            System.out.println("Usuario ya existe, iniciando sesión...");
+            return checkNoExiste;
+        }
+        Jugador newPlayer = new Jugador(false);
+        newPlayer.setUserName(newUserName);
         newPlayer.setPassword(newUserPassword);
 
         boolean valid = false;
@@ -70,7 +72,6 @@ public class Login {
         newPlayer.setPersonaje(newPersonaje);
 
         PersistenciaManager.getInstance().getPersistencia().getUsersData().addNewUser(newPlayer);
-
         return newPlayer;
     }
 

@@ -11,6 +11,7 @@ public class Modificadores {
     private List<Debilidad> debilidades;
     private List<Fortaleza> fortalezas;
 
+    public Modificadores() { }
 
     public List<Debilidad> getDebilidades() {
         return this.debilidades;

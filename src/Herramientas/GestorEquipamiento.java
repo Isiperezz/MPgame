@@ -25,14 +25,20 @@ public class GestorEquipamiento {
     }
 
 
+
     public void elegirArmaActiva() {
         Map<String, Arma> l = this.personaje.getEquipo().getArmas();
         for (String n : l.keySet()){
             System.out.print(n + " ");
         }
+        System.out.println();
         Scanner sc = new Scanner(System.in);
         System.out.println("Elige el arma para tu personaje:");
         String nombre = sc.nextLine();
+        if (!l.containsKey(nombre)){
+            System.out.println("No dispones del arma "+nombre);
+            return;
+        }
         this.personaje.getEquipo().setArmaActiva(nombre);
     }
 
@@ -42,9 +48,14 @@ public class GestorEquipamiento {
         for (String n : l.keySet()){
             System.out.print(n + " ");
         }
+        System.out.println();
         Scanner sc = new Scanner(System.in);
         System.out.println("Elige el armadura para tu personaje:");
         String nombre = sc.nextLine();
+        if (!l.containsKey(nombre)){
+            System.out.println("No dispones de la armadura "+nombre);
+            return;
+        }
         this.personaje.getEquipo().setArmaduraActiva(nombre);
     }
 
