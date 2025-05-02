@@ -3,21 +3,27 @@ import java.util.*;
 
 public class Equipo {
 
-    public Equipo() {
-
-    }
+    public Equipo() { }
 
     private Map<String, Arma> armas;
     private Map<String, Armadura> armaduras;
-    private Arma armaActiva;
-    private Armadura armaduraActiva;
+    private String nombreArmaActiva;
+    private String nombreArmaduraActiva;
 
-    public void setArmaActiva(String name) {
-        this.armaActiva = armas.get(name);
+    public void setNombreArmaActiva(String name) {
+        this.nombreArmaActiva = name;
     }
 
-    public void setArmaduraActiva(String name) {
-        this.armaduraActiva = armaduras.get(name);
+    public void setNombreArmaduraActiva(String name) {
+        this.nombreArmaduraActiva = name;
+    }
+
+    public String getNombreArmaActiva() {
+        return nombreArmaActiva;
+    }
+
+    public String getNombreArmaduraActiva() {
+        return nombreArmaduraActiva;
     }
 
     public void setArmas(Map<String, Arma> armas) {
@@ -46,12 +52,10 @@ public class Equipo {
         this.armaduras.put(name, armadura);
     }
     public Arma getArmaActiva() {
-
-        return this.armaActiva;
+        return this.armas.get(this.nombreArmaActiva);
     }
     public Armadura getArmaduraActiva() {
-
-        return this.armaduraActiva;
+        return this.armaduras.get(this.nombreArmaduraActiva);
     }
 
 }

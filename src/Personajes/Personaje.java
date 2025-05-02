@@ -71,14 +71,7 @@ public abstract class Personaje {
 
         this.poder = poderpersonaje;
     }
-    public Arma getArmaActiva(){
 
-        return this.equipo.getArmaActiva();
-    }
-    public Armadura getArmaduraActiva(){
-
-        return this.equipo.getArmaduraActiva();
-    }
     public int getValorFortalezas(){
 
         int valorFortalezas = 0;

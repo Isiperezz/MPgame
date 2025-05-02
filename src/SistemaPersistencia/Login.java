@@ -39,10 +39,7 @@ public class Login {
             System.out.println("Usuario ya existe, iniciando sesión...");
             return checkNoExiste;
         }
-        Jugador newPlayer = new Jugador(false);
-        newPlayer.setUserName(newUserName);
-        newPlayer.setPassword(newUserPassword);
-
+        Jugador newPlayer = new Jugador(newUserName, newUserPassword);
         boolean valid = false;
         PersonajeFactory factory = null;
 

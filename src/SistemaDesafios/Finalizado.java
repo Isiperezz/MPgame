@@ -21,8 +21,8 @@ public class Finalizado implements EstadoDesafio {
         perdedor.getPersonaje().setOro(perdedor.getPersonaje().getOro() - desafio.getOroApostado());
         ranking.add(perdedor);
         ranking.add(ganador);
-        System.out.println("El desafío ha terminado el ganador "+ ganador.getUserName()+ " ha ganado "+desafio.getOroApostado());
-        System.out.println("El jugador "+ perdedor.getUserName() + " ha perdido "+desafio.getOroApostado());
+        System.out.println("El desafío ha terminado el ganador "+ ganador.getUserName()+ " ha ganado "+desafio.getOroApostado()+ " monedas de oro");
+        System.out.println("El jugador "+ perdedor.getUserName() + " ha perdido "+desafio.getOroApostado()+ " monedas de oro");
     }
 
 }

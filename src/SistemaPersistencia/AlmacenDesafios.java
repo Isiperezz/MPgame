@@ -26,8 +26,14 @@ public class AlmacenDesafios {
 
     public List<Desafio> getTodosDesafios() {
         List<Desafio> arrDesafios = new ArrayList<>();
+        Set<Desafio> setDesafios = new HashSet<>();
         for (Jugador jugador : desafios.keySet()){
-            arrDesafios.addAll(desafios.get(jugador));
+            for (Desafio desafio : desafios.get(jugador)){
+                if (!setDesafios.contains(desafio)){
+                    setDesafios.add(desafio);
+                    arrDesafios.add(desafio);
+                }
+            }
         }
         return arrDesafios;
     }
@@ -40,14 +46,17 @@ public class AlmacenDesafios {
         this.desafios = desafios;
     }
 
+
     /**
      * @return
      */
     public List<Desafio> getTodosDesafíosPendientes() {
         List<Desafio> arrDesafios = new ArrayList<>();
+        Set<Desafio> setDesafios = new HashSet<>();
         for (Jugador jugador : desafios.keySet()){
             for (Desafio desafio : desafios.get(jugador)){
-                if (desafio.getEstado() instanceof PendienteValidacion){
+                if (desafio.getEstado() instanceof PendienteValidacion && !setDesafios.contains(desafio)){
+                    setDesafios.add(desafio);
                     arrDesafios.add(desafio);
                 }
             }

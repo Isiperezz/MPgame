@@ -67,4 +67,9 @@ public class Arma implements Equipamiento {
         return newArma;
     }
 
+    @Override
+    public int hashCode() {
+        return 983*this.nombreArma.hashCode();
+    }
+
 }

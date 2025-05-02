@@ -1,10 +1,14 @@
 package Herramientas;
 
-public abstract class Usuario {
+public abstract class Usuario implements Comparable {
     protected String userName;
     protected String password;
 
+
     protected HerramientasRol herramientas;
+
+    @Override
+    public abstract int compareTo(Object o);
 
     public String getUserName() {
         return this.userName;

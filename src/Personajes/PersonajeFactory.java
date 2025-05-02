@@ -80,7 +80,7 @@ public abstract class PersonajeFactory {
                 equipPicked.add(idArmadura);
                 armadurasPersonaje.put(idArmadura, (Armadura) armadura);
                 if (i == 0) {
-                    personaje.getEquipo().setArmaduraActiva(idArmadura);
+                    personaje.getEquipo().setNombreArmaduraActiva(idArmadura);
                     System.out.println("Ha seleccionado su armadura activa");
                 } else  {
                     System.out.println("Ha seleccionado su armadura secundaria");
@@ -104,7 +104,7 @@ public abstract class PersonajeFactory {
                 equipPicked.add(idArma);
                 armasPersonaje.put(idArma, (Arma) arma);
                 if (i == 0) {
-                    personaje.getEquipo().setArmaActiva(idArma);
+                    personaje.getEquipo().setNombreArmaActiva(idArma);
                     System.out.println("Ha seleccionado su arma activa");
                 }
                 else {

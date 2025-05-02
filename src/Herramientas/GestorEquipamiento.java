@@ -39,7 +39,7 @@ public class GestorEquipamiento {
             System.out.println("No dispones del arma "+nombre);
             return;
         }
-        this.personaje.getEquipo().setArmaActiva(nombre);
+        this.personaje.getEquipo().setNombreArmaActiva(nombre);
     }
 
 
@@ -56,7 +56,7 @@ public class GestorEquipamiento {
             System.out.println("No dispones de la armadura "+nombre);
             return;
         }
-        this.personaje.getEquipo().setArmaduraActiva(nombre);
+        this.personaje.getEquipo().setNombreArmaduraActiva(nombre);
     }
 
 }

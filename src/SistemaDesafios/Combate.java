@@ -59,7 +59,7 @@ public class Combate {
     public void empezarCombate() {
 
         Personaje personajeDesafiante = desafiante.getPersonaje();
-        Personaje personajeDesafiado = ganador.getPersonaje();
+        Personaje personajeDesafiado = desafiado.getPersonaje();
         inicializarRabiaSiLicantropo(personajeDesafiante);
         inicializarRabiaSiLicantropo(personajeDesafiado);
         int vidaTotalDesafiante = personajeDesafiante.getSalud() + personajeDesafiante.getEsbirros().getSaludTotal();
@@ -90,9 +90,7 @@ public class Combate {
             }
 
 
-            if (vidaTotalDesafiante <= 0 && vidaTotalDesafiado <= 0) {
-                this.esEmpate = true; // Empate
-            } else if (vidaTotalDesafiante <= 0) {
+            if (vidaTotalDesafiante <= 0) {
                 this.ganador = desafiado;
                 this.perdedor = desafiante;
             } else if (vidaTotalDesafiado <= 0) {
@@ -143,8 +141,8 @@ public class Combate {
         int poderBase = personaje.getPoder();
         // Se obtiene el poder de ataque o defensa del arma y armadura activa
         int poderEquipos = esAtaque ?
-                personaje.getArmaActiva().getModificadorAtaque() + personaje.getArmaduraActiva().getModificadorAtaque():
-                personaje.getArmaActiva().getModificadorDefensa() + personaje.getArmaduraActiva().getModificadorDefensa();
+                personaje.getEquipo().getArmaActiva().getModificadorAtaque() + personaje.getEquipo().getArmaduraActiva().getModificadorAtaque():
+                personaje.getEquipo().getArmaActiva().getModificadorDefensa() + personaje.getEquipo().getArmaduraActiva().getModificadorDefensa();
 
         int poderTotal = poderBase + poderEquipos;
 
@@ -200,6 +198,24 @@ public class Combate {
         builder.append("Perdedor: "+this.perdedor.getUserName()+"\n");
         builder.append("Número de rondas: "+this.numRondas);
         return builder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == null)
+            return false;
+        else if (o instanceof Combate){
+            if (o == this)
+                return true;
+            else
+                return this.ganador.equals(((Combate)o).getGanador()) && this.numRondas == ((Combate) o).getNumRondas();
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return this.ganador.hashCode() + (this.numRondas*983);
     }
 }
 

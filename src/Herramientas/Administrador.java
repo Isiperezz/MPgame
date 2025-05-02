@@ -11,5 +11,10 @@ public class Administrador extends Usuario {
 
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
 
 }

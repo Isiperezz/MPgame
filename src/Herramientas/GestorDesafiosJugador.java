@@ -9,7 +9,6 @@ import java.util.List;
 
 public class GestorDesafiosJugador {
     private List<Desafio> desafios;
-    private boolean desafioPendiente;
     private Jugador jugador;
 
 
@@ -17,18 +16,10 @@ public class GestorDesafiosJugador {
         this.jugador = jugador;
         this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
 
-        this.desafioPendiente = false;
-
         if (this.desafios == null){
             PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().addJugador(jugador);
             this.desafios = PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(jugador);
             return;
-        }
-        int i = 0;
-        while (!this.desafioPendiente && i < this.desafios.size()) {
-            if (desafios.get(i).getEstado() instanceof PendienteAceptacion)
-                this.desafioPendiente = true;
-            i++;
         }
     }
 
@@ -40,14 +31,6 @@ public class GestorDesafiosJugador {
 
     public void setDesafios(List<Desafio> desafios) {
         this.desafios = desafios;
-    }
-
-    public boolean isDesafioPendiente() {
-        return desafioPendiente;
-    }
-
-    public void setDesafioPendiente(boolean desafioPendiente) {
-        this.desafioPendiente = desafioPendiente;
     }
 
     public Jugador getJugador() {
@@ -66,7 +49,7 @@ public class GestorDesafiosJugador {
 
     public void aceptarDesafio(int desafioIndex) {
         Desafio desafio = desafios.get(desafioIndex);
-        if (this.desafioPendiente && desafio.getEstado() instanceof PendienteAceptacion){
+        if (desafio.getEstado() instanceof PendienteAceptacion){
             desafio.avanzarEstado();
         }
 

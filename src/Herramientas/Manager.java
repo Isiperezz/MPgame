@@ -69,11 +69,12 @@ public class Manager {
     }
 
     private void desafiosJugador(GestorDesafiosJugador g){
+        System.out.println("Arma activa: "+((Jugador)usuarioActual).getPersonaje().getEquipo().getArmaActiva().getNombreArma());
         System.out.println("1.Aceptar un desafío\n2.Desafiar a un jugador");
         int subopcion = this.readOption(1, 2);
         switch (subopcion) {
             case 1:
-                if (g.isDesafioPendiente()) {
+                if (!g.getDesafios().isEmpty()) {
                     System.out.println("Desafíos pendientes de aceptación:");
                     g.mostrarDesafiosPendientes();
                     System.out.println("Introduce el índice del desafío:");

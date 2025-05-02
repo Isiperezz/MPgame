@@ -102,4 +102,28 @@ public class Desafio {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        else if (obj instanceof Desafio){
+            if (obj == this)
+                return true;
+            else {
+                if (this.combate == null)
+                    return ((Desafio) obj).getDesafiante().equals(this.desafiante) && this.getDesafiado().equals(((Desafio) obj).getDesafiado());
+                else
+                    return ((Desafio) obj).getDesafiante().equals(this.desafiante) && this.getDesafiado().equals(((Desafio) obj).getDesafiado()) && this.combate.equals(((Desafio) obj).getCombate());
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        if (this.combate == null)
+            return this.desafiante.hashCode() + this.desafiado.hashCode();
+        else
+            return this.desafiante.hashCode() + this.desafiado.hashCode() + this.combate.hashCode();
+    }
 }

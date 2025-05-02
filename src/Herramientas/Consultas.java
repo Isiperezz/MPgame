@@ -35,6 +35,7 @@ public class Consultas {
 
     public void consultarDesafiosPasados(Jugador j){
         List<Desafio> l = PersistenciaManager.getInstance().getPersistencia().getUsersData().getAlmacenDesafios().getDesafiosJugador(j);
+        System.out.println(l);
         for (Desafio d : l){
             if (d.getEstado() instanceof Finalizado){
                 System.out.println(d.toString());
