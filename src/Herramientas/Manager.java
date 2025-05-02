@@ -158,7 +158,16 @@ public class Manager {
                     }
                     break;
                 case 4:
-
+                    System.out.println("1. Crear arma\n 2. Crear armadura");
+                    int subopt = this.readOption(1,2);
+                    switch (subopt) {
+                        case 1:
+                            herrAdmin.crearArma();
+                            break;
+                        case 2:
+                            herrAdmin.crearArmadura();
+                            break;
+                    }
                     break;
                 case 5:
                     return;

@@ -1,6 +1,9 @@
 package Herramientas;
 
+import Personajes.Arma;
+import Personajes.Armadura;
 import SistemaPersistencia.PersistenciaManager;
+import SistemaPersistencia.RegistroEquipamiento;
 
 import java.util.*;
 
@@ -28,11 +31,65 @@ public class HerramientasDeAdministrador extends HerramientasRol {
     }
 
     public void crearArmadura() {
-        // TODO implement here
+        Scanner sc = new Scanner(System.in);
+        int modificadorAtaque;
+        int modificadorDefensa;
+        System.out.print("Introduce el nombre de la armadura: ");
+        String nombreArmadura = sc.nextLine();
+        do {
+            System.out.print("Introduce el modificador de ataque (1-3): ");
+            try {
+                modificadorAtaque = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                modificadorAtaque = -1;
+            }
+        } while (modificadorAtaque < 1 || modificadorAtaque > 3);
+        do {
+            System.out.print("Introduce el modificador de defensa (1-3): ");
+            try {
+                modificadorDefensa = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                modificadorDefensa = -1;
+            }
+        } while (modificadorDefensa < 1 || modificadorDefensa > 3);
+        Armadura nuevaArmadura = new Armadura(nombreArmadura,modificadorAtaque,modificadorDefensa);
+        PersistenciaManager p = PersistenciaManager.getInstance();
+        RegistroEquipamiento equipamiento = p.getPersistencia().getGameData().getEquipamiento();
+        equipamiento.addEquipment(nombreArmadura,nuevaArmadura);
     }
 
     public void crearArma() {
-        // TODO implement here
+        Scanner sc = new Scanner(System.in);
+        int modificadorAtaque;
+        int modificadorDefensa;
+        String input;
+        System.out.print("Introduce el nombre del arma: ");
+        String nombreArma = sc.nextLine();
+        do {
+            System.out.print("¿Es un arma de dos manos? (true/false): ");
+            input = sc.nextLine().toLowerCase();    //por si pone alguna letra en mayusculas
+        } while (!input.equals("true") && !input.equals("false"));
+        boolean dosManos = Boolean.parseBoolean(input);
+        do {
+            System.out.print("Introduce el modificador de ataque (1-3): ");
+            try {
+                modificadorAtaque = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                modificadorAtaque = -1;
+            }
+        } while (modificadorAtaque < 1 || modificadorAtaque > 3);
+        do {
+            System.out.print("Introduce el modificador de defensa (1-3): ");
+            try {
+                modificadorDefensa = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                modificadorDefensa = -1;
+            }
+        } while (modificadorDefensa < 1 || modificadorDefensa > 3);
+        Arma nuevaArma = new Arma(nombreArma,dosManos,modificadorAtaque,modificadorDefensa);
+        PersistenciaManager p = PersistenciaManager.getInstance();
+        RegistroEquipamiento equipamiento = p.getPersistencia().getGameData().getEquipamiento();
+        equipamiento.addEquipment(nombreArma,nuevaArma);
     }
 
     public GestorDesafiosAdmin getDesafios() {
