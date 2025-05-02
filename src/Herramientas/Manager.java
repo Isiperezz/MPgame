@@ -47,10 +47,11 @@ public class Manager {
     }
 
     private void runJugador() {
+        HerramientasDeJugador herrJug = (HerramientasDeJugador) this.usuarioActual.getHerramientas();
+        herrJug.getDesafios().setDesafios(PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(this.usuarioActual.getUserName()));
         int opcion = -1;
         do {
             this.usuarioActual.getHerramientas().show();
-            HerramientasDeJugador herrJug = (HerramientasDeJugador) this.usuarioActual.getHerramientas();
             opcion = this.readOption(1,4);
             switch (opcion) {
                 case 1:
@@ -74,7 +75,7 @@ public class Manager {
         int subopcion = this.readOption(1, 2);
         switch (subopcion) {
             case 1:
-                if (!g.getDesafios().isEmpty()) {
+                if (g.hasDesafiosPendientes()) {
                     System.out.println("Desafíos pendientes de aceptación:");
                     g.mostrarDesafiosPendientes();
                     System.out.println("Introduce el índice del desafío:");
@@ -102,7 +103,7 @@ public class Manager {
 
     private void consultar(Consultas c){
         System.out.println("1.Consultar ranking de jugadores\n2.Ver todos los jugadores\n3.Ver desafíos antiguos");
-        int opcion = this.readOption(1, 2);
+        int opcion = this.readOption(1, 3);
         switch (opcion) {
             case 1:
                 c.consultarRanking();
@@ -159,7 +160,7 @@ public class Manager {
                     }
                     break;
                 case 4:
-                    System.out.println("1. Crear arma\n 2. Crear armadura");
+                    System.out.println("1. Crear arma\n2. Crear armadura");
                     int subopt = this.readOption(1,2);
                     switch (subopt) {
                         case 1:
@@ -180,18 +181,19 @@ public class Manager {
 
     private int readOption(int min,int max) {
         Scanner sc = new Scanner(System.in);
-        boolean correct;
+        boolean correct = false;
         int opcion = -1;
 
         do {
             try {
                 opcion = sc.nextInt();
-                correct = true;
+                if (opcion >= min && opcion <= max)
+                    correct = true;
             } catch (Exception e) {
-                correct = false;
                 System.out.println("Opción no valida");
+                sc.nextLine();
             }
-        } while (!correct || opcion < min || opcion > max);
+        } while (!correct);
 
         return opcion;
     }

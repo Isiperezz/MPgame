@@ -2,6 +2,8 @@ package Herramientas;
 
 import Personajes.Personaje;
 
+import java.util.Objects;
+
 public class Jugador extends Usuario {
     private Personaje personaje;
     private boolean block;
@@ -35,20 +37,16 @@ public class Jugador extends Usuario {
 
     @Override
     public boolean equals(Object o){
-        if (o == null)
-            return false;
-        else if (o instanceof Jugador){
-            if (o == this)
-                return true;
-            else
-                return ((Jugador) o).getUserName().equals(this.getUserName()) && ((Jugador) o).getPassword().equals(this.getPassword());
-        }
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return Objects.equals(userName, jugador.userName) &&
+                Objects.equals(password, jugador.password);
     }
 
     @Override
     public int hashCode() {
-        return this.userName.hashCode() + this.password.hashCode();
+        return Objects.hash(userName, password);
     }
 
     @Override

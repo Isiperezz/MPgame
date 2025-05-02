@@ -10,13 +10,13 @@ import java.util.*;
 
 public class AlmacenDesafios {
 
-    private Map <Jugador, List <Desafio>> desafios;
+    private Map <String, Set <Desafio>> desafios;
 
-    public void addJugador(Jugador clave) {
-        this.desafios.put(clave, new ArrayList<Desafio>());
+    public void addJugador(String clave) {
+        this.desafios.put(clave, new HashSet<>());
     }
 
-    public Map<Jugador, List<Desafio>> getDesafios() {
+    public Map<String, Set<Desafio>> getDesafios() {
         return desafios;
     }
 
@@ -25,9 +25,9 @@ public class AlmacenDesafios {
     }
 
     public List<Desafio> getTodosDesafios() {
-        List<Desafio> arrDesafios = new ArrayList<>();
+        List<Desafio> arrDesafios = new LinkedList<>();
         Set<Desafio> setDesafios = new HashSet<>();
-        for (Jugador jugador : desafios.keySet()){
+        for (String jugador : desafios.keySet()){
             for (Desafio desafio : desafios.get(jugador)){
                 if (!setDesafios.contains(desafio)){
                     setDesafios.add(desafio);
@@ -38,22 +38,28 @@ public class AlmacenDesafios {
         return arrDesafios;
     }
 
-    public List<Desafio> getDesafiosJugador(Jugador clave) {
-        return desafios.get(clave);
+    public List<Desafio> getDesafiosJugador(String clave) {
+        LinkedList<Desafio> arrDesafios = new LinkedList<>();
+        if (this.desafios.get(clave) == null){
+            return null;
+        }
+        for (Desafio desafio : this.desafios.get(clave)){
+            arrDesafios.add(desafio);
+        };
+        return arrDesafios;
+
     }
 
-    public void setDesafios(Map<Jugador, List<Desafio>> desafios) {
+    public void setDesafios(Map<String, Set<Desafio>> desafios) {
         this.desafios = desafios;
     }
 
 
-    /**
-     * @return
-     */
+
     public List<Desafio> getTodosDesafíosPendientes() {
-        List<Desafio> arrDesafios = new ArrayList<>();
+        List<Desafio> arrDesafios = new LinkedList<>();
         Set<Desafio> setDesafios = new HashSet<>();
-        for (Jugador jugador : desafios.keySet()){
+        for (String jugador : desafios.keySet()){
             for (Desafio desafio : desafios.get(jugador)){
                 if (desafio.getEstado() instanceof PendienteValidacion && !setDesafios.contains(desafio)){
                     setDesafios.add(desafio);
@@ -64,11 +70,12 @@ public class AlmacenDesafios {
         return arrDesafios;
     }
 
-    public List<Desafio> getDesafiosPendientesJugador(Jugador clave) {
-        List<Desafio> arrDesafiosPendientes = new ArrayList<>();
-
+    public List<Desafio> getDesafiosPendientesJugador(String clave) {
+        List<Desafio> arrDesafiosPendientes = new LinkedList<>();
+        Set<Desafio> setDesafios = new HashSet<>();
         for (Desafio desafio : desafios.get(clave)){
-            if (desafio.getEstado() instanceof PendienteAceptacion){
+            if (desafio.getEstado() instanceof PendienteAceptacion && !setDesafios.contains(desafio)){
+                setDesafios.add(desafio);
                 arrDesafiosPendientes.add(desafio);
             }
         }
@@ -76,7 +83,7 @@ public class AlmacenDesafios {
     }
 
 
-    public void aniadirDesafio(Jugador clave, Desafio desafio) {
+    public void aniadirDesafio(String clave, Desafio desafio) {
         desafios.get(clave).add(desafio);
     }
 
