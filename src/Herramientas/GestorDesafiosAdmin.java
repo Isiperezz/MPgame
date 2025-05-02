@@ -45,4 +45,8 @@ public class GestorDesafiosAdmin {
         }
     }
 
+    public int lenPendientesValidacion() {
+        return desafiosPendientesValidacion.size();
+    }
+
 }

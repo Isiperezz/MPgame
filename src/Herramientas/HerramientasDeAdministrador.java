@@ -51,6 +51,6 @@ public class HerramientasDeAdministrador extends HerramientasRol {
 
     @Override
     public void show() {
-        System.out.println("1.Gestionar Desafíosz\n2.Editar personajes\n3.Bloquear Usuario\n4.Crear Equipamiento");
+        System.out.println("1.Gestionar Desafíos\n2.Editar personajes\n3.Bloquear Usuario\n4.Crear Equipamiento");
     }
 }
