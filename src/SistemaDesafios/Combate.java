@@ -140,8 +140,8 @@ public class Combate {
 
     }
 
-    private static void limpiarConsola() {
-        System.out.print("\n".repeat(50));
+    private void limpiarConsola() {
+        System.out.print("\n".repeat(30));
     }
 
 

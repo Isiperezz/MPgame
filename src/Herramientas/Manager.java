@@ -5,6 +5,8 @@ import SistemaPersistencia.PersistenciaManager;
 
 import java.util.*;
 
+
+
 public class Manager {
     private Usuario usuarioActual;
 
@@ -22,9 +24,9 @@ public class Manager {
             Scanner sc = new Scanner(System.in);
             switch (opcion) {
                 case 1:
-                        System.out.println("Si has entrado por error y querias registarte pulse 1 para volver al menu si no pulse otro numero");
+                        System.out.println("Si has entrado por error y querias registarte pulse 1 para volver al menu si no pulse otra tecla");
                         String numero = sc.nextLine();
-                        if (Integer.parseInt(numero) == 1) {
+                        if (numero.equals("1")) {
                             System.out.println("Volviendo al menu");
                             break;
                         }
@@ -43,6 +45,12 @@ public class Manager {
                         }
                     break;
                 case 2:
+                    System.out.println("Si has entrado por error y querias registarte pulse 1 para volver al menu si no pulse otra tecla");
+                    String validar = sc.nextLine();
+                    if (validar.equals("1")) {
+                        System.out.println("Volviendo al menu");
+                        break;
+                    }
                     equivocado = false;
                     user = p.getPersistencia().getUsersData().getLogin().registrarJugador();
                     break;
