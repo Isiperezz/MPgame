@@ -12,8 +12,14 @@ public class Combate {
     private Jugador perdedor;
     private boolean esEmpate;
     private int numRondas;
+    private String combatLog;
 
-
+    public String getCombatLog() {
+        return combatLog;
+    }
+    public void setCombatLog(String combateLog) {
+        this.combatLog = combateLog;
+    }
     public Jugador getDesafiante() {
         return desafiante;
     }
@@ -57,7 +63,8 @@ public class Combate {
     }
     //Logica de vampiros mirar y comprobar que no haya nada raro o falte
     public void empezarCombate() {
-
+        limpiarConsola();
+        StringBuilder combateLog = new StringBuilder();
         Personaje personajeDesafiante = desafiante.getPersonaje();
         Personaje personajeDesafiado = desafiado.getPersonaje();
         inicializarRabiaSiLicantropo(personajeDesafiante);
@@ -65,9 +72,22 @@ public class Combate {
         int vidaTotalDesafiante = personajeDesafiante.getSalud() + personajeDesafiante.getEsbirros().getSaludTotal();
         int vidaTotalDesafiado = personajeDesafiado.getSalud() + personajeDesafiado.getEsbirros().getSaludTotal();
         Random random = new Random();
+        String inicioCombate = "Comienza el combate entre " + desafiante.getUserName() + " y " + desafiado.getUserName() + "\n";
+        System.out.println(inicioCombate);
+        combateLog.append(inicioCombate);
+        String vidaInicial= "Vida total de " + desafiante.getUserName() + ": " + vidaTotalDesafiante + "\n" +
+                "Vida total de " + desafiado.getUserName() + ": " + vidaTotalDesafiado + "\n";
+
+        System.out.println(vidaInicial);
+        combateLog.append(vidaInicial);
+        System.out.println("\n"+"\n");
 
         while (vidaTotalDesafiante!= 0 && vidaTotalDesafiado!=0) {
             this.numRondas++;
+            String ronda = "Ronda: " + this.numRondas + "\n";
+            System.out.println(ronda);
+            combateLog.append(ronda);
+
             int potencialAtaqueDesafiante = calcularPotencial(personajeDesafiante,true);
             int potencialAtaqueDesafiado = calcularPotencial(personajeDesafiado,true);
             int potencialDefensaDesafiante = calcularPotencial(personajeDesafiante,false);
@@ -78,29 +98,52 @@ public class Combate {
             int valorAtaqueDesafiado = calcularExito(potencialAtaqueDesafiado,random);
             int valorDefensaDesafiado = calcularExito(potencialDefensaDesafiado,random);
 
+
             if (valorAtaqueDesafiante >= valorDefensaDesafiado) {
                 vidaTotalDesafiado -= 1;
+                String ataqueDesafiante = "Ataque de " + desafiante.getUserName() + " a " + desafiado.getUserName() + " y le quita 1 de vida\n";
+                System.out.println(ataqueDesafiante);
+                combateLog.append(ataqueDesafiante);
+
                 aumentarRabiaSiEsLicantropo(personajeDesafiado);
                 disminuirTalentoSiEsCazador(personajeDesafiado);
             }
+
             if (valorAtaqueDesafiado >= valorDefensaDesafiante) {
                 vidaTotalDesafiante -= 1;
+                String ataqueDesafiado = "Ataque de " + desafiado.getUserName() + " a " + desafiante.getUserName() + " y le quita 1 de vida\n";
+                System.out.println(ataqueDesafiado);
+                combateLog.append(ataqueDesafiado);
                 aumentarRabiaSiEsLicantropo(personajeDesafiante);
                 disminuirTalentoSiEsCazador(personajeDesafiante);
             }
 
 
-            if (vidaTotalDesafiante <= 0) {
-                this.ganador = desafiado;
-                this.perdedor = desafiante;
-            } else if (vidaTotalDesafiado <= 0) {
-                this.ganador = desafiante;
-                this.perdedor = desafiado;
-            }
         }
+        if (vidaTotalDesafiante <= 0) {
+            this.ganador = desafiado;
+            this.perdedor = desafiante;
+            String desafianteMuerto = "Has perdido el combate " + desafiante.getUserName() + "tu personaje ha muerto\n";
+            combateLog.append(desafianteMuerto);
+        } else if (vidaTotalDesafiado <= 0) {
+            this.ganador = desafiante;
+            this.perdedor = desafiado;
+            String desafienteGana = "Has ganado el combate " + desafiante.getUserName() + "\n";
+            combateLog.append(desafienteGana);
+        }
+        String finalvida = "Vida final de " + desafiante.getUserName() + ": " + vidaTotalDesafiante + "\n" +
+                "Vida final de " + desafiado.getUserName() + ": " + vidaTotalDesafiado + "\n";
+        System.out.println(finalvida);
+        combateLog.append(finalvida);
 
+        setCombatLog(combateLog.toString());
 
     }
+
+    private static void limpiarConsola() {
+        System.out.print("\n".repeat(50));
+    }
+
 
     private static void inicializarRabiaSiLicantropo(Personaje personaje) {
         if (personaje instanceof Licantropo ) {

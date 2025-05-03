@@ -14,26 +14,43 @@ public class Manager {
 
     public void start() {
         PersistenciaManager p = PersistenciaManager.getInstance();
-        System.out.println("1. Iniciar Sesion\n2. Registrarse");
-        int opcion = this.readOption(1, 2);
-        Scanner sc = new Scanner(System.in);
-        Usuario user;
-        switch (opcion) {
-            case 1:
-                do {
-                    System.out.println("Ingrese su nombre de usuario");
-                    String nombre = sc.nextLine();
-                    System.out.println("Ingrese su contraseña");
-                    String pass = sc.nextLine();
-                    user = p.getPersistencia().getUsersData().getLogin().iniciarSesion(nombre, pass);
-                } while (user == null);
-                break;
-            case 2:
-                user = p.getPersistencia().getUsersData().getLogin().registrarJugador();
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + opcion);
+        boolean equivocado = true;
+        Usuario user = null;
+        while(equivocado) {
+            System.out.println("1. Iniciar Sesion\n2. Registrarse");
+            int opcion = this.readOption(1, 2);
+            Scanner sc = new Scanner(System.in);
+            switch (opcion) {
+                case 1:
+                        System.out.println("Si has entrado por error y querias registarte pulse 1 para volver al menu si no pulse otro numero");
+                        String numero = sc.nextLine();
+                        if (Integer.parseInt(numero) == 1) {
+                            System.out.println("Volviendo al menu");
+                            break;
+                        }
+                        else {
+                            do {
+                                System.out.println("Ingrese su nombre de usuario");
+                                String nombre = sc.nextLine();
+                                System.out.println("Ingrese su contraseña");
+                                String pass = sc.nextLine();
+                                user = p.getPersistencia().getUsersData().getLogin().iniciarSesion(nombre, pass);
+                                if(user == null) {
+                                    System.out.println("Usuario o contraseña incorrectos");
+                                }
+                                equivocado = false;
+                            } while (user == null);
+                        }
+                    break;
+                case 2:
+                    equivocado = false;
+                    user = p.getPersistencia().getUsersData().getLogin().registrarJugador();
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + opcion);
+            }
         }
+
         this.usuarioActual = user;
         if (this.usuarioActual instanceof Jugador) {
             if (((Jugador) this.usuarioActual).isBlock()){
@@ -49,24 +66,44 @@ public class Manager {
     private void runJugador() {
         HerramientasDeJugador herrJug = (HerramientasDeJugador) this.usuarioActual.getHerramientas();
         herrJug.getDesafios().setDesafios(PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(this.usuarioActual.getUserName()));
-        int opcion = -1;
-        do {
-            this.usuarioActual.getHerramientas().show();
-            opcion = this.readOption(1,4);
-            switch (opcion) {
-                case 1:
-                    this.desafiosJugador(herrJug.getDesafios());
-                    break;
-                case 2:
-                    this.eleccionDeEquipamiento(herrJug.getGestorEquipamiento());
-                    break;
-                case 3:
-                    this.consultar(herrJug.getConsultas());
-                    break;
-                case 4:
-                    return;
+        GestorDesafiosJugador gestor = herrJug.getDesafios();
+        System.out.println("Bienvenido "+this.usuarioActual.getUserName());
+        if (gestor.hasDesafiosPendientes()){
+            System.out.println("Tienes desafíos pendientes de aceptación");
+            gestor.mostrarDesafiosPendientes();
+            System.out.println("Aceptas o Rechazas:");
+            System.out.println("1. Aceptar\n2. Rechazar");
+            int subopcion = this.readOption(1, 2);
+            if (subopcion == 1) {
+                //Logica de Aceptacion
+            } else {
+                System.out.println("Desafío rechazado");
+                //Logica de Rechazo
             }
-        } while(opcion != 4);
+
+
+        } else {
+            System.out.println("No tienes desafíos pendientes");
+
+            int opcion = -1;
+            do {
+                this.usuarioActual.getHerramientas().show();
+                opcion = this.readOption(1, 4);
+                switch (opcion) {
+                    case 1:
+                        this.desafiosJugador(herrJug.getDesafios());
+                        break;
+                    case 2:
+                        this.eleccionDeEquipamiento(herrJug.getGestorEquipamiento());
+                        break;
+                    case 3:
+                        this.consultar(herrJug.getConsultas());
+                        break;
+                    case 4:
+                        return;
+                }
+            } while (opcion != 4);
+        }
     }
 
     private void desafiosJugador(GestorDesafiosJugador g){
@@ -76,16 +113,13 @@ public class Manager {
         switch (subopcion) {
             case 1:
                 if (g.hasDesafiosPendientes()) {
-                    System.out.println("Desafíos pendientes de aceptación:");
-                    g.mostrarDesafiosPendientes();
-                    System.out.println("Introduce el índice del desafío:");
-                    int desafioIndex = this.readOption(0, g.getNumDesafios());
-                    g.aceptarDesafio(desafioIndex);
+                    aceptarDesafioPendiente(g);
                 } else {
                     System.out.println("No hay desafíos pendientes");
                 }
                 break;
             case 2:
+                PersistenciaManager.getInstance().getPersistencia().getUsersData().mostrarJugadores();
                 System.out.println("Introduce el nombre de un jugador:");
                 Scanner sc = new Scanner(System.in);
                 String nombre = sc.nextLine();
@@ -94,11 +128,20 @@ public class Manager {
                     System.out.println("El jugador "+nombre+" no existe");
 
                 } else {
+                    System.out.println("CANTIDAD ORO DISPONIBLE "+desafiado.getPersonaje().getOro()+"\n");
                     System.out.println("Introduzca el oro a apostar");
                     int oro = this.readOption(1, Math.max(((Jugador)this.usuarioActual).getPersonaje().getOro(), desafiado.getPersonaje().getOro()));
                     g.desafiarJugador(desafiado, oro);
                 }
         }
+    }
+
+    private void aceptarDesafioPendiente(GestorDesafiosJugador g) {
+        System.out.println("Desafíos pendientes de aceptación:");
+        g.mostrarDesafiosPendientes();
+        System.out.println("Introduce el índice del desafío:");
+        int desafioIndex = this.readOption(0, g.getNumDesafios());
+        g.aceptarDesafio(desafioIndex);
     }
 
     private void consultar(Consultas c){

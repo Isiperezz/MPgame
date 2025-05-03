@@ -101,6 +101,7 @@ public class HerramientasDeAdministrador extends HerramientasRol {
 
     public void bloquearJugador(){
         Scanner sc = new Scanner(System.in);
+        PersistenciaManager.getInstance().getPersistencia().getUsersData().mostrarJugadores();
         System.out.println("Ingrese el nombre de usuario a bloquear");
         String nick = sc.nextLine();
         Usuario user = PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(nick);
