@@ -66,44 +66,34 @@ public class Manager {
     private void runJugador() {
         HerramientasDeJugador herrJug = (HerramientasDeJugador) this.usuarioActual.getHerramientas();
         herrJug.getDesafios().setDesafios(PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().getDesafiosJugador(this.usuarioActual.getUserName()));
-        GestorDesafiosJugador gestor = herrJug.getDesafios();
         System.out.println("Bienvenido "+this.usuarioActual.getUserName());
-        if (gestor.hasDesafiosPendientes()){
+        if (herrJug.getDesafios().hasDesafiosPendientes()){
             System.out.println("Tienes desafíos pendientes de aceptación");
-            gestor.mostrarDesafiosPendientes();
-            System.out.println("Aceptas o Rechazas:");
-            System.out.println("1. Aceptar\n2. Rechazar");
-            int subopcion = this.readOption(1, 2);
-            if (subopcion == 1) {
-                //Logica de Aceptacion
-            } else {
-                System.out.println("Desafío rechazado");
-                //Logica de Rechazo
-            }
-
-
-        } else {
+            herrJug.getDesafios().mostrarDesafiosPendientes();
+        } else
             System.out.println("No tienes desafíos pendientes");
 
-            int opcion = -1;
-            do {
-                this.usuarioActual.getHerramientas().show();
-                opcion = this.readOption(1, 4);
-                switch (opcion) {
-                    case 1:
-                        this.desafiosJugador(herrJug.getDesafios());
-                        break;
-                    case 2:
-                        this.eleccionDeEquipamiento(herrJug.getGestorEquipamiento());
-                        break;
-                    case 3:
-                        this.consultar(herrJug.getConsultas());
-                        break;
-                    case 4:
-                        return;
-                }
-            } while (opcion != 4);
-        }
+        ((Jugador) this.usuarioActual).verNotificaciones();
+
+        int opcion = -1;
+        do {
+            this.usuarioActual.getHerramientas().show();
+            opcion = this.readOption(1, 4);
+            switch (opcion) {
+                case 1:
+                    this.desafiosJugador(herrJug.getDesafios());
+                    break;
+                case 2:
+                    this.eleccionDeEquipamiento(herrJug.getGestorEquipamiento());
+                    break;
+                case 3:
+                    this.consultar(herrJug.getConsultas());
+                    break;
+                case 4:
+                    return;
+            }
+        } while (opcion != 4);
+
     }
 
     private void desafiosJugador(GestorDesafiosJugador g){
@@ -128,7 +118,7 @@ public class Manager {
                     System.out.println("El jugador "+nombre+" no existe");
 
                 } else {
-                    System.out.println("CANTIDAD ORO DISPONIBLE "+desafiado.getPersonaje().getOro()+"\n");
+                    System.out.println("CANTIDAD ORO DISPONIBLE PARA APOSTAR: "+Math.min(desafiado.getPersonaje().getOro(), ((Jugador) this.usuarioActual).getPersonaje().getOro())+"\n");
                     System.out.println("Introduzca el oro a apostar");
                     int oro = this.readOption(1, Math.max(((Jugador)this.usuarioActual).getPersonaje().getOro(), desafiado.getPersonaje().getOro()));
                     g.desafiarJugador(desafiado, oro);
@@ -160,7 +150,7 @@ public class Manager {
         }
     }
 
-    public void eleccionDeEquipamiento(GestorEquipamiento g){
+    private void eleccionDeEquipamiento(GestorEquipamiento g){
         System.out.println("1.Elegir arma activa\n2.Elegir armadura activa");
         int subopcion = this.readOption(1, 2);
         switch (subopcion) {
@@ -222,7 +212,7 @@ public class Manager {
         } while(opcion != 5);
     }
 
-    private int readOption(int min,int max) {
+    public static int readOption(int min,int max) {
         Scanner sc = new Scanner(System.in);
         boolean correct = false;
         int opcion = -1;

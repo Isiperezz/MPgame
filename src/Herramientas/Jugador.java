@@ -2,11 +2,14 @@ package Herramientas;
 
 import Personajes.Personaje;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 public class Jugador extends Usuario {
     private Personaje personaje;
     private boolean block;
+    private List<String> notificaciones;
 
 
     public Jugador(String name, String pass) {
@@ -33,6 +36,29 @@ public class Jugador extends Usuario {
     public void setPersonaje(Personaje personaje) {
         this.personaje = personaje;
         ((HerramientasDeJugador) this.herramientas).getGestorEquipamiento().setPersonaje(personaje);
+    }
+
+    public List<String> getNotificaciones() {
+        return notificaciones;
+    }
+
+    public void setNotificaciones(List<String> notificaciones) {
+        this.notificaciones = notificaciones;
+    }
+
+    public void addNotificación(String n){
+        if (this.notificaciones == null)
+                this.notificaciones = new LinkedList<>();
+        this.notificaciones.add(n);
+    }
+
+    public void verNotificaciones(){
+        if (this.notificaciones == null)
+            return;
+        for (String s : this.notificaciones){
+            System.out.println(s);
+        }
+        this.notificaciones.clear();
     }
 
     @Override

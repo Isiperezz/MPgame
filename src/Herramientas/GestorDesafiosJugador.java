@@ -2,10 +2,12 @@ package Herramientas;
 
 import SistemaDesafios.Desafio;
 import SistemaDesafios.PendienteAceptacion;
+import SistemaDesafios.Rechazado;
 import SistemaPersistencia.PersistenciaManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class GestorDesafiosJugador {
     private List<Desafio> desafios;
@@ -61,6 +63,21 @@ public class GestorDesafiosJugador {
             System.out.println(i);
             if (desafio.getEstado() instanceof PendienteAceptacion && desafio.getDesafiante() != this.jugador){
                 System.out.println(desafio.toString());
+                System.out.println("Aceptas o Rechazas:\n");
+                System.out.println("1. Aceptar\n2. Rechazar");
+                int subopcion = Manager.readOption(1, 2);
+                if (subopcion == 1) {
+                    this.aceptarDesafio(i);
+                } else {
+                    System.out.println("Desafío rechazado");
+                    Integer oroPerdido = desafio.getOroApostado() * 10/100;
+                    System.out.println("Oro perdido: " + oroPerdido);
+                    desafio.setEstado(new Rechazado());
+                    PriorityQueue<Jugador> ranking = PersistenciaManager.getInstance().getPersistencia().getUsersData().getRanking();
+                    ranking.remove(this.jugador);
+                    this.jugador.getPersonaje().setOro(this.jugador.getPersonaje().getOro() - oroPerdido);
+                    ranking.add(this.jugador);
+                }
             }
             i++;
         }

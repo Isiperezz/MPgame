@@ -23,6 +23,7 @@ public class Finalizado implements EstadoDesafio {
         ranking.add(ganador);
         System.out.println("El desafío ha terminado el ganador "+ ganador.getUserName()+ " ha ganado "+desafio.getOroApostado()+ " monedas de oro");
         System.out.println("El jugador "+ perdedor.getUserName() + " ha perdido "+desafio.getOroApostado()+ " monedas de oro");
+        desafio.getDesafiante().addNotificación(desafio.getCombate().getCombatLog());
     }
 
 }

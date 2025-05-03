@@ -96,6 +96,8 @@ public class Desafio {
         desafioString.append("Oro: "+oro+"\n");
         if (this.combate == null)
             desafioString.append("Combate: Aún por realizar");
+        else if (this.getEstado() instanceof Rechazado)
+            desafioString.append("Combate: sin combate, se rechazó el desafío\n");
         else
             desafioString.append("Combate: "+this.combate.toString()+"\n");
         return desafioString.toString();
