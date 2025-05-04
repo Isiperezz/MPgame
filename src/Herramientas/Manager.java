@@ -265,11 +265,13 @@ public class Manager {
             tipo = sc.nextLine();
         } while (!PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonajes().keySet().contains(tipo));
         edPers.setTipo(tipo);
-        System.out.print("\nEditar personaje:\n1. Editar salud\n2. Editar Poder\n3. Editar Debilidad\n4. Editar Fortaleza\n5. Editar oro inicial\n6. Salir\n");
 
-        int subopcion = this.readOption(1, 6);
+        int subopcion;
         int nuevoValor;
         do {
+            System.out.print("\nEditar personaje:\n1. Editar salud\n2. Editar Poder\n3. Editar Debilidad\n4. Editar Fortaleza\n5. Editar oro inicial\n6. Salir\n");
+            subopcion = this.readOption(1, 6);
+
             switch (subopcion) {
                 case 1:
                     System.out.print("Nuevo valor de salud entre 1 y 5: ");
@@ -302,7 +304,6 @@ public class Manager {
                 default:
                     throw new IllegalStateException("Unexpected value: " + subopcion);
             }
-            subopcion = this.readOption(1, 6);
         } while (subopcion != 6);
     }
 
