@@ -117,8 +117,19 @@ public class Manager {
             case 2:
                 PersistenciaManager.getInstance().getPersistencia().getUsersData().mostrarJugadores();
                 System.out.println("Introduce el nombre de un jugador:");
-                Scanner sc = new Scanner(System.in);
-                String nombre = sc.nextLine();
+                String nombre;
+                boolean valid = false;
+                do {
+                    Scanner sc = new Scanner(System.in);
+                    nombre = sc.nextLine();
+                    valid = PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarios().keySet().contains(nombre);
+                    if (nombre.equals(this.usuarioActual.getUserName())){
+                        System.out.println("No puedes desafiarte a ti mismo!");
+                    } else if (!valid) {
+                        System.out.println("El jugador "+ nombre+" no existe");
+                    }
+                } while (nombre.equals(this.usuarioActual.getUserName()) || !valid);
+
                 Jugador desafiado = (Jugador)PersistenciaManager.getInstance().getPersistencia().getUsersData().getUsuarioByNick(nombre);
                 if (desafiado == null){
                     System.out.println("El jugador "+nombre+" no existe");
