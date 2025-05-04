@@ -17,13 +17,7 @@ public class LicantropoFactory extends PersonajeFactory {
         licantropo.setDon(don);
         licantropo.setFormaBipeda(false);
         System.out.println("Tu licantropo podra cambiar de forma aumentando su peso y altura");
-//        Fortaleza fortaleza = new Fortaleza();
-//        fortaleza.initialize("Furia Primigenia");
-//        licantropo.getFortalezas().add(fortaleza);
-//        Debilidad debilidad = new Debilidad();
-//        debilidad.initialize("Lazo Lunar");
-//        licantropo.getDebilidades().add(debilidad);
-//        System.out.println("El licantropo tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El licantropo tiene la debilidad: Lazo Lunar y la fortaleza: Furia Primigenia");
 
         return licantropo;
     }

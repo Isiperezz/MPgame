@@ -12,10 +12,9 @@ public class Debilidad {
 
     }
 
-    public void initialize(String nombre) {
-        Random random = new Random();
+    public void initialize(String nombre, int v) {
         this.nombreDebilidad= nombre;
-        this.sensibilidad = random.nextInt(5) + 1;
+        this.sensibilidad = v;
     }
 
     public String getNombreDebilidad() {

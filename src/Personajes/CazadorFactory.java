@@ -15,13 +15,7 @@ public class CazadorFactory extends PersonajeFactory {
         Talento talento = new Talento();
         talento.inicializate("Talento");
         cazador.setTalento(talento);
-//        Fortaleza fortaleza = new Fortaleza();
-//        fortaleza.initialize("Instinto Letal");
-//        cazador.getFortalezas().add(fortaleza);
-//        Debilidad debilidad = new Debilidad();
-//        debilidad.initialize("Fe Quebrada");
-//        cazador.getDebilidades().add(debilidad);
-//        System.out.println("El cazador tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El cazador tiene la debilidad: Fe Quebrada y la fortaleza: Instinto Letal");
         return cazador;
     }
 }

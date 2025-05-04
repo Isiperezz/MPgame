@@ -45,12 +45,6 @@ public class Manager {
                         }
                     break;
                 case 2:
-                    System.out.println("Si has entrado por error y querias registarte pulse 1 para volver al menu si no pulse otra tecla");
-                    String validar = sc.nextLine();
-                    if (validar.equals("1")) {
-                        System.out.println("Volviendo al menu");
-                        break;
-                    }
                     equivocado = false;
                     user = p.getPersistencia().getUsersData().getLogin().registrarJugador();
                     break;
@@ -271,23 +265,45 @@ public class Manager {
             tipo = sc.nextLine();
         } while (!PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonajes().keySet().contains(tipo));
         edPers.setTipo(tipo);
-        System.out.print("\nEditar personaje:\n1. Editar salud\n2. Salir\n");
+        System.out.print("\nEditar personaje:\n1. Editar salud\n2. Editar Poder\n3. Editar Debilidad\n4. Editar Fortaleza\n5. Editar oro inicial\n6. Salir\n");
 
-        int subopcion = this.readOption(1, 2);
+        int subopcion = this.readOption(1, 6);
+        int nuevoValor;
         do {
             switch (subopcion) {
                 case 1:
                     System.out.print("Nuevo valor de salud entre 1 y 5: ");
-                    int nuevoValor = this.readOption(1, 5);
+                    nuevoValor = this.readOption(1, 5);
                     edPers.editarSalud(nuevoValor);
                     break;
                 case 2:
+                    System.out.print("Nuevo valor de poder entre 1 y 5: ");
+                    nuevoValor = this.readOption(1, 5);
+                    edPers.editarPoder(nuevoValor);
+                    break;
+                case 3:
+                    System.out.println("Nuevo valor para sensibilidad de la debilidad entre 1 y 5");
+                    nuevoValor = this.readOption(1, 5);
+                    edPers.editarDebilidad(nuevoValor);
+                    break;
+                case 4:
+                    System.out.println("Nuevo valor para eficacia de la fortaleza entre 1 y 5");
+                    nuevoValor = this.readOption(1, 5);
+                    edPers.editarFortaleza(nuevoValor);
+                    break;
+                case 5:
+                    System.out.println("Nuevo valor para el oro inicial para los personajes del tipo: "+tipo);
+                    System.out.println("Valor máximo de 500");
+                    nuevoValor = this.readOption(1, 500);
+                    edPers.editarOroInicial(nuevoValor);
+                    break;
+                case 6:
                     return;
                 default:
                     throw new IllegalStateException("Unexpected value: " + subopcion);
             }
-            subopcion = this.readOption(1, 2);
-        } while (subopcion != 2);
+            subopcion = this.readOption(1, 6);
+        } while (subopcion != 6);
     }
 
 }

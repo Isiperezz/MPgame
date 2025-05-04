@@ -29,15 +29,15 @@ public class Modificadores {
         this.fortalezas = fortalezas;
     }
 
-    public void aniadirFortaleza(String nombre) {
+    public void aniadirFortaleza(String nombre, int value) {
         Fortaleza fortaleza= new Fortaleza();
-        fortaleza.initialize(nombre);
+        fortaleza.initialize(nombre, value);
         this.fortalezas.add(fortaleza);
     }
 
-    public void aniadirDebildad(String nombre) {
+    public void aniadirDebilidad(String nombre, int value) {
         Debilidad debilidad= new Debilidad();
-        debilidad.initialize(nombre);
+        debilidad.initialize(nombre, value);
         this.debilidades.add(debilidad);
     }
 

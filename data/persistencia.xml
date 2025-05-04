@@ -157,6 +157,44 @@
       <void method="put">
        <string>Licantropo</string>
        <object class="Personajes.Licantropo">
+        <void property="modificadores">
+         <object class="Personajes.Modificadores">
+          <void property="debilidades">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Debilidad">
+              <void property="nombreDebilidad">
+               <string>Lazo Lunar</string>
+              </void>
+              <void property="sensibilidad">
+               <int>3</int>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="fortalezas">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Fortaleza">
+              <void property="eficacia">
+               <int>3</int>
+              </void>
+              <void property="nombreFortaleza">
+               <string>Furia Primigenia</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+         </object>
+        </void>
+        <void property="oro">
+         <int>100</int>
+        </void>
+        <void property="poder">
+         <int>5</int>
+        </void>
         <void property="salud">
          <int>5</int>
         </void>
@@ -165,6 +203,44 @@
       <void method="put">
        <string>Vampiro</string>
        <object class="Personajes.Vampiro">
+        <void property="modificadores">
+         <object class="Personajes.Modificadores">
+          <void property="debilidades">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Debilidad">
+              <void property="nombreDebilidad">
+               <string>El Beso del Alba</string>
+              </void>
+              <void property="sensibilidad">
+               <int>3</int>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="fortalezas">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Fortaleza">
+              <void property="eficacia">
+               <int>3</int>
+              </void>
+              <void property="nombreFortaleza">
+               <string>Voluntad de la Noche</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+         </object>
+        </void>
+        <void property="oro">
+         <int>100</int>
+        </void>
+        <void property="poder">
+         <int>5</int>
+        </void>
         <void property="salud">
          <int>5</int>
         </void>
@@ -173,6 +249,44 @@
       <void method="put">
        <string>Cazador</string>
        <object class="Personajes.Cazador">
+        <void property="modificadores">
+         <object class="Personajes.Modificadores">
+          <void property="debilidades">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Debilidad">
+              <void property="nombreDebilidad">
+               <string>Fe Quebrada</string>
+              </void>
+              <void property="sensibilidad">
+               <int>3</int>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="fortalezas">
+           <object class="java.util.ArrayList">
+            <void method="add">
+             <object class="Personajes.Fortaleza">
+              <void property="eficacia">
+               <int>3</int>
+              </void>
+              <void property="nombreFortaleza">
+               <string>Instinto Letal</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+         </object>
+        </void>
+        <void property="oro">
+         <int>100</int>
+        </void>
+        <void property="poder">
+         <int>5</int>
+        </void>
         <void property="salud">
          <int>5</int>
         </void>

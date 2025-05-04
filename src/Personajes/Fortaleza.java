@@ -8,9 +8,8 @@ public class Fortaleza {
     public Fortaleza() {
 
     }
-    public void initialize(String nombre){
-        Random random = new Random();
-        this.eficacia = random.nextInt(5) + 1;
+    public void initialize(String nombre, int v){
+        this.eficacia = v;
         this.nombreFortaleza = nombre;
     }
 

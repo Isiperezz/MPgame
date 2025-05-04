@@ -32,13 +32,7 @@ public class VampiroFactory extends PersonajeFactory {
         Random random = new Random();
         int sangre = random.nextInt(10)+1;
         vampiro.setPuntosSangre(sangre);
-//        Fortaleza fortaleza = new Fortaleza();
-//        fortaleza.initialize("Voluntad de la Noche");
-//        vampiro.getFortalezas().add(fortaleza);
-//        Debilidad debilidad = new Debilidad();
-//        debilidad.initialize("El Beso del Alba");
-//        vampiro.getDebilidades().add(debilidad);
-//        System.out.println("El vampiro tiene la debilidad: " + debilidad.getNombreDebilidad() + " y la fortaleza: " + fortaleza.getNombre());
+        System.out.println("El vampiro tiene la debilidad: El Beso del Alba y la fortaleza: Voluntad de la Noche");
 
 
         return vampiro;
