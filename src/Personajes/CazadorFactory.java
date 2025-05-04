@@ -1,6 +1,5 @@
 package Personajes;
 
-import java.util.Scanner;
 
 public class CazadorFactory extends PersonajeFactory {
 

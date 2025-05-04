@@ -21,7 +21,7 @@ public class AlmacenDesafios {
     }
 
     public AlmacenDesafios() {
-        //añadir
+
     }
 
     public List<Desafio> getTodosDesafios() {

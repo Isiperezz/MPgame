@@ -5,7 +5,6 @@ import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.RegistroEquipamiento;
 
 import java.util.*;
-import java.util.jar.JarOutputStream;
 
 public abstract class PersonajeFactory {
 
@@ -26,7 +25,6 @@ public abstract class PersonajeFactory {
 
         System.out.println("Por la estabilidad del juego, el valor de poder se asignarán aleatoriamente, "
                 + "así como el oro tendrá un valor inicial.");
-
         System.out.println("Oro inicial: " + "100" + " monedas brillantes");
         System.out.println("Salud inicial: 5 puntos (entre 1 y 5)");
         System.out.println("Su personaje obtendra aleatoriamente un numero aleatorio de esbirros que podran ser de diferentes tipos");
@@ -56,8 +54,6 @@ public abstract class PersonajeFactory {
 
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
-
-        //personaje.setModificadores( new Modificadores(new ArrayList<Debilidad>(), new ArrayList<Fortaleza>()));
 
     }
 

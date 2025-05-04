@@ -12,7 +12,8 @@ public class ServicioPersonaje {
     }
     public Personaje crearPersonaje() {
 
-        Personaje nuevoPersonaje = this.factory.crearPersonaje();
+        Personaje nuevoPersonaje;
+        nuevoPersonaje = this.factory.crearPersonaje();
 
         return nuevoPersonaje;
     }

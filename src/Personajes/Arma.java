@@ -1,8 +1,6 @@
 package Personajes;
 import SistemaPersistencia.Equipamiento;
 
-import java.util.*;
-
 public class Arma implements Equipamiento {
 
     private String nombreArma;

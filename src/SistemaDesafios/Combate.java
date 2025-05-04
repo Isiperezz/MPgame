@@ -54,14 +54,14 @@ public class Combate {
 
     public Jugador getGanador() {
         if (this.esEmpate) {
-            return null;// cambiar por algo
+            return null;
         }
         else {
             return this.ganador;
         }
 
     }
-    //Logica de vampiros mirar y comprobar que no haya nada raro o falte
+
     public void empezarCombate() {
         limpiarConsola();
         StringBuilder combateLog = new StringBuilder();
@@ -80,8 +80,6 @@ public class Combate {
 
         System.out.println(vidaInicial);
         combateLog.append(vidaInicial);
-        System.out.println("\n"+"\n");
-
         while (vidaTotalDesafiante!= 0 && vidaTotalDesafiado!=0) {
             this.numRondas++;
             String ronda = "Ronda: " + this.numRondas + "\n";
@@ -117,7 +115,11 @@ public class Combate {
                 aumentarRabiaSiEsLicantropo(personajeDesafiante);
                 disminuirTalentoSiEsCazador(personajeDesafiante);
             }
-
+             if (valorAtaqueDesafiante <valorDefensaDesafiado && valorAtaqueDesafiado < valorDefensaDesafiante) {
+                 String nada = "Nadie ha conseguido golpear al otro en esta ronda\n";
+                 System.out.println(nada);
+                 combateLog.append(nada);
+             }
 
         }
         if (vidaTotalDesafiante <= 0) {
@@ -145,7 +147,7 @@ public class Combate {
     }
 
 
-    private static void inicializarRabiaSiLicantropo(Personaje personaje) {
+    private void inicializarRabiaSiLicantropo(Personaje personaje) {
         if (personaje instanceof Licantropo ) {
             ((Licantropo) personaje).setRabia(0);
         }

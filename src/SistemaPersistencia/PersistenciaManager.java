@@ -1,7 +1,4 @@
 package SistemaPersistencia;
-
-import java.io.FileNotFoundException;
-
 public class PersistenciaManager {
 
     private static PersistenciaManager instance;

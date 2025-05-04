@@ -1,14 +1,10 @@
 package Herramientas;
 
-import Personajes.Personaje;
 import SistemaPersistencia.PersistenciaManager;
 import SistemaPersistencia.UsersData;
 
 import java.util.*;
 
-/**
- * 
- */
 public class HerramientasDeJugador extends HerramientasRol {
     private Jugador user;
     private GestorDesafiosJugador desafios;

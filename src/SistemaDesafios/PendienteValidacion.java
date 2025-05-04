@@ -1,8 +1,6 @@
 package SistemaDesafios;
 
-/**
- * 
- */
+
 public class PendienteValidacion implements EstadoDesafio {
 
     public PendienteValidacion() {

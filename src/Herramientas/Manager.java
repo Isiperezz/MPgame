@@ -19,8 +19,8 @@ public class Manager {
         boolean equivocado = true;
         Usuario user = null;
         while(equivocado) {
-            System.out.println("1. Iniciar Sesion\n2. Registrarse");
-            int opcion = this.readOption(1, 2);
+            System.out.println("1. Iniciar Sesion\n2. Registrarse\n3. Salir");
+            int opcion = this.readOption(1, 3);
             Scanner sc = new Scanner(System.in);
             switch (opcion) {
                 case 1:
@@ -48,6 +48,10 @@ public class Manager {
                     equivocado = false;
                     user = p.getPersistencia().getUsersData().getLogin().registrarJugador();
                     break;
+                case 3:
+                    equivocado = false;
+                    System.out.println("Saliendo del juego");
+                        return;
                 default:
                     throw new IllegalStateException("Unexpected value: " + opcion);
             }

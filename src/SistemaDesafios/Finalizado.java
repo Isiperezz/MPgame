@@ -1,11 +1,7 @@
 package SistemaDesafios;
 
 import Herramientas.Jugador;
-import SistemaPersistencia.AlmacenDesafios;
 import SistemaPersistencia.PersistenciaManager;
-import SistemaPersistencia.UsersData;
-
-import java.sql.SQLOutput;
 import java.util.PriorityQueue;
 
 public class Finalizado implements EstadoDesafio {

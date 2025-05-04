@@ -1,7 +1,6 @@
 package SistemaDesafios;
 
 import Herramientas.Jugador;
-import SistemaPersistencia.PersistenciaManager;
 
 public class Desafio {
     private EstadoDesafio estado;

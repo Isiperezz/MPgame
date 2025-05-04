@@ -1,5 +1,4 @@
 package Personajes;
-import java.util.*;
 
 public class Fortaleza {
     private String nombreFortaleza;

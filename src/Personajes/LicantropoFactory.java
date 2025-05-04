@@ -1,7 +1,5 @@
 package Personajes;
 
-import java.util.Scanner;
-
 public class LicantropoFactory extends PersonajeFactory {
 
     public Personaje crearPersonaje() {
