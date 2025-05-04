@@ -12,7 +12,7 @@ public abstract class Personaje {
     protected int poder;
     protected int salud;
 
-    public abstract void initializeSalud();
+    public abstract void initializeValues();
 
 
     public String getNombre(){

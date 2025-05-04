@@ -23,19 +23,14 @@ public abstract class PersonajeFactory {
             nombre = scanner.nextLine().trim();
         }
         personaje.setNombre(nombre);
+
         System.out.println("Por la estabilidad del juego, el valor de poder se asignarán aleatoriamente, "
                 + "así como el oro tendrá un valor inicial.");
-        int oro = 100;
-        System.out.println("Oro inicial: " + oro + " monedas brillantes");
-        personaje.setOro(oro);
-        int salud = personaje.getSalud();
-        System.out.println("Salud inicial: " + salud + " puntos (entre 1 y 5)");
-        personaje.setSalud(5);
-        int poder = random.nextInt(5)+1;
-        System.out.println("Poder inicial: " + poder + " puntos (entre 1 y 5)");
-        personaje.setPoder(poder);
 
+        System.out.println("Oro inicial: " + "100" + " monedas brillantes");
+        System.out.println("Salud inicial: 5 puntos (entre 1 y 5)");
         System.out.println("Su personaje obtendra aleatoriamente un numero aleatorio de esbirros que podran ser de diferentes tipos");
+
         AlmacenEsbirros almacen = new AlmacenEsbirros(new ArrayList<Esbirro>());
         int maxEsbirros = 5;
         Esbirro esbirro = this.generarEsbirro(random);
@@ -62,7 +57,7 @@ public abstract class PersonajeFactory {
         insertarArmas(personaje, equipamientoDisponible, scanner, armasPersonaje);
         insertarArmaduras(personaje, equipamientoDisponible, scanner, armadurasPersonaje);
 
-        personaje.setModificadores( new Modificadores(new ArrayList<Debilidad>(), new ArrayList<Fortaleza>()));
+        //personaje.setModificadores( new Modificadores(new ArrayList<Debilidad>(), new ArrayList<Fortaleza>()));
 
     }
 

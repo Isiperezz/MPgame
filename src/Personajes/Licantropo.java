@@ -57,8 +57,13 @@ public class Licantropo extends Personaje {
     }
 
     @Override
-    public void initializeSalud() {
+    public void initializeValues() {
         this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Licantropo").getSalud();
+        this.poder = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Licantropo").getPoder();
+        this.oro = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Licantropo").getOro();
+        this.modificadores = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Licantropo").getModificadores();
+
+
     }
 }
 

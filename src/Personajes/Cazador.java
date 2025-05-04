@@ -31,7 +31,10 @@ public class Cazador extends Personaje {
 
 
     @Override
-    public void initializeSalud() {
+    public void initializeValues() {
         this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Cazador").getSalud();
+        this.poder = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Cazador").getPoder();
+        this.modificadores = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Cazador").getModificadores();
+        this.oro = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Cazador").getOro();
     }
 }

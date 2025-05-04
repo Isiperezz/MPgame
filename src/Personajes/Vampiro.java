@@ -36,7 +36,13 @@ public class Vampiro extends Personaje {
     }
 
     @Override
-    public void initializeSalud() {
+    public void initializeValues() {
         this.salud = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Vampiro").getSalud();
+        this.poder = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Vampiro").getPoder();
+        this.modificadores = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Vampiro").getModificadores();
+        this.oro = PersistenciaManager.getInstance().getPersistencia().getGameData().getPersonaje("Vampiro").getOro();
+
+
+
     }
 }
