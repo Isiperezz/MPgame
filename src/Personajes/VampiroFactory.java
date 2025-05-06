@@ -10,17 +10,18 @@ public class VampiroFactory extends PersonajeFactory {
         Scanner scanner = new Scanner(System.in);
         Vampiro vampiro = new Vampiro();
         vampiro.initializeValues();
-        solicitarDatos(vampiro);
+        solicitarDatos(vampiro, scanner);
         boolean entradaValida = false;
         int valorEdad = 0;
         while (!entradaValida) {
-            System.out.print("Introduce un la edad de tu vampiro: ");
-            if (scanner.hasNextInt()) { // Mira si lo que hay es un entero
-                valorEdad = scanner.nextInt();
+            System.out.print("Introduce la edad de tu vampiro: ");
+            String linea = scanner.nextLine();
+
+            try {
+                valorEdad = Integer.parseInt(linea); // intenta convertirlo
                 entradaValida = true;
-            } else {
+            } catch (NumberFormatException e) {
                 System.out.println("Eso no es un número. Inténtalo otra vez.");
-                scanner.next();
             }
         }
         vampiro.setEdad(valorEdad);

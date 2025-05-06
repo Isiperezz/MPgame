@@ -21,8 +21,10 @@ public class Cazador extends Personaje {
     }
 
     public void disminuirVoluntad() {
-
-        this.voluntad -= 1;
+        if (this.voluntad> 0) {
+            this.voluntad -= 1;
+        }
+        ;
     }
     public void setVoluntad(int voluntad) {
 
