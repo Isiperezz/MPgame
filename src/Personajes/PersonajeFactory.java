@@ -11,8 +11,7 @@ public abstract class PersonajeFactory {
     public abstract Personaje crearPersonaje();
 
 
-    public void solicitarDatos(Personaje personaje) {
-        Scanner scanner = new Scanner(System.in);
+    public void solicitarDatos(Personaje personaje,Scanner scanner) {
         Random random = new Random();
         System.out.println("¡Bienvenido a la creación de personaje!");
         System.out.println("Introduzca el nombre del personaje: ");

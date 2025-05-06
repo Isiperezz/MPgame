@@ -1,11 +1,14 @@
 package Personajes;
 
+import java.util.Scanner;
+
 public class LicantropoFactory extends PersonajeFactory {
 
     public Personaje crearPersonaje() {
+        Scanner scanner = new Scanner(System.in);
         Licantropo licantropo = new Licantropo();
         licantropo.initializeValues();
-        solicitarDatos(licantropo);
+        solicitarDatos(licantropo, scanner);
         licantropo.setRabia(0);
         licantropo.setPeso(90);
         licantropo.setAltura(50);

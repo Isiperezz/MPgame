@@ -64,6 +64,7 @@ public class Combate {
 
     public void empezarCombate() {
         limpiarConsola();
+        this.numRondas = 0;
         StringBuilder combateLog = new StringBuilder();
         Personaje personajeDesafiante = desafiante.getPersonaje();
         Personaje personajeDesafiado = desafiado.getPersonaje();
@@ -104,7 +105,7 @@ public class Combate {
                 combateLog.append(ataqueDesafiante);
 
                 aumentarRabiaSiEsLicantropo(personajeDesafiado);
-                disminuirTalentoSiEsCazador(personajeDesafiado);
+                disminuirVoluntadSiEsCazador(personajeDesafiado);
             }
 
             if (valorAtaqueDesafiado >= valorDefensaDesafiante) {
@@ -113,7 +114,7 @@ public class Combate {
                 System.out.println(ataqueDesafiado);
                 combateLog.append(ataqueDesafiado);
                 aumentarRabiaSiEsLicantropo(personajeDesafiante);
-                disminuirTalentoSiEsCazador(personajeDesafiante);
+                disminuirVoluntadSiEsCazador(personajeDesafiante);
             }
              if (valorAtaqueDesafiante <valorDefensaDesafiado && valorAtaqueDesafiado < valorDefensaDesafiante) {
                  String nada = "Nadie ha conseguido golpear al otro en esta ronda\n";
@@ -122,16 +123,22 @@ public class Combate {
              }
 
         }
+        boolean flag = false;
         if (vidaTotalDesafiante <= 0) {
             this.ganador = desafiado;
             this.perdedor = desafiante;
             String desafianteMuerto = "Has perdido el combate " + desafiante.getUserName() + "tu personaje ha muerto\n";
             combateLog.append(desafianteMuerto);
-        } else if (vidaTotalDesafiado <= 0) {
+            flag = true;
+
+        } else if (vidaTotalDesafiado <= 0 && !flag) {
             this.ganador = desafiante;
             this.perdedor = desafiado;
             String desafienteGana = "Has ganado el combate " + desafiante.getUserName() + "\n";
             combateLog.append(desafienteGana);
+        }
+        else{
+            this.esEmpate = true;
         }
         String finalvida = "Vida final de " + desafiante.getUserName() + ": " + vidaTotalDesafiante + "\n" +
                 "Vida final de " + desafiado.getUserName() + ": " + vidaTotalDesafiado + "\n";
@@ -153,7 +160,7 @@ public class Combate {
         }
     }
 
-    private void disminuirTalentoSiEsCazador(Personaje personajeDesafiante) {
+    private void disminuirVoluntadSiEsCazador(Personaje personajeDesafiante) {
         if (personajeDesafiante instanceof Cazador cazador) {
             cazador.disminuirVoluntad();
 
@@ -161,7 +168,7 @@ public class Combate {
     }
 
     private void aumentarRabiaSiEsLicantropo(Personaje personaje) {
-        if (personaje instanceof Licantropo licantropo) {
+        if (personaje instanceof Licantropo licantropo && licantropo.getRabia() < 3) {
             licantropo.setRabia(licantropo.getRabia() + 1);
         }
     }
