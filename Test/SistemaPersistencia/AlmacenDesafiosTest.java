@@ -43,7 +43,7 @@ class AlmacenDesafiosTest {
         for (Desafio desafio : l) {
             assertTrue(l0.contains(desafio));
         }
-
+        assertTrue(l.size() == 3);
 
     }
 
@@ -90,5 +90,44 @@ class AlmacenDesafiosTest {
         List<Desafio> l = almacen.getDesafiosPendientesJugador(j.getUserName());
         assertEquals(l.size(), cont);
     }
+
+    @Test
+    void aniadirDesafio() {
+        Jugador j = new Jugador("Prueba", "");
+        AlmacenDesafios almacen = new AlmacenDesafios();
+        almacen.setDesafios(new HashMap<>());
+        almacen.addJugador("Prueba");
+        almacen.aniadirDesafio("Prueba", new Desafio());
+        List<Desafio> l = almacen.getDesafiosJugador(j.getUserName());
+        assertTrue(l.size() == 1);
+    }
+
+    @Test
+    void claveInválida() {
+        Jugador j = new Jugador("Prueba", "");
+        Jugador j2 = new Jugador("Pepe", "");
+        AlmacenDesafios almacen = new AlmacenDesafios();
+        almacen.setDesafios(new HashMap<>());
+        almacen.addJugador(j.getUserName());
+        List<Desafio> l0 = new ArrayList<Desafio>();
+        l0.add(new Desafio(j, j2, 10));
+        l0.add(new Desafio(j, j2, 100));
+        l0.add(new Desafio(j, j2, 1000));
+        List<Desafio> l = almacen.getDesafiosJugador(j.getUserName());
+        //PRUEBA FALLIDA
+        almacen.addJugador("No existe");
+        for (int i = 0; i < l0.size(); i++) {
+            almacen.aniadirDesafio("No existe", l0.get(i));
+        }
+        List<Desafio> l1 = almacen.getDesafiosJugador("No existe");
+        for (Desafio desafio : l1) {
+            assertNotNull(desafio);
+        }
+        assertTrue(l1.size() == 3);
+
+
+    }
+
+
 
 }
