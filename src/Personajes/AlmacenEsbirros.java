@@ -27,6 +27,9 @@ public class AlmacenEsbirros{
 
     }
     public int getSaludTotal(){
+        if (this.esbirros == null){
+            return 0;
+        }
         int saludTotal = 0;
         for (Esbirro esbirro : this.esbirros) {
             saludTotal += esbirro.getSalud();

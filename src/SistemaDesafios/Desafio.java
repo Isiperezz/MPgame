@@ -123,8 +123,8 @@ public class Desafio {
     @Override
     public int hashCode(){
         if (this.combate == null)
-            return this.desafiante.hashCode() + this.desafiado.hashCode();
+            return (this.desafiante.hashCode() + this.desafiado.hashCode())*this.oroApostado;
         else
-            return this.desafiante.hashCode() + this.desafiado.hashCode() + this.combate.hashCode();
+            return (this.desafiante.hashCode() + this.desafiado.hashCode() + this.combate.hashCode())*this.oroApostado;
     }
 }

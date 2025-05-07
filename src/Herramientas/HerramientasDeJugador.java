@@ -72,21 +72,6 @@ public class HerramientasDeJugador extends HerramientasRol {
         System.out.println("Cuenta eliminada con éxito");
     }
 
-    public void verDesafiosPendientes(){
-        this.desafios.mostrarDesafiosPendientes();
-        System.out.println("Si quiere aceptar un desafio introduzca su índice, si no pulse cualquier otra tecla:");
-        Scanner sc = new Scanner(System.in);
-        String opcion = sc.nextLine();
-        try {
-            int opIndex = Integer.parseInt(opcion);
-            this.desafios.aceptarDesafio(opIndex);
-        } catch (NumberFormatException e) {
-            System.out.println("Ningún desafío aceptado");
-        }
-    }
 
-    public void consultarCombates() {
-
-    }
 
 }

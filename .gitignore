@@ -1,6 +1,7 @@
 ### IntelliJ IDEA ###
 .idea/
 out/
+MPgame.iml
 !**/src/main/**/out/
 !**/src/test/**/out/
 

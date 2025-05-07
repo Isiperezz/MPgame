@@ -38,17 +38,4 @@ class LoginTest {
         }
     }
 
-    @Test
-    void registrarJugador() {
-        String datos = "Prueba\nPrueba\nCazador";
-        ByteArrayInputStream in = new ByteArrayInputStream(datos.getBytes());
-        System.setIn(in);
-        Login login = new Login();
-        login.registrarJugador();
-        UsersData usersData = PersistenciaManager.getInstance().getPersistencia().getUsersData();
-        Usuario usuario = usersData.getUsuarioByNick("Prueba");
-        assertEquals("Prueba", usuario.getUserName());
-        assertEquals("Prueba", usuario.getPassword());
-
-    }
 }

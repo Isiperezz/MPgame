@@ -45,6 +45,8 @@ public class GestorDesafiosJugador {
 
     public void desafiarJugador(Jugador desafiado, int oro) {
         Desafio desafio = new Desafio(this.jugador, desafiado, oro);
+        HerramientasDeJugador h = (HerramientasDeJugador) this.jugador.getHerramientas();
+        h.getDesafios().getDesafios().add(desafio);
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(this.jugador.getUserName(), desafio);
         PersistenciaManager.getInstance().getPersistencia().getUsersData().getDesafios().aniadirDesafio(desafiado.getUserName(), desafio);
     }
